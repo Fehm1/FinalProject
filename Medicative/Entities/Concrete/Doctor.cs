@@ -4,10 +4,10 @@ namespace Entities.Concrete
 {
     public class Doctor : EntityBase, IEntity
     {
-        public string FullName { get; set; }
         public int ProfessionId { get; set; }
         public int DepartmentId { get; set; }
 
+        public string FullName { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
         public string ImageURL { get; set; }
