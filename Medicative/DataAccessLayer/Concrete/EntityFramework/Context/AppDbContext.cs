@@ -2,6 +2,7 @@
 using Entities.Concrete;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace DataAccessLayer.Concrete.EntityFramework.Context
 {
@@ -21,10 +22,19 @@ namespace DataAccessLayer.Concrete.EntityFramework.Context
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<Specialization> Specializations { get; set; }
         public DbSet<Training> Trainings { get; set; }
+        public DbSet<Medicine> Medicines { get; set; }
+        public DbSet<MedicineCategory> MedicineCategories { get; set; }
+        public DbSet<MedicineSize> MedicineSizes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(connectionString: "Server=LAPTOP-8KCHFK1I\\SQLEXPRESS;Database=MedicativeDB;Trusted_Connection=True");
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            base.OnModelCreating(builder);
         }
     }
 }
