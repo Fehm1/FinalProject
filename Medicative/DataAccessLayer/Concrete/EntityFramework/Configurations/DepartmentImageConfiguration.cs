@@ -11,7 +11,7 @@ namespace DataAccessLayer.Concrete.EntityFramework.Configurations
         {
             builder.HasKey(x => x.Id);
             builder.HasOne<Department>(x => x.Department).WithMany(x => x.Images).HasForeignKey(x => x.DeparmentId);
-            builder.Property(x => x.ImageURL).IsRequired().HasMaxLength(100).HasColumnName(SqlDbType.NVarChar.ToString());
+            builder.Property(x => x.ImageURL).IsRequired().HasMaxLength(100).HasColumnType(SqlDbType.NVarChar.ToString());
             builder.Property(x => x.IsPoster).IsRequired().HasDefaultValue(false);
             builder.Property(x => x.CreatedTime).HasDefaultValue(DateTime.Now);
             builder.Property(x => x.ModifiedTime).HasDefaultValue(DateTime.Now);

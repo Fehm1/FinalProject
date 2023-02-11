@@ -11,7 +11,7 @@ namespace DataAccessLayer.Concrete.EntityFramework.Configurations
         {
             builder.HasKey(x => x.Id);
             builder.HasOne<Doctor>(x => x.Doctor).WithMany(x => x.Training).HasForeignKey(x => x.DoctorId);
-            builder.Property(x => x.Text).IsRequired().HasMaxLength(150).HasColumnName(SqlDbType.NVarChar.ToString());
+            builder.Property(x => x.Text).IsRequired().HasMaxLength(150).HasColumnType(SqlDbType.NVarChar.ToString());
             builder.Property(x => x.CreatedTime).HasDefaultValue(DateTime.Now);
             builder.Property(x => x.ModifiedTime).HasDefaultValue(DateTime.Now);
             builder.Property(x => x.IsDeleted).HasDefaultValue(false);

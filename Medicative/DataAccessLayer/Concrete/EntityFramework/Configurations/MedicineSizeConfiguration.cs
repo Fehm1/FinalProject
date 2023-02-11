@@ -15,6 +15,7 @@ namespace DataAccessLayer.Concrete.EntityFramework.Configurations
             builder.Property(x => x.ModifiedTime).HasDefaultValue(DateTime.Now);
             builder.Property(x => x.IsDeleted).HasDefaultValue(false);
             builder.Property(x => x.IsActive).HasDefaultValue(false);
+            builder.HasOne<Medicine>(x => x.Medicine).WithMany(x => x.MedicineSizes).HasForeignKey(x => x.MedicineId);
             builder.ToTable("MedicineSizes");
         }
     }

@@ -9,5 +9,7 @@ namespace Core.Entity.Concrete
         public string Country { get; set; }
         public string City { get; set; }
         public string ZipCode { get; set; }
+        public bool IsAdmin { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

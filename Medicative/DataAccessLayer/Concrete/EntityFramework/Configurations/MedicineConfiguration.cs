@@ -11,7 +11,6 @@ namespace DataAccessLayer.Concrete.EntityFramework.Configurations
         {
             builder.HasKey(x => x.Id);
             builder.HasOne<MedicineCategory>(x => x.MedicineCategory).WithMany(x => x.Medicines).HasForeignKey(x => x.CategoryId);
-            builder.HasOne<MedicineSize>(x => x.MedicineSize).WithMany(x => x.Medicines).HasForeignKey(x => x.SizeId);
             builder.Property(x => x.Name).IsRequired().HasMaxLength(200).HasColumnType(SqlDbType.NVarChar.ToString());
             builder.Property(x => x.Description).IsRequired().HasMaxLength(750).HasColumnType(SqlDbType.NVarChar.ToString());
             builder.Property(x => x.ImageURL).IsRequired().HasMaxLength(100).HasColumnType(SqlDbType.NVarChar.ToString());

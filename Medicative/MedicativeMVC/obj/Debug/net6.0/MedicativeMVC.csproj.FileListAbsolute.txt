@@ -24,3 +24,11 @@ C:\Users\Fehmin\OneDrive\İş masası\Final Project\Medicative\MedicativeMVC\obj
 C:\Users\Fehmin\OneDrive\İş masası\Final Project\Medicative\MedicativeMVC\obj\Debug\net6.0\MedicativeMVC.pdb
 C:\Users\Fehmin\OneDrive\İş masası\Final Project\Medicative\MedicativeMVC\obj\Debug\net6.0\MedicativeMVC.genruntimeconfig.cache
 C:\Users\Fehmin\OneDrive\İş masası\Final Project\Medicative\MedicativeMVC\obj\Debug\net6.0\ref\MedicativeMVC.dll
+C:\Users\Fehmin\OneDrive\İş masası\Final Project\Medicative\MedicativeMVC\bin\Debug\net6.0\Humanizer.dll
+C:\Users\Fehmin\OneDrive\İş masası\Final Project\Medicative\MedicativeMVC\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Fehmin\OneDrive\İş masası\Final Project\Medicative\MedicativeMVC\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Fehmin\OneDrive\İş masası\Final Project\Medicative\MedicativeMVC\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Fehmin\OneDrive\İş masası\Final Project\Medicative\MedicativeMVC\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Fehmin\OneDrive\İş masası\Final Project\Medicative\MedicativeMVC\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Fehmin\OneDrive\İş masası\Final Project\Medicative\MedicativeMVC\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Fehmin\OneDrive\İş masası\Final Project\Medicative\MedicativeMVC\obj\Debug\net6.0\MedicativeMVC.csproj.CopyComplete

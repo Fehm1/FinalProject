@@ -7,7 +7,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.13">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DTOs\EducationDTOs\" />
+    <Folder Include="DTOs\MedicineDTOs\" />
+    <Folder Include="DTOs\MedicineCategoryDTOs\" />
+    <Folder Include="DTOs\MedicineSizeDTOs\" />
+    <Folder Include="DTOs\TrainingDTOs\" />
+    <Folder Include="DTOs\SpecializationDTOs\" />
+    <Folder Include="DTOs\SliderDTOs\" />
+    <Folder Include="DTOs\SkillDTOs\" />
+    <Folder Include="DTOs\ServiceDTOs\" />
+    <Folder Include="DTOs\ProfessionDTOs\" />
   </ItemGroup>
 
 </Project>

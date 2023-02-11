@@ -5,7 +5,6 @@ namespace Entities.Concrete
     public class Medicine : EntityBase, IEntity
     {
         public int CategoryId { get; set; }
-        public int SizeId { get; set; }
 
         public string Name { get; set; }
         public string Description { get; set; }
@@ -15,6 +14,6 @@ namespace Entities.Concrete
         public bool BestSeller { get; set; }
 
         public MedicineCategory MedicineCategory { get; set; }
-        public MedicineSize MedicineSize { get; set; }
+        public List<MedicineSize> MedicineSizes { get; set; }
     }
 }

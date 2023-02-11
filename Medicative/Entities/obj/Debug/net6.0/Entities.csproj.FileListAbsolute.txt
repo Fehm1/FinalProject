@@ -13,3 +13,5 @@ C:\Users\Fehmin\OneDrive\İş masası\Final Project\Medicative\Entities\obj\Debu
 C:\Users\Fehmin\OneDrive\İş masası\Final Project\Medicative\Entities\obj\Debug\net6.0\refint\Entities.dll
 C:\Users\Fehmin\OneDrive\İş masası\Final Project\Medicative\Entities\obj\Debug\net6.0\Entities.pdb
 C:\Users\Fehmin\OneDrive\İş masası\Final Project\Medicative\Entities\obj\Debug\net6.0\ref\Entities.dll
+C:\Users\Fehmin\OneDrive\İş masası\Final Project\Medicative\Entities\bin\Debug\net6.0\Entities.runtimeconfig.json
+C:\Users\Fehmin\OneDrive\İş masası\Final Project\Medicative\Entities\obj\Debug\net6.0\Entities.genruntimeconfig.cache

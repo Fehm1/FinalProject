@@ -8,7 +8,7 @@ namespace DataAccessLayer.Concrete.EntityFramework.Context
 {
     public class AppDbContext : IdentityDbContext<AppUser>
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+        //public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         public DbSet<Certification> Certifications { get; set; }
         public DbSet<Counter> Counters { get; set; }
@@ -28,7 +28,7 @@ namespace DataAccessLayer.Concrete.EntityFramework.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(connectionString: "Server=LAPTOP-8KCHFK1I\\SQLEXPRESS;Database=MedicativeDB;Trusted_Connection=True");
+            optionsBuilder.UseSqlServer(connectionString: "Server=LAPTOP-8KCHFK1I\\SQLEXPRESS;Database=MedicativeDB;Trusted_Connection=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
