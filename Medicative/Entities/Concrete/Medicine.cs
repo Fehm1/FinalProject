@@ -14,6 +14,6 @@ namespace Entities.Concrete
         public bool BestSeller { get; set; }
 
         public MedicineCategory MedicineCategory { get; set; }
-        public List<MedicineSize> MedicineSizes { get; set; }
+        public List<Size> Size { get; set; }
     }
 }

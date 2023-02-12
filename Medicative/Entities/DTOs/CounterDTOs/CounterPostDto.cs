@@ -6,7 +6,7 @@ namespace Entities.DTOs.CounterDTOs
     {
         [StringLength(150)]
         public string Icon { get; set; }
-        [StringLength(100)]
+        [StringLength(150)]
         public string Name { get; set; }
         [Range(0, int.MaxValue)]
         public int Count { get; set; }

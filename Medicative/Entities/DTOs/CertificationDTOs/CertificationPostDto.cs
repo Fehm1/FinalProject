@@ -6,7 +6,9 @@ namespace Entities.DTOs.CertificationDTOs
     {
         [Required]
         public int DoctorId { get; set; }
-        [StringLength(150)]
+
+        [Required]
+        [StringLength(200)]
         public string Text { get; set; }
     }
 }

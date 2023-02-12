@@ -64,8 +64,8 @@ namespace DataAccessLayer.Migrations
                     Icon = table.Column<string>(type: "NVarChar(150)", maxLength: 150, nullable: false),
                     Name = table.Column<string>(type: "NVarChar(150)", maxLength: 150, nullable: false),
                     Count = table.Column<int>(type: "Int", maxLength: 150, nullable: false),
-                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 896, DateTimeKind.Local).AddTicks(4815)),
-                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 896, DateTimeKind.Local).AddTicks(7221)),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 537, DateTimeKind.Local).AddTicks(3517)),
+                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 537, DateTimeKind.Local).AddTicks(3801)),
                     IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
                 },
@@ -86,8 +86,8 @@ namespace DataAccessLayer.Migrations
                     InvestigationFee = table.Column<int>(type: "int", nullable: false),
                     TreatmentFee = table.Column<double>(type: "Float", maxLength: 300, nullable: false),
                     RedirectURL = table.Column<string>(type: "NVarChar(300)", maxLength: 300, nullable: false),
-                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 897, DateTimeKind.Local).AddTicks(1924)),
-                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 897, DateTimeKind.Local).AddTicks(2348)),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 537, DateTimeKind.Local).AddTicks(5832)),
+                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 537, DateTimeKind.Local).AddTicks(6083)),
                     IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
                 },
@@ -103,8 +103,8 @@ namespace DataAccessLayer.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Category = table.Column<string>(type: "NVarChar(200)", maxLength: 200, nullable: false),
-                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 940, DateTimeKind.Local).AddTicks(3159)),
-                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 940, DateTimeKind.Local).AddTicks(3442)),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 538, DateTimeKind.Local).AddTicks(9222)),
+                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 538, DateTimeKind.Local).AddTicks(9545)),
                     IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
                 },
@@ -121,8 +121,8 @@ namespace DataAccessLayer.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Icon = table.Column<string>(type: "NVarChar(150)", maxLength: 150, nullable: false),
                     Name = table.Column<string>(type: "NVarChar(150)", maxLength: 150, nullable: false),
-                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 941, DateTimeKind.Local).AddTicks(4146)),
-                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 941, DateTimeKind.Local).AddTicks(4423)),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 539, DateTimeKind.Local).AddTicks(8697)),
+                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 539, DateTimeKind.Local).AddTicks(9034)),
                     IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
                 },
@@ -141,14 +141,31 @@ namespace DataAccessLayer.Migrations
                     Title = table.Column<string>(type: "NVarChar(150)", maxLength: 150, nullable: false),
                     Description = table.Column<string>(type: "NVarChar(300)", maxLength: 300, nullable: false),
                     RedirectURL = table.Column<string>(type: "NVarChar(150)", maxLength: 150, nullable: false),
-                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 941, DateTimeKind.Local).AddTicks(6269)),
-                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 941, DateTimeKind.Local).AddTicks(6581)),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 540, DateTimeKind.Local).AddTicks(1256)),
+                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 540, DateTimeKind.Local).AddTicks(1574)),
                     IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Services", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Size",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Text = table.Column<string>(type: "NVarChar(100)", maxLength: 100, nullable: false),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 540, DateTimeKind.Local).AddTicks(3294)),
+                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 540, DateTimeKind.Local).AddTicks(3622)),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Size", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -162,8 +179,8 @@ namespace DataAccessLayer.Migrations
                     Description = table.Column<string>(type: "NVarChar(150)", maxLength: 150, nullable: false),
                     ImageUrl = table.Column<string>(type: "NVarChar(100)", maxLength: 100, nullable: false),
                     RedirectURL = table.Column<string>(type: "NVarChar(150)", maxLength: 150, nullable: false),
-                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 942, DateTimeKind.Local).AddTicks(3801)),
-                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 942, DateTimeKind.Local).AddTicks(4129)),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 540, DateTimeKind.Local).AddTicks(9920)),
+                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 541, DateTimeKind.Local).AddTicks(242)),
                     IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
                 },
@@ -287,8 +304,8 @@ namespace DataAccessLayer.Migrations
                     DeparmentId = table.Column<int>(type: "int", nullable: false),
                     ImageURL = table.Column<string>(type: "NVarChar(100)", maxLength: 100, nullable: false),
                     IsPoster = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
-                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 898, DateTimeKind.Local).AddTicks(1817)),
-                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 898, DateTimeKind.Local).AddTicks(2234)),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 538, DateTimeKind.Local).AddTicks(732)),
+                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 538, DateTimeKind.Local).AddTicks(923)),
                     IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
                 },
@@ -316,8 +333,8 @@ namespace DataAccessLayer.Migrations
                     Price = table.Column<double>(type: "Float", nullable: false),
                     BestProduct = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     BestSeller = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
-                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 940, DateTimeKind.Local).AddTicks(9091)),
-                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 940, DateTimeKind.Local).AddTicks(9333)),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 539, DateTimeKind.Local).AddTicks(6206)),
+                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 539, DateTimeKind.Local).AddTicks(6517)),
                     IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
                 },
@@ -349,8 +366,8 @@ namespace DataAccessLayer.Migrations
                     TwitterURL = table.Column<string>(type: "NVarChar(150)", maxLength: 150, nullable: false),
                     LinekedInURL = table.Column<string>(type: "NVarChar(150)", maxLength: 150, nullable: false),
                     RedirectURL = table.Column<string>(type: "NVarChar(150)", maxLength: 150, nullable: false),
-                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 939, DateTimeKind.Local).AddTicks(5969)),
-                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 939, DateTimeKind.Local).AddTicks(6520)),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 538, DateTimeKind.Local).AddTicks(4514)),
+                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 538, DateTimeKind.Local).AddTicks(4756)),
                     IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
                 },
@@ -372,25 +389,25 @@ namespace DataAccessLayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "MedicineSizes",
+                name: "MedicineSize",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    MedicineId = table.Column<int>(type: "int", nullable: false),
-                    Size = table.Column<string>(type: "NVarChar(200)", maxLength: 200, nullable: false),
-                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 941, DateTimeKind.Local).AddTicks(800)),
-                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 941, DateTimeKind.Local).AddTicks(1131)),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
+                    MedicinesId = table.Column<int>(type: "int", nullable: false),
+                    SizeId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MedicineSizes", x => x.Id);
+                    table.PrimaryKey("PK_MedicineSize", x => new { x.MedicinesId, x.SizeId });
                     table.ForeignKey(
-                        name: "FK_MedicineSizes_Medicines_MedicineId",
-                        column: x => x.MedicineId,
+                        name: "FK_MedicineSize_Medicines_MedicinesId",
+                        column: x => x.MedicinesId,
                         principalTable: "Medicines",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_MedicineSize_Size_SizeId",
+                        column: x => x.SizeId,
+                        principalTable: "Size",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -403,8 +420,8 @@ namespace DataAccessLayer.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DoctorId = table.Column<int>(type: "int", nullable: false),
                     Text = table.Column<string>(type: "NVarChar(200)", maxLength: 200, nullable: false),
-                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 896, DateTimeKind.Local).AddTicks(806)),
-                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 896, DateTimeKind.Local).AddTicks(1359)),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 537, DateTimeKind.Local).AddTicks(850)),
+                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 537, DateTimeKind.Local).AddTicks(1167)),
                     IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
                 },
@@ -427,8 +444,8 @@ namespace DataAccessLayer.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DoctorId = table.Column<int>(type: "int", nullable: false),
                     Text = table.Column<string>(type: "NVarChar(150)", maxLength: 150, nullable: false),
-                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 940, DateTimeKind.Local).AddTicks(1087)),
-                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 940, DateTimeKind.Local).AddTicks(1422)),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 538, DateTimeKind.Local).AddTicks(6850)),
+                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 538, DateTimeKind.Local).AddTicks(7268)),
                     IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
                 },
@@ -452,8 +469,8 @@ namespace DataAccessLayer.Migrations
                     DoctorId = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "NVarChar(150)", maxLength: 150, nullable: false),
                     Percent = table.Column<int>(type: "Int", maxLength: 150, nullable: false),
-                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 942, DateTimeKind.Local).AddTicks(887)),
-                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 942, DateTimeKind.Local).AddTicks(1282)),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 540, DateTimeKind.Local).AddTicks(7187)),
+                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 540, DateTimeKind.Local).AddTicks(7655)),
                     IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
                 },
@@ -476,8 +493,8 @@ namespace DataAccessLayer.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DoctorId = table.Column<int>(type: "int", nullable: false),
                     Text = table.Column<string>(type: "NVarChar(150)", maxLength: 150, nullable: false),
-                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 942, DateTimeKind.Local).AddTicks(7752)),
-                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 942, DateTimeKind.Local).AddTicks(8322)),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 541, DateTimeKind.Local).AddTicks(3939)),
+                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 541, DateTimeKind.Local).AddTicks(4358)),
                     IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
                 },
@@ -500,8 +517,8 @@ namespace DataAccessLayer.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DoctorId = table.Column<int>(type: "int", nullable: false),
                     Text = table.Column<string>(type: "NVarChar(150)", maxLength: 150, nullable: false),
-                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 943, DateTimeKind.Local).AddTicks(3443)),
-                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 0, 46, 55, 943, DateTimeKind.Local).AddTicks(4107)),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 541, DateTimeKind.Local).AddTicks(7700)),
+                    ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 2, 12, 17, 33, 20, 541, DateTimeKind.Local).AddTicks(8102)),
                     IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
                 },
@@ -586,9 +603,9 @@ namespace DataAccessLayer.Migrations
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MedicineSizes_MedicineId",
-                table: "MedicineSizes",
-                column: "MedicineId");
+                name: "IX_MedicineSize_SizeId",
+                table: "MedicineSize",
+                column: "SizeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Skills_DoctorId",
@@ -636,7 +653,7 @@ namespace DataAccessLayer.Migrations
                 name: "Educations");
 
             migrationBuilder.DropTable(
-                name: "MedicineSizes");
+                name: "MedicineSize");
 
             migrationBuilder.DropTable(
                 name: "Services");
@@ -661,6 +678,9 @@ namespace DataAccessLayer.Migrations
 
             migrationBuilder.DropTable(
                 name: "Medicines");
+
+            migrationBuilder.DropTable(
+                name: "Size");
 
             migrationBuilder.DropTable(
                 name: "Doctors");

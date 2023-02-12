@@ -18,17 +18,4 @@
     <ProjectReference Include="..\Core\Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DTOs\EducationDTOs\" />
-    <Folder Include="DTOs\MedicineDTOs\" />
-    <Folder Include="DTOs\MedicineCategoryDTOs\" />
-    <Folder Include="DTOs\MedicineSizeDTOs\" />
-    <Folder Include="DTOs\TrainingDTOs\" />
-    <Folder Include="DTOs\SpecializationDTOs\" />
-    <Folder Include="DTOs\SliderDTOs\" />
-    <Folder Include="DTOs\SkillDTOs\" />
-    <Folder Include="DTOs\ServiceDTOs\" />
-    <Folder Include="DTOs\ProfessionDTOs\" />
-  </ItemGroup>
-
 </Project>

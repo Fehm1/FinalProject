@@ -24,7 +24,7 @@ namespace DataAccessLayer.Concrete.EntityFramework.Context
         public DbSet<Training> Trainings { get; set; }
         public DbSet<Medicine> Medicines { get; set; }
         public DbSet<MedicineCategory> MedicineCategories { get; set; }
-        public DbSet<MedicineSize> MedicineSizes { get; set; }
+        public DbSet<Size> Sizes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
