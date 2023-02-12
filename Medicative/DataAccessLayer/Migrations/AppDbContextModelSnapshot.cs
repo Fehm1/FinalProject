@@ -31,12 +31,10 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("City")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
@@ -45,7 +43,6 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Country")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
@@ -106,7 +103,6 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("ZipCode")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -134,7 +130,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 537, DateTimeKind.Local).AddTicks(850));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 688, DateTimeKind.Local).AddTicks(2505));
 
                     b.Property<int>("DoctorId")
                         .HasColumnType("int");
@@ -152,7 +148,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("ModifiedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 537, DateTimeKind.Local).AddTicks(1167));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 688, DateTimeKind.Local).AddTicks(2681));
 
                     b.Property<string>("Text")
                         .IsRequired()
@@ -181,7 +177,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 537, DateTimeKind.Local).AddTicks(3517));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 688, DateTimeKind.Local).AddTicks(3690));
 
                     b.Property<string>("Icon")
                         .IsRequired()
@@ -201,7 +197,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("ModifiedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 537, DateTimeKind.Local).AddTicks(3801));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 688, DateTimeKind.Local).AddTicks(3814));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -224,7 +220,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 537, DateTimeKind.Local).AddTicks(5832));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 688, DateTimeKind.Local).AddTicks(4780));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -247,7 +243,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("ModifiedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 537, DateTimeKind.Local).AddTicks(6083));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 688, DateTimeKind.Local).AddTicks(4901));
 
                     b.Property<string>("RedirectURL")
                         .IsRequired()
@@ -284,7 +280,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 538, DateTimeKind.Local).AddTicks(732));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 688, DateTimeKind.Local).AddTicks(7344));
 
                     b.Property<int>("DeparmentId")
                         .HasColumnType("int");
@@ -312,7 +308,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("ModifiedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 538, DateTimeKind.Local).AddTicks(923));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 688, DateTimeKind.Local).AddTicks(7464));
 
                     b.HasKey("Id");
 
@@ -332,7 +328,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 538, DateTimeKind.Local).AddTicks(4514));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 688, DateTimeKind.Local).AddTicks(9813));
 
                     b.Property<int>("DepartmentId")
                         .HasColumnType("int");
@@ -380,7 +376,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("ModifiedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 538, DateTimeKind.Local).AddTicks(4756));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 688, DateTimeKind.Local).AddTicks(9971));
 
                     b.Property<string>("Phone")
                         .IsRequired()
@@ -420,7 +416,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 538, DateTimeKind.Local).AddTicks(6850));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 689, DateTimeKind.Local).AddTicks(1315));
 
                     b.Property<int>("DoctorId")
                         .HasColumnType("int");
@@ -438,7 +434,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("ModifiedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 538, DateTimeKind.Local).AddTicks(7268));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 689, DateTimeKind.Local).AddTicks(1461));
 
                     b.Property<string>("Text")
                         .IsRequired()
@@ -476,7 +472,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 539, DateTimeKind.Local).AddTicks(6206));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 689, DateTimeKind.Local).AddTicks(6623));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -501,7 +497,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("ModifiedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 539, DateTimeKind.Local).AddTicks(6517));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 689, DateTimeKind.Local).AddTicks(6812));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -534,7 +530,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 538, DateTimeKind.Local).AddTicks(9222));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 689, DateTimeKind.Local).AddTicks(2545));
 
                     b.Property<bool>("IsActive")
                         .ValueGeneratedOnAdd()
@@ -549,7 +545,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("ModifiedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 538, DateTimeKind.Local).AddTicks(9545));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 689, DateTimeKind.Local).AddTicks(2672));
 
                     b.HasKey("Id");
 
@@ -567,7 +563,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 539, DateTimeKind.Local).AddTicks(8697));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 689, DateTimeKind.Local).AddTicks(8055));
 
                     b.Property<string>("Icon")
                         .IsRequired()
@@ -587,7 +583,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("ModifiedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 539, DateTimeKind.Local).AddTicks(9034));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 689, DateTimeKind.Local).AddTicks(8204));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -610,7 +606,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 540, DateTimeKind.Local).AddTicks(1256));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 689, DateTimeKind.Local).AddTicks(9172));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -635,7 +631,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("ModifiedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 540, DateTimeKind.Local).AddTicks(1574));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 689, DateTimeKind.Local).AddTicks(9306));
 
                     b.Property<string>("RedirectURL")
                         .IsRequired()
@@ -663,7 +659,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 540, DateTimeKind.Local).AddTicks(3294));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 689, DateTimeKind.Local).AddTicks(9996));
 
                     b.Property<bool>("IsActive")
                         .ValueGeneratedOnAdd()
@@ -678,7 +674,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("ModifiedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 540, DateTimeKind.Local).AddTicks(3622));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 690, DateTimeKind.Local).AddTicks(121));
 
                     b.Property<string>("Text")
                         .IsRequired()
@@ -701,7 +697,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 540, DateTimeKind.Local).AddTicks(7187));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 690, DateTimeKind.Local).AddTicks(2077));
 
                     b.Property<int>("DoctorId")
                         .HasColumnType("int");
@@ -719,7 +715,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("ModifiedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 540, DateTimeKind.Local).AddTicks(7655));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 690, DateTimeKind.Local).AddTicks(2247));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -748,7 +744,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 540, DateTimeKind.Local).AddTicks(9920));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 690, DateTimeKind.Local).AddTicks(3286));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -773,7 +769,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("ModifiedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 541, DateTimeKind.Local).AddTicks(242));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 690, DateTimeKind.Local).AddTicks(3407));
 
                     b.Property<string>("RedirectURL")
                         .IsRequired()
@@ -806,7 +802,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 541, DateTimeKind.Local).AddTicks(3939));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 690, DateTimeKind.Local).AddTicks(4727));
 
                     b.Property<int>("DoctorId")
                         .HasColumnType("int");
@@ -824,7 +820,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("ModifiedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 541, DateTimeKind.Local).AddTicks(4358));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 690, DateTimeKind.Local).AddTicks(4875));
 
                     b.Property<string>("Text")
                         .IsRequired()
@@ -849,7 +845,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 541, DateTimeKind.Local).AddTicks(7700));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 690, DateTimeKind.Local).AddTicks(6168));
 
                     b.Property<int>("DoctorId")
                         .HasColumnType("int");
@@ -867,7 +863,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("ModifiedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 17, 33, 20, 541, DateTimeKind.Local).AddTicks(8102));
+                        .HasDefaultValue(new DateTime(2023, 2, 12, 20, 42, 31, 690, DateTimeKind.Local).AddTicks(6311));
 
                     b.Property<string>("Text")
                         .IsRequired()
