@@ -20,10 +20,17 @@ namespace MedicativeMVC
 
             app.UseAuthorization();
 
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+            app.UseEndpoints(endpoints =>
+            {
+                app.MapControllerRoute(
+                    name: "areas",
+                    pattern: "{area:exists}/{controller=dashboard}/{action=Index}/{id?}");
 
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=home}/{action=Index}/{id?}");
+            });
+            
             app.Run();
         }
     }

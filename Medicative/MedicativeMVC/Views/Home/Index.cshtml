@@ -2,7 +2,652 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!-- Start  bootstrap-touch-slider Slider -->
+    <div id="bootstrap-touch-slider" class="carousel bs-slider fade  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="5000" >
+
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#bootstrap-touch-slider" data-slide-to="0" class="active"></li>
+            <li data-target="#bootstrap-touch-slider" data-slide-to="1"></li>
+            <li data-target="#bootstrap-touch-slider" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper For Slides -->
+        <div class="carousel-inner" role="listbox">
+
+            <!-- Third Slide -->
+            <div class="item active">
+
+                <!-- Slide Background -->
+                <img src="~/assets/img/bg/3.jpg" alt="Slider Images"  class="slide-image"/>
+                <div class="bs-slider-overlay"></div>
+
+                <div class="slide-text slide_style_left">
+                            <h1 data-animation="animated fadeInRight">The <span class="color-defult"> Medicative </span>Hospital</h1>
+                            <p data-animation="animated fadeInLeft">Our team of over 7000 doctors join me in giving you the best <br> of modern healthcare to ensure you stay healthy, always.</p>
+                            <a href="#" target="_blank" class="btn btn-default" data-animation="animated fadeInLeft">Read more</a>
+                            <a href="#" target="_blank"  class="btn btn-primary" data-animation="animated fadeInRight">Book Now</a>
+                        </div>
+            </div>
+            <!-- End of Slide -->
+
+            <!-- Second Slide -->
+            <div class="item">
+            
+                <!-- Slide Background -->
+                <img src="~/assets/img/bg/2.jpg" alt="Slider Images" class="slide-image"/>
+                <div class="bs-slider-overlay"></div>
+                <!-- Slide Text Layer -->
+                <div class="slide-text slide_style_center">
+                    <h1 data-animation="animated bounceInDown"> Treat<span class="color-defult"> heart</span> disease.</h1>
+                    <p data-animation="animated lightSpeedIn">consectetur adipisicing elit. Eligendi vel ipsam deleniti dignissimos <br> corporis consequatur possimus eaque voluptates.</p>
+                    <a href="#" target="_blank" class="btn btn-default" data-animation="animated fadeInUp">Read More</a>
+                    <a href="#" target="_blank"  class="btn btn-primary" data-animation="animated fadeInDown">Donate Now</a>
+                </div>
+            </div>
+            <!-- End of Slide -->
+            
+            <!-- Third Slide -->
+            <div class="item">
+            
+                <!-- Slide Background -->
+                <img src="~/assets/img/bg/1.jpg" alt="Slider Images"  class="slide-image"/>
+                <div class="bs-slider-overlay"></div>
+                <!-- Slide Text Layer -->
+                <div class="slide-text slide_style_right">
+                    <h1 data-animation="animated fadeInLeft">Life Wellness<span class="color-defult"> Programs</span></h1>
+                    <p data-animation="animated fadeInRight">Stay in touch and in shape with periodic tips from our <br>in-house  experts on wellness, fitness and nutrition.</p>
+                    <a href="#" target="_blank" class="btn btn-default" data-animation="animated fadeInLeft">Read More</a>
+                    <a href="#" target="_blank" class="btn btn-primary" data-animation="animated fadeInRight">Donate Now</a>
+                </div>
+            </div>
+            <!-- End of Slide -->
+
+
+        </div><!-- End of Wrapper For Slides -->
+
+        <!-- Left Control -->
+        <a class="left carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="prev">
+            <span class="fa fa-angle-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+
+        <!-- Right Control -->
+        <a class="right carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="next">
+            <span class="fa fa-angle-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+
+    </div> <!-- End  bootstrap-touch-slider Slider -->
+
+    <!-- welcome start -->
+    <section class="about animatedParent animateOnce">
+        <div class="container">
+            <div class="section-title">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="text-center">
+                            <h2>Welcome To <span class="color-defult">Medicative</span></h2>
+                            <div class="line-border-center bg-defult"></div>
+                            <p>Consequatur alias incidunt cumque officiis, quas eius quaerat ut itaque laudantium corporis nobis ipsum, voluptates at, adipisci fugiat hic voluptate consequuntur porro.</p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="section-content">
+                <div class="row">
+                    <div class="about-feature">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                            <div class="appointment-item style-gray animated fadeInLeftShort slow delay-250">
+                                <i class="flaticon-ribbon"></i>
+                                <h5><a href="#">Our Doctors</a></h5>
+                                <div class="line-border-center bg-gray"></div>
+                                <p>Choose by name, specialty, city and more.</p>
+                                <button class="btn btn-theme btn-sm">Book Now</button>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                            <div class="appointment-item style-gray animated fadeInLeftShort slow delay-500">
+                                <i class="flaticon-cardiogram"></i>
+                                <h5><a href="#">Health Check</a></h5>
+                                <div class="line-border-center bg-gray"></div>
+                                <p>Find maps and more for all locations.</p>
+                                <button class="btn btn-theme btn-sm">Check Now</button>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 center-block">
+                            <div class="appointment-item style-gray animated fadeInLeftShort slow delay-750">
+                                <i class="flaticon-first-aid-kit"></i>
+                                <h5><a href="#">Appointments</a></h5>
+                                <div class="line-border-center bg-gray"></div>
+                                <p>Click in, walk in or call us today.</p>
+                                <button class="btn btn-theme btn-sm">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- welcome end -->
+
+    <!-- divider start -->
+    <section class="service-area over-layer-default" style="background-image:url(img/bg/5.jpg);">
+        <div class="container padding-bottom-none padding-top-40">
+            <div class="section-content">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <div class="service-item style-1 text-white border-right">
+                            <div class="service-icon">
+                                <i class="pe-7s-call"></i>
+                            </div>
+                            <div class="content">
+                                <h5><a href="#">Give us a Call</a></h5>
+                                <p>+970-438-3258</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <div class="service-item style-1 text-white border-right">
+                            <div class="">
+                                <i class="pe-7s-mail-open"></i>
+                            </div>
+                            <div class="content">
+                                <h5><a href="#">Send us a Message</a></h5>
+                                <p>Your_malil@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <div class="service-item style-1 text-white">
+                            <div class="">
+                                <i class="pe-7s-map-marker"></i>
+                            </div>
+                            <div class="content">
+                                <h5><a href="#">Visit our Location</a></h5>
+                                <p>12 New york, USA </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- divider end -->
+
+    <!-- departments start -->
+    <section class="service-area bg-f8 animatedParent animateOnce">
+        <div class="container">
+            <div class="section-title">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center">
+                        <h2>OUR <span class="color-defult">DEPARTMENTS</span></h2>
+                        <div class="line-border-center bg-defult"></div>
+                        <p>Repellendus error placeat numquam doloribus perferendis consequatur maxime molestiae soluta Corporis quidem quaerat accusantium omnis repudiandae nulla recusandae</p>
+                    </div>
+                </div>
+            </div>
+
+
+        <div class="section-content">
+            <div class="row clearfix">
+
+
+                <div class="gallery col-3 gutter">
+                    <div class="gallery-item gp-two">
+                        <div class="thumb">
+                            <img src="~/assets/img/portfolio/1.jpg" alt="">
+                            <div class="gallery-hover">
+                                <div class="gallery-info">
+                                    <div class="gallery-btn">
+                                        <a href="~/assets/img/portfolio/1.jpg" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view"> <i class="pe-7s-graph2"></i>  </a>
+                                    </div>
+                                    <h4><a href="~/assets/img/portfolio/1.jpg" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view">Your title here</a></h4>
+                                    <p><a href="#">Sub Title here</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item gp-three">
+                        <div class="thumb">
+                            <img src="~/assets/img/portfolio/2.jpg" alt="">
+                            <div class="gallery-hover">
+                                <div class="gallery-info">
+                                    <div class="gallery-btn">
+                                        <a href="~/assets/img/portfolio/2.jpg" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view"> <i class="pe-7s-graph2"></i>  </a>
+                                    </div>
+                                    <h4><a href="~/assets/img/portfolio/2.jpg" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view">Your title here</a></h4>
+                                    <p><a href="#">Sub Title here</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item gp-four">
+                        <div class="thumb">
+                            <img src="~/assets/img/portfolio/3.jpg" alt="">
+                            <div class="gallery-hover">
+                                <div class="gallery-info">
+                                    <div class="gallery-btn">
+                                        <a href="~/assets/img/portfolio/3.jpg" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view"> <i class="pe-7s-graph2"></i>  </a>
+                                    </div>
+                                    <h4><a href="~/assets/img/portfolio/3.jpg" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view">Your title here</a></h4>
+                                    <p><a href="#">Sub Title here</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item gp-five">
+                        <div class="thumb">
+                            <img src="~/assets/img/portfolio/4.jpg" alt="">
+                            <div class="gallery-hover">
+                                <div class="gallery-info">
+                                    <div class="gallery-btn">
+                                        <a href="~/assets/img/portfolio/4.jpg" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view"> <i class="pe-7s-graph2"></i>  </a>
+                                    </div>
+                                    <h4><a href="~/assets/img/portfolio/4.jpg" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view">Your title here</a></h4>
+                                    <p><a href="#">Sub Title here</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item gp-two">
+                        <div class="thumb">
+                            <img src="~/assets/img/portfolio/5.jpg" alt="">
+                            <div class="gallery-hover">
+                                <div class="gallery-info">
+                                    <div class="gallery-btn">
+                                        <a href="~/assets/img/portfolio/5.jpg" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view"> <i class="pe-7s-graph2"></i>  </a>
+                                    </div>
+                                    <h4><a href="~/assets/img/portfolio/5.jpg" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view">Your title here</a></h4>
+                                    <p><a href="#">Sub Title here</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item gp-three">
+                        <div class="thumb">
+                            <img src="~/assets/img/portfolio/6.jpg" alt="">
+                            <div class="gallery-hover">
+                                <div class="gallery-info">
+                                    <div class="gallery-btn">
+                                        <a href="~/assets/img/portfolio/6.jpg" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view"> <i class="pe-7s-graph2"></i>  </a>
+                                    </div>
+                                    <h4><a href="~/assets/img/portfolio/6.jpg" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view">Your title here</a></h4>
+                                    <p><a href="#">Sub Title here</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        </div>
+    </section>
+    <!-- departments end -->
+
+   <!-- divider start -->
+    <section class="divider divider-video over-layer-white" style="background-image:url(../assets/img/bg/6.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <a href="https://youtu.be/vX-lG9nb1fU" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view"><i class="icon icon-Play"></i></a>    
+                </div> 
+            </div> 
+        </div> 
+    </section>
+    <!-- divider end -->
+
+    <!-- Team start -->
+    <section class="team-area">
+        <div class="container">
+            <div class="section-title">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center">
+                        <h2><span class="color-defult">Experience</span> Doctor</h2>
+                        <div class="line-border-center bg-defult"></div>
+                        <p>Repellendus error placeat numquam doloribus perferendis consequatur maxime molestiae soluta Corporis quidem quaerat accusantium omnis repudiandae nulla recusandae</p>
+                    </div>
+                </div>
+            </div>
+            <div class="section-content">
+                <div class="row">
+                    <div class="team-carousel">
+                        <div class="item">
+                            <div class="team-item-2">
+                                <img src="~/assets/img/team/1.png" alt="">
+                                <div class="team-contact">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="team-content">
+                                    <h4><a href="#">Dr. Mokles Beller</a></h4>
+                                    <h6>Cardiologists</h6>
+                                    <div class="team-content-icon">
+                                        <i class="flaticon-heart"></i>
+                                    </div>
+                                </div>
+                                <div class="timetable">
+                                    <div class="item">
+                                        <div class="label">Monday-Friday</div>
+                                        <div class="value">08:00 - 17:00</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="label">Saturday</div>
+                                        <div class="value">10:00 - 16:00</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="label">Sunday</div>
+                                        <div class="value">12:00 - 14:00</div>
+                                    </div>
+                                    <a href="#" class="btn-theme text-center btn-block"> View Profile</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="team-item-2">
+                                <img src="~/assets/img/team/2.png" alt="">
+                                <div class="team-contact">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="team-content">
+                                    <h4><a href="#">Dr. George Beller</a></h4>
+                                    <h6>Cardiologists</h6>
+                                    <div class="team-content-icon">
+                                        <i class="flaticon-heart"></i>
+                                    </div>
+                                </div>
+                                <div class="timetable">
+                                    <div class="item">
+                                        <div class="label">Monday-Friday</div>
+                                        <div class="value">08:00 - 17:00</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="label">Saturday</div>
+                                        <div class="value">10:00 - 16:00</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="label">Sunday</div>
+                                        <div class="value">12:00 - 14:00</div>
+                                    </div>
+                                    <a href="#" class="btn-theme text-center btn-block"> View Profile</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="team-item-2">
+                                <img src="~/assets/img/team/3.png" alt="">
+                                <div class="team-contact">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="team-content">
+                                    <h4><a href="#">Dr. George Beller</a></h4>
+                                    <h6>Cardiologists</h6>
+                                    <div class="team-content-icon">
+                                        <i class="flaticon-heart"></i>
+                                    </div>
+                                </div>
+                                <div class="timetable">
+                                    <div class="item">
+                                        <div class="label">Monday-Friday</div>
+                                        <div class="value">08:00 - 17:00</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="label">Saturday</div>
+                                        <div class="value">10:00 - 16:00</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="label">Sunday</div>
+                                        <div class="value">12:00 - 14:00</div>
+                                    </div>
+                                    <a href="#" class="btn-theme text-center btn-block"> View Profile</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="team-item-2">
+                                <img src="~/assets/img/team/4.png" alt="">
+                                <div class="team-contact">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="team-content">
+                                    <h4><a href="#">Dr. George Beller</a></h4>
+                                    <h6>Cardiologists</h6>
+                                    <div class="team-content-icon">
+                                        <i class="flaticon-heart"></i>
+                                    </div>
+                                </div>
+                                <div class="timetable">
+                                    <div class="item">
+                                        <div class="label">Monday-Friday</div>
+                                        <div class="value">08:00 - 17:00</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="label">Saturday</div>
+                                        <div class="value">10:00 - 16:00</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="label">Sunday</div>
+                                        <div class="value">12:00 - 14:00</div>
+                                    </div>
+                                    <a href="#" class="btn-theme text-center btn-block"> View Profile</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="team-item-2">
+                                <img src="~/assets/img/team/5.png" alt="">
+                                <div class="team-contact">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="team-content">
+                                    <h4><a href="#">Dr. George Beller</a></h4>
+                                    <h6>Cardiologists</h6>
+                                    <div class="team-content-icon">
+                                        <i class="flaticon-heart"></i>
+                                    </div>
+                                </div>
+                                <div class="timetable">
+                                    <div class="item">
+                                        <div class="label">Monday-Friday</div>
+                                        <div class="value">08:00 - 17:00</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="label">Saturday</div>
+                                        <div class="value">10:00 - 16:00</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="label">Sunday</div>
+                                        <div class="value">12:00 - 14:00</div>
+                                    </div>
+                                    <a href="#" class="btn-theme text-center btn-block"> View Profile</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="team-item-2">
+                                <img src="~/assets/img/team/3.png" alt="">
+                                <div class="team-contact">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="team-content">
+                                    <h4><a href="#">Dr. George Beller</a></h4>
+                                    <h6>Cardiologists</h6>
+                                    <div class="team-content-icon">
+                                        <i class="flaticon-heart"></i>
+                                    </div>
+                                </div>
+                                <div class="timetable">
+                                    <div class="item">
+                                        <div class="label">Monday-Friday</div>
+                                        <div class="value">08:00 - 17:00</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="label">Saturday</div>
+                                        <div class="value">10:00 - 16:00</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="label">Sunday</div>
+                                        <div class="value">12:00 - 14:00</div>
+                                    </div>
+                                    <a href="#" class="btn-theme text-center btn-block"> View Profile</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Team end -->
+
+    <!-- Counter start -->
+    <section class="funfact-field over-layer-default" style="background-image: url('img/bg/6.jpg')">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="counter-col text-center">
+                        <i class="flaticon-heart"></i>
+                        <div class="count">
+                            <div class="start-count">25</div>
+                            <h4>Heart Transplants</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="counter-col text-center">
+                        <i class="flaticon-human-lungs"></i>
+                        <div class="count">
+                            <div class="start-count">979</div>
+                            <h4>BARIATRIC SURGERY</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="counter-col text-center">
+                        <i class="flaticon-kidney"></i>
+                        <div class="count">
+                            <div class="start-count">5264</div>
+                            <h4>CRITICAL CARE</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="counter-col text-center">
+                        <i class="flaticon-first-aid-kit"></i>
+                        <div class="count">
+                            <div class="start-count border-none">119</div>
+                            <h4>EXTPART Doctor</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Counter end -->
+    
+   <!-- blog start -->
+    <section class="blog-area bg-f8">
+        <div class="container">
+            <div class="section-title">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center">
+                        <h2>Latest <span class="color-defult">news</span></h2>
+                        <div class="line-border-center bg-defult"></div>
+                        <p>Repellendus error placeat numquam doloribus perferendis consequatur maxime molestiae soluta Corporis quidem quaerat accusantium omnis repudiandae nulla recusandae</p>
+                    </div>
+                </div>
+            </div>
+            <div class="section-content">
+                <div class="row">
+                    <div class="blog-feature">
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="blog-item style-1">
+                                <div class="blog-date text-center">
+                                    <i class="pe-7s-link"></i>
+                                </div>
+                                <div class="blog-img"><a href="#"><img src="~/assets/img/blog/1.jpg" alt=""></a>
+                                    <div class="blog-event-date">
+                                        <h3>13 <small>Jun</small></h3>
+                                    </div>
+                                </div>
+                                <div class="blog-content">
+                                    <a href="#"><h4>What's the Right Choice? </h4></a>
+                                    <i class="fa fa-user-o"></i> <a href="#">Admin</a> | <i class="fa fa-heart-o"></i> <a href="#">Like :20 </a> | <i class="fa fa-comment-o"></i><a href="#"> Comments: 10</a>
+                                    <p>come from a family of doctors and I was suffering from morbid obesity with co-morbidities like diabetes, hypertension, and sleep apnoea.</p>
+                                    <a href="#" class="btn btn-simple">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="blog-item style-1">
+                                <div class="blog-date text-center">
+                                    <i class="pe-7s-link"></i>
+                                </div>
+                                <div class="blog-img"><a href="#"><img src="~/assets/img/blog/2.jpg" alt=""></a>
+                                    <div class="blog-event-date">
+                                        <h3>17 <small>Jun</small></h3>
+                                    </div>
+                                </div>
+                                <div class="blog-content">
+                                    <a href="#"><h4>Caregiver Series </h4></a>
+                                    <i class="fa fa-user-o"></i> <a href="#">Admin</a> | <i class="fa fa-heart-o"></i> <a href="#">Like :20 </a> | <i class="fa fa-comment-o"></i><a href="#"> Comments: 10</a>
+                                    <p>come from a family of doctors and I was suffering from morbid obesity with co-morbidities like diabetes, hypertension, and sleep apnoea.</p>
+                                    <a href="#" class="btn btn-simple">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-12 center-block">
+                            <div class="blog-item style-1">
+                                <div class="blog-date text-center">
+                                    <i class="pe-7s-link"></i>
+                                </div>
+                                <div class="blog-img"><a href="#"><img src="~/assets/img/blog/3.jpg" alt=""></a>
+                                    <div class="blog-event-date">
+                                        <h3>19 <small>Jun</small></h3>
+                                    </div>
+                                </div>
+                                <div class="blog-content">
+                                    <a href="#"><h4>Little Hats, Big Hearts </h4></a>
+                                    <i class="fa fa-user-o"></i> <a href="#">Admin</a> | <i class="fa fa-heart-o"></i> <a href="#">Like :20 </a> | <i class="fa fa-comment-o"></i><a href="#"> Comments: 10</a>
+                                    <p>come from a family of doctors and I was suffering from morbid obesity with co-morbidities like diabetes, hypertension, and sleep apnoea.</p>
+                                    <a href="#" class="btn btn-simple">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   <!-- blog end -->

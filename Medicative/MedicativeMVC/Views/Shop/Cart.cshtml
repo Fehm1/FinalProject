@@ -1,0 +1,180 @@
+﻿<section class="inner-bg over-layer-black" style="background-image: url('../assets/img/bg/4.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="mini-title inner-style-2">
+                    <h3>Shop </h3>
+                    <p><a asp-controller="home" asp-action="index">Home</a> <span class="fa fa-angle-right"></span> <a asp-controller="shop" asp-action="cart">Cart </a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- SHOPING CART AREA START -->
+<section class="shoping-cart-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-list">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Remove</th>
+                                <th>Image</th>
+                                <th>Product Name</th>
+                                <th>Edit</th>
+                                <th>Unit Price</th>
+                                <th>Quantity</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <a href="#"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                                <td class="product-image">
+                                    <a href="#"><img alt="#" src="~/assets/img/shop/s5.jpg"></a>
+                                </td>
+                                <td>
+                                    <h4><a href="#">Men T-shirt</a></h4>
+                                </td>
+                                <td>
+                                    <p><a href="#">Edit</a></p>
+                                </td>
+                                <td>
+                                    <p>$ 100</p>
+                                </td>
+                                <td>
+                                    <input class="text-center" type="number" value="1">
+                                </td>
+                                <td>
+                                    <p>$ 100</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="#"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                                <td class="product-image">
+                                    <a href="#"><img alt="#" src="~/assets/img/shop/s4.jpg"></a>
+                                </td>
+                                <td>
+                                    <h4><a href="#">Women T-shirt</a></h4>
+                                </td>
+                                <td>
+                                    <p><a href="#">Edit</a></p>
+                                </td>
+                                <td>
+                                    <p>$ 100</p>
+                                </td>
+                                <td>
+                                    <input class="text-center" type="number" value="1">
+                                </td>
+                                <td>
+                                    <p>$ 100</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <a href="#" class="btn-theme">Continue Shopping</a>
+            </div>
+            <div class="col-md-6 text-right">
+                <ul class="list-inline">
+                    <li><a href="#" class="btn-theme">Cler Shopping Cart</a></li>
+                    <li><a href="#" class="btn-theme">Update Shopping Cart</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- SHOPING CART AREA END -->
+<hr>
+<!-- DISCOUNT SUBTOTAL AREA STRAT -->
+<section class="discount">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="discount-area">
+                    <div class="discount-content">
+                        <h3>Shopping coupon Code</h3>
+                        <p>Enter your coupon code if have one</p>
+                    </div>
+                    <div class="newsletter">
+                        <form>
+                            <input type="email" class="newsletter-input" placeholder="Enter Your Email">
+                            <button class="newsletter-btn" type="submit" value="">
+                                apply coupon
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subtotal-area">
+                    <div class="total">
+                        <h4>Subtotal<span>$ 200</span></h4>
+                    </div>
+                    <div class="total">
+                        <h4>Grand Total<span>$ 200</span></h4>
+                    </div>
+                    <div class="total-content">
+                        <button class="btn-theme pull-right">Checkout</button>
+                        <p class="text-left">Checkout With Multiple Addresses</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- divider start -->
+<section class="service-area over-layer-default" style="background-image:url(../assets/img/bg/5.jpg);">
+    <div class="container padding-bottom-none padding-top-40">
+        <div class="section-content">
+            <div class="row">
+                <div class="col-sm-12 col-md-4">
+                    <div class="service-item style-1 text-white border-right">
+                        <div class="service-icon">
+                            <i class="pe-7s-call"></i>
+                        </div>
+                        <div class="content">
+                            <h5><a href="#">Give us a Call</a></h5>
+                            <p>+970-438-3258</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <div class="service-item style-1 text-white border-right">
+                        <div class="">
+                            <i class="pe-7s-mail-open"></i>
+                        </div>
+                        <div class="content">
+                            <h5><a href="#">Send us a Message</a></h5>
+                            <p>Your_malil@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <div class="service-item style-1 text-white">
+                        <div class="">
+                            <i class="pe-7s-map-marker"></i>
+                        </div>
+                        <div class="content">
+                            <h5><a href="#">Visit our Location</a></h5>
+                            <p>12 New york, USA </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- divider end -->
