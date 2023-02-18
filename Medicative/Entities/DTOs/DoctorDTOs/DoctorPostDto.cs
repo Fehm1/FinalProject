@@ -46,10 +46,6 @@ namespace Entities.DTOs.DoctorDTOs
         [DataType(DataType.Url)]
         public string LinekedInURL { get; set; }
 
-        [Required]
-        [StringLength(150)]
-        [DataType(DataType.Url)]
-        public string RedirectURL { get; set; }
 
     }
 }

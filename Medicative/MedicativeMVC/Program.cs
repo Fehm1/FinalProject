@@ -1,3 +1,5 @@
+using Business.Extentions;
+
 namespace MedicativeMVC
 {
     public class Program
@@ -9,7 +11,7 @@ namespace MedicativeMVC
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
-
+            builder.Services.AddBusinessConfiguration(builder.Configuration);
 
             var app = builder.Build();
 
@@ -22,7 +24,7 @@ namespace MedicativeMVC
 
             app.UseEndpoints(endpoints =>
             {
-                app.MapControllerRoute(
+                endpoints.MapControllerRoute(
                     name: "areas",
                     pattern: "{area:exists}/{controller=dashboard}/{action=Index}/{id?}");
 

@@ -13,7 +13,6 @@ namespace Core.DAL.Abstract
         Task CreateAsync(TEntity entity);
         void Update(TEntity entity);
         void Delete(TEntity entity);
-        Task SaveAsync();
         Task<int> CountAsync(Expression<Func<TEntity, bool>> expression);
     }
 }

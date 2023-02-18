@@ -8,6 +8,7 @@ namespace Business.Abstract
         Task<IDataResult<CertificationGetDto>> GetAsync(int id);
         Task<IDataResult<CertificationListDto>> GetAllAsync();
         Task<IDataResult<CertificationListDto>> GetAllByNonDeleteAsync(int id);
+        Task<IDataResult<CertificationUpdateDto>> GetUpdateDto(int id);
         Task<IDataResult<CertificationGetDto>> AddAsync(CertificationPostDto certificationPost);
         Task<IDataResult<CertificationGetDto>> Update(CertificationUpdateDto certificationUpdate);
         Task<IResult> Delete(int id);

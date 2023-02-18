@@ -16,7 +16,6 @@ namespace Entities.DTOs.DoctorDTOs
         public string FacebookURL { get; set; }
         public string TwitterURL { get; set; }
         public string LinekedInURL { get; set; }
-        public string RedirectURL { get; set; }
 
         public virtual DateTime CreatedTime { get; set; } = DateTime.Now;
         public virtual DateTime ModifiedTime { get; set; } = DateTime.Now;

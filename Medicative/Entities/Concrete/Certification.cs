@@ -7,6 +7,8 @@ namespace Entities.Concrete
         public int DoctorId { get; set; }
         public string Text { get; set; }
 
+        public int MyProperty { get; set; }
+
         public Doctor Doctor { get; set; }
     }
 }

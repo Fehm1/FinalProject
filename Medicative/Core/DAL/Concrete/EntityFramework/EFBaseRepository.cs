@@ -92,11 +92,6 @@ namespace Core.DAL.Concrete.EntityFramework
             return await _context.Set<TEntity>().AnyAsync(expression);
         }
 
-        public async Task SaveAsync()
-        {
-            await _context.SaveChangesAsync();
-        }
-
         public void Update(TEntity entity)
         {
             _context.Set<TEntity>().Update(entity);

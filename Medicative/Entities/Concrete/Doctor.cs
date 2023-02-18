@@ -15,7 +15,6 @@ namespace Entities.Concrete
         public string FacebookURL { get; set; }
         public string TwitterURL { get; set; }
         public string LinekedInURL { get; set; }
-        public string RedirectURL { get; set; }
 
         public Profession Profession { get; set; }
         public Department Department { get; set; }

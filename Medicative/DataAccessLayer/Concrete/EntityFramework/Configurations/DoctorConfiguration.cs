@@ -20,7 +20,6 @@ namespace DataAccessLayer.Concrete.EntityFramework.Configurations
             builder.Property(x => x.TwitterURL).IsRequired().HasMaxLength(150).HasColumnType(SqlDbType.NVarChar.ToString());
             builder.Property(x => x.FacebookURL).IsRequired().HasMaxLength(150).HasColumnType(SqlDbType.NVarChar.ToString());
             builder.Property(x => x.LinekedInURL).IsRequired().HasMaxLength(150).HasColumnType(SqlDbType.NVarChar.ToString());
-            builder.Property(x => x.RedirectURL).IsRequired().HasMaxLength(150).HasColumnType(SqlDbType.NVarChar.ToString());
             builder.Property(x => x.CreatedTime).HasDefaultValue(DateTime.Now);
             builder.Property(x => x.ModifiedTime).HasDefaultValue(DateTime.Now);
             builder.Property(x => x.IsDeleted).HasDefaultValue(false);
