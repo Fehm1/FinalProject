@@ -23,7 +23,6 @@ namespace Business.Extentions
             serviceCollection.AddAutoMapper(Assembly.GetExecutingAssembly());
             serviceCollection.AddScoped<ICertificationService,  CertificationManager>();
             serviceCollection.AddScoped<ICounterService,  CounterManager>();
-            serviceCollection.AddScoped<IDepartmentImageService,  DepartmentImageManager>();
             serviceCollection.AddScoped<IDepartmentService,  DepartmentManager>();
             serviceCollection.AddScoped<IDoctorService,  DoctorManager>();
             serviceCollection.AddScoped<IEducationService,  EducationManager>();

@@ -1,4 +1,4 @@
-﻿@model ProfessionListDto
+﻿@model Entities.DTOs.ProfessionDTOs.ProfessionListDto
 @{
     int count = 0;
 }
@@ -6,40 +6,55 @@
 <div>
     <div class="row align-items-center">
         <div class="col-10" style="justify-content: start">
-            <h1>Profession:</h1>
+            <h1>Position:</h1>
         </div>
         <div class="col-2" style="justify-content: end">
-            <a class="btn btn-primary" asp-controller="Profession" asp-action="create">Add <i class="bi bi-plus-circle"></i></a>
-            <a class="btn btn-outline-danger" asp-controller="Profession" asp-action="deletedTable">Deleted <i class="bi bi-trash-fill"></i></a>
+            <a class="btn btn-primary" asp-controller="profession" asp-action="create">Add <i class="bi bi-plus-circle"></i></a>
+            <a class="btn btn-outline-danger" asp-controller="profession" asp-action="deletedTable">Deleted <i class="bi bi-trash-fill"></i></a>
         </div>
     </div>
     <div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Image</th>
-                    <th scope="col">FullName</th>
-                    <th scope="col">Position</th>
-                </tr>
-            </thead>
-            <tbody>
-
-                @foreach (ProfessionGetDto profession in Model.Professions)
-                {
-                    count++;
-                    <tr>
-                        <th scope="row">@count</th>
-
-                        <td>@profession.Name</td>
-                        <td>
-                            <a class="btn btn-warning" asp-controller="profession" asp-action="update" asp-route-id="@profession.Id"><i class="bi bi-pen-fill"></i></a>
-                            <a class="btn btn-danger" asp-controller="profession" asp-action="delete" asp-route-id="@profession.Id"><i class="bi bi-trash-fill"></i></a>
-                        </td>
-                    </tr>
-                }
-
-            </tbody>
-        </table>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table" id="professionTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Icon</th>
+                            <th>Profession</th>
+                            <th>Created time</th>
+                            <th>Updated time</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (ProfessionGetDto profession in Model.Professions)
+                        {
+                            count++;
+                            <tr>
+                                <th scope="row">@(count)</th>
+                                <td>@Html.Raw(profession.Icon)</td>
+                                <td>@profession.Name</td>
+                                <td>@profession.CreatedTime.ToShortDateString()</td>
+                                <td>@profession.ModifiedTime.ToShortDateString()</td>
+                                <td style="text-align:center">
+                                    <a class="btn btn-warning" asp-area="Manage" asp-controller="Profession" asp-action="update" asp-route-id="@profession.Id"><i class="bi bi-pen-fill"></i></a>
+                                    <a class="btn btn-danger deleteButton" asp-area="Manage" asp-controller="Profession" asp-action="Delete" asp-route-id="@profession.Id"><i class="bi bi-trash-fill"></i></a>
+                                </td>
+                            </tr>
+                        }
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#professionTable').DataTable();
+        });
+    </script>
+}

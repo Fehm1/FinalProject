@@ -13,7 +13,6 @@ namespace DataAccessLayer.Concrete.EntityFramework.Context
         public DbSet<Certification> Certifications { get; set; }
         public DbSet<Counter> Counters { get; set; }
         public DbSet<Department> Departments { get; set; }
-        public DbSet<DepartmentImage> DepartmentImages { get; set; }
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Education> Educations { get; set; }
         public DbSet<Profession> Professions { get; set; }

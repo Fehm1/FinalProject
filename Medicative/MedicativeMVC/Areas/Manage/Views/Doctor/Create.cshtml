@@ -1,0 +1,121 @@
+﻿@using Entities.Concrete
+@model Entities.DTOs.DoctorDTOs.DoctorPostDto
+
+<div>
+    <div>
+        <h1>Create:</h1>
+    </div>
+    <div>
+        <form asp-action="create" method="post">
+            <div>
+
+                @*<input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+
+                <div asp-validation-summary="All" class="text-danger" aria-hidden="true" id="validation-summary" style="display: none"></div>*@
+
+                <div class="col-md-12 mt-3">
+                    <h4>Doctor:</h4>
+                </div>
+
+                <div class="row ml-1 align-items-center">
+                    <div class="mb-3 col-md-4 align-items-center">
+                        <label asp-for="formFile" class="form-label">Doctor image: </label>
+                        <input asp-for="formFile" />
+                        <span asp-validation-for="formFile" style="color: red"></span>
+                    </div>
+
+                    <div class="mb-3 col-md-4">
+                        <div>
+                            <label asp-for="FullName" class="form-label">FullName</label>
+                            <input asp-for="FullName" class="form-control" placeholder="FullName">
+                            <span asp-validation-for="FullName" style="color: red"></span>
+                        </div>
+
+                        <div>
+                            <label asp-for="Email" class="form-label">Email</label>
+                            <input asp-for="Email" class="form-control" placeholder="Email">
+                            <span asp-validation-for="Email" style="color: red"></span>
+                        </div>
+
+                        <div>
+                            <label asp-for="Phone" class="form-label">Phone</label>
+                            <input asp-for="Phone" class="form-control" placeholder="Phone">
+                            <span asp-validation-for="Phone" style="color: red"></span>
+                        </div>
+
+                        <div class="mt-3">
+                            <label asp-for="DepartmentId" class="form-label">Department: </label>
+                            <select asp-for="DepartmentId" class="form-select">
+                                <option selected>Choose one</option>
+
+                                @foreach (Department department in ViewBag.Departments)
+                                {
+                                    <option value="@department.Id">@department.Title</option>
+                                }
+
+                            </select>
+                            <span asp-validation-for="DepartmentId" style="color: red"></span>
+                        </div>
+
+                        <div class="mt-3">
+                            <label asp-for="ProfessionId" class="form-label">Profession: </label>
+                            <select asp-for="ProfessionId" class="form-select">
+                                <option selected>Choose one</option>
+
+                                @foreach (Profession profession in ViewBag.Professions)
+                                {
+                                    <option value="@profession.Id">@profession.Name</option>
+                                }
+
+                            </select>
+                            <span asp-validation-for="ProfessionId" style="color: red"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 col-md-4">
+                        <div>
+                            <label asp-for="FacebookURL" class="form-label">Facebook</label>
+                            <input asp-for="FacebookURL" class="form-control" placeholder="Facebook">
+                            <span asp-validation-for="FacebookURL" style="color: red"></span>
+                        </div>
+
+                        <div>
+                            <label asp-for="InstagramURL" class="form-label">Instagram</label>
+                            <input asp-for="InstagramURL" class="form-control" placeholder="Instagram">
+                            <span asp-validation-for="InstagramURL" style="color: red"></span>
+                        </div>
+
+                        <div>
+                            <label asp-for="TwitterURL" class="form-label">Twitter</label>
+                            <input asp-for="TwitterURL" class="form-control" placeholder="Twitter">
+                            <span asp-validation-for="TwitterURL" style="color: red"></span>
+                        </div>
+
+                        <div>
+                            <label asp-for="LinekedInURL" class="form-label">LinekedIn</label>
+                            <input asp-for="LinekedInURL" class="form-control" placeholder="LinekedIn">
+                            <span asp-validation-for="LinekedInURL" style="color: red"></span>
+                        </div>
+                    </div>
+                </div>
+
+                @* <h4>Doctor:</h4>
+
+                <div class="mb-3 col-md-4">
+                <label asp-for="Icon" class="form-label">Icon</label>
+                <input asp-for="Icon" class="form-control" placeholder="Icon">
+                <span asp-validation-for="Icon" style="color: red"></span>
+                </div>
+
+                <div class="mb-3 col-md-4">
+                <label asp-for="Name" class="form-label">Name</label>
+                <input asp-for="Name" class="form-control" placeholder="Name">
+                <span asp-validation-for="Name" style="color: red"></span>
+                </div>*@
+
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+            <a asp-controller="Profession" asp-action="index" class="btn btn-outline-danger">Cancel</a>
+        </form>
+    </div>
+</div>

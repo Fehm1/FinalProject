@@ -3,19 +3,18 @@ using Business.Abstract;
 using Core.Utilities.Abstract;
 using Core.Utilities.Complex_types;
 using Core.Utilities.Concrete;
-using DataAccessLayer.Concrete;
+using DataAccessLayer.Abstract;
 using Entities.Concrete;
-using Entities.DTOs.CertificationDTOs;
 using Entities.DTOs.ProfessionDTOs;
 
 namespace Business.Concrete
 {
     public class ProfessionManager : IProfessionService
     {
-        private readonly UnityOfWork _unityOfWork;
+        private readonly IUnityOfWork _unityOfWork;
         private readonly IMapper _mapper;
 
-        public ProfessionManager(UnityOfWork unityOfWork, IMapper mapper)
+        public ProfessionManager(IUnityOfWork unityOfWork, IMapper mapper)
         {
             _unityOfWork = unityOfWork;
             _mapper = mapper;
@@ -62,7 +61,16 @@ namespace Business.Concrete
             return new DataResult<ProfessionListDto>(ResultStatus.Success, new ProfessionListDto { Professions = professionGetList });
         }
 
-        public async Task<IDataResult<ProfessionListDto>> GetAllByNonDeleteAsync(int id)
+        public async Task<IDataResult<ProfessionListDto>> GetAllByDeletedAsync()
+        {
+            List<Profession> professions = await _unityOfWork.Profession.GetAllAsync(x => x.IsDeleted == true);
+
+            List<ProfessionGetDto> professionGetList = _mapper.Map<List<ProfessionGetDto>>(professions);
+
+            return new DataResult<ProfessionListDto>(ResultStatus.Success, new ProfessionListDto { Professions = professionGetList });
+        }
+
+        public async Task<IDataResult<ProfessionListDto>> GetAllByNonDeleteAsync()
         {
             List<Profession> professions = await _unityOfWork.Profession.GetAllAsync(x => x.IsDeleted == false);
 
@@ -114,11 +122,28 @@ namespace Business.Concrete
             return new Result(ResultStatus.Error, "There is no profession in this id!");
         }
 
+        public async Task<IResult> Restore(int id)
+        {
+            Profession profession = await _unityOfWork.Profession.GetAsync(x => x.Id == id);
+
+            if (profession != null)
+            {
+                profession.IsDeleted = false;
+                _unityOfWork.Profession.Update(profession);
+                await _unityOfWork.SaveAsync();
+
+                return new Result(ResultStatus.Success);
+            }
+
+            return new Result(ResultStatus.Error, "There is no profession in this id!");
+        }
+
         public async Task<IDataResult<ProfessionGetDto>> Update(ProfessionUpdateDto professionUpdate)
         {
             Profession profession = await _unityOfWork.Profession.GetAsync(x => x.Id == professionUpdate.ProfessionGet.Id);
             if (professionUpdate is not null)
             {
+                profession.ModifiedTime = DateTime.Now;
                 profession = _mapper.Map<Profession>(professionUpdate.ProfessionPost);
                 professionUpdate.ProfessionGet = _mapper.Map<ProfessionGetDto>(profession);
 

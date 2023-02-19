@@ -7,6 +7,8 @@ namespace Entities.DTOs.DepartmentDTOs
         public virtual int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        public string PosterImage { get; set; }
+        public string DetailImage { get; set; }
         public int InvestigationFee { get; set; }
         public int TreatmentFee { get; set; }
 
@@ -15,7 +17,6 @@ namespace Entities.DTOs.DepartmentDTOs
         public virtual bool IsActive { get; set; } = false;
         public virtual bool IsDeleted { get; set; } = false;
 
-        public List<DepartmentImage>? Images { get; set; }
         public List<Doctor>? Doctors { get; set; }
     }
 }

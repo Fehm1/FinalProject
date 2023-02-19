@@ -1,11 +1,10 @@
 ﻿namespace DataAccessLayer.Abstract
 {
-    public interface IUnityOfWork : IAsyncDisposable
+    public interface IUnityOfWork
     {
         ICertificationRepository Certification { get; }
         ICounterRepository Counter { get; }
         IDepartmentRepository Department { get; }
-        IDepartmentImageRepository DepartmentImage { get; }
         IDoctorRepository Doctor { get; }
         IEducationRepostory Education { get; }
         IMedicineRepository Medicine { get; }

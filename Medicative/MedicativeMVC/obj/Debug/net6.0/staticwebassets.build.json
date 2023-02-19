@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "GgQix2ryFPIuXtLnRBy7pxOerI+HXomrR3Vj3jT8jqc=",
+  "Hash": "Nw2vb2UvQwOcO7Cqa6ShwBAXZPrHTKlNymsUVbOtON0=",
   "Source": "MedicativeMVC",
   "BasePath": "_content/MedicativeMVC",
   "Mode": "Default",
@@ -2514,6 +2514,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\manage\\js\\demo\\datatables-demo.js"
+    },
+    {
+      "Identity": "C:\\Users\\Fehmin\\OneDrive\\İş masası\\Final Project\\Medicative\\MedicativeMVC\\wwwroot\\manage\\js\\main.js",
+      "SourceId": "MedicativeMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Fehmin\\OneDrive\\İş masası\\Final Project\\Medicative\\MedicativeMVC\\wwwroot\\",
+      "BasePath": "_content/MedicativeMVC",
+      "RelativePath": "manage/js/main.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\manage\\js\\main.js"
     },
     {
       "Identity": "C:\\Users\\Fehmin\\OneDrive\\İş masası\\Final Project\\Medicative\\MedicativeMVC\\wwwroot\\manage\\js\\sb-admin-2.js",

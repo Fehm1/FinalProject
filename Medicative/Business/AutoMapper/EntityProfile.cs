@@ -3,7 +3,6 @@ using Entities.Concrete;
 using Entities.DTOs.CertificationDTOs;
 using Entities.DTOs.CounterDTOs;
 using Entities.DTOs.DepartmentDTOs;
-using Entities.DTOs.DepartmentImageDTOs;
 using Entities.DTOs.DoctorDTOs;
 using Entities.DTOs.EducationDTOs;
 using Entities.DTOs.MedicineCategoryDTOs;
@@ -27,9 +26,6 @@ namespace Business.AutoMapper
 
             CreateMap<Counter, CounterGetDto>();
             CreateMap<CounterPostDto, Counter>();
-
-            CreateMap<DepartmentImage, DepartmentImageGetDto>();
-            CreateMap<DepartmentImagePostDto, DepartmentImage>();
 
             CreateMap<Department, DepartmentGetDto>();
             CreateMap<DepartmentPostDto, Department>();

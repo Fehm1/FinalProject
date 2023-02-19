@@ -3,9 +3,11 @@ using Business.Abstract;
 using Core.Utilities.Abstract;
 using Core.Utilities.Complex_types;
 using Core.Utilities.Concrete;
+using Core.Utilities.Extensions.FileManagerExtentions;
 using DataAccessLayer.Abstract;
 using Entities.Concrete;
 using Entities.DTOs.DoctorDTOs;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Business.Concrete
 {
@@ -13,18 +15,82 @@ namespace Business.Concrete
     {
         private readonly IUnityOfWork _unityOfWork;
         private readonly IMapper _mapper;
+        private readonly IWebHostEnvironment _env;
 
-        public DoctorManager(IUnityOfWork unityOfWork, IMapper mapper)
+        public DoctorManager(IUnityOfWork unityOfWork, IMapper mapper, IWebHostEnvironment env)
         {
             _unityOfWork = unityOfWork;
             _mapper = mapper;
+            _env = env;
         }
 
         public async Task<IDataResult<DoctorGetDto>> AddAsync(DoctorPostDto doctorPost)
         {
+
             if (doctorPost != null)
             {
                 Doctor doctor = _mapper.Map<Doctor>(doctorPost);
+
+                if (doctorPost.formFile != null)
+                {
+                    if (!doctorPost.formFile.IsImageContent())
+                    {
+                        return new DataResult<DoctorGetDto>(ResultStatus.Error, null, "These fields are required!!!");
+                    }
+
+                    if (doctorPost.formFile.IsValidImageLength())
+                    {
+                        return new DataResult<DoctorGetDto>(ResultStatus.Error, null, "These fields are required!!!");
+                    }
+
+                    doctor.ImageURL = doctorPost.formFile.SaveImage(_env.WebRootPath, "uploads/doctors");
+                }
+
+                if (doctorPost.SpecializationPosts != null)
+                {
+                    foreach (var item in doctorPost.SpecializationPosts)
+                    {
+                        Specialization specialization = _mapper.Map<Specialization>(item);
+                        doctor.Specializations.Add(specialization);
+                    }
+                }
+
+                if (doctorPost.CertificationPosts != null)
+                {
+                    foreach (var item in doctorPost.CertificationPosts)
+                    {
+                        Certification certification = _mapper.Map<Certification>(item);
+                        doctor.Certifications.Add(certification);
+                    }
+                }
+
+                if (doctorPost.SkillPosts != null)
+                {
+                    foreach (var item in doctorPost.SkillPosts)
+                    {
+                        Skill skill = _mapper.Map<Skill>(item);
+                        doctor.Skills.Add(skill);
+                    }
+                }
+
+                if (doctorPost.EducationPosts != null)
+                {
+                    foreach (var item in doctorPost.EducationPosts)
+                    {
+                        Education education = _mapper.Map<Education>(item);
+                        doctor.Educations.Add(education);
+                    }
+                }
+
+                if (doctorPost.TrainingPosts != null)
+                {
+                    foreach (var item in doctorPost.TrainingPosts)
+                    {
+                        Training training = _mapper.Map<Training>(item);
+                        doctor.Training.Add(training);
+                    }
+                }
+
                 await _unityOfWork.Doctor.CreateAsync(doctor);
                 await _unityOfWork.SaveAsync();
 
@@ -54,7 +120,7 @@ namespace Business.Concrete
 
         public async Task<IDataResult<DoctorListDto>> GetAllAsync()
         {
-            List<Doctor> doctors = await _unityOfWork.Doctor.GetAllAsync();
+            List<Doctor> doctors = await _unityOfWork.Doctor.GetAllAsync(null, x => x.Department, x => x.Profession);
             DoctorListDto doctorListDto = new DoctorListDto()
             {
                 DoctorList = _mapper.Map<List<DoctorGetDto>>(doctors)
@@ -63,9 +129,20 @@ namespace Business.Concrete
             return new DataResult<DoctorListDto>(ResultStatus.Success, doctorListDto);
         }
 
-        public async Task<IDataResult<DoctorListDto>> GetAllByNonDeleteAsync(int id)
+        public async Task<IDataResult<DoctorListDto>> GetAllByDeletedAsync()
         {
-            List<Doctor> doctors = await _unityOfWork.Doctor.GetAllAsync(x=>!x.IsDeleted);
+            List<Doctor> doctors = await _unityOfWork.Doctor.GetAllAsync(x => x.IsDeleted == true, x => x.Department, x => x.Profession);
+            DoctorListDto doctorListDto = new DoctorListDto()
+            {
+                DoctorList = _mapper.Map<List<DoctorGetDto>>(doctors)
+            };
+
+            return new DataResult<DoctorListDto>(ResultStatus.Success, doctorListDto);
+        }
+
+        public async Task<IDataResult<DoctorListDto>> GetAllByNonDeleteAsync()
+        {
+            List<Doctor> doctors = await _unityOfWork.Doctor.GetAllAsync(x=>!x.IsDeleted, x => x.Department, x => x.Profession);
             DoctorListDto doctorListDto = new DoctorListDto()
             {
                 DoctorList = _mapper.Map<List<DoctorGetDto>>(doctors)
@@ -76,7 +153,7 @@ namespace Business.Concrete
 
         public async  Task<IDataResult<DoctorGetDto>> GetAsync(int id)
         {
-            Doctor doctor  = await _unityOfWork.Doctor.GetAsync(x=>x.Id == id);
+            Doctor doctor  = await _unityOfWork.Doctor.GetAsync(x=>x.Id == id, x => x.Department, x => x.Profession);
 
             if (doctor != null)
             {
@@ -90,7 +167,7 @@ namespace Business.Concrete
 
         public async Task<IDataResult<DoctorUpdateDto>> GetUpdateDto(int id)
         {
-            Doctor doctor  = await _unityOfWork.Doctor.GetAsync(x=>x.Id == id);
+            Doctor doctor  = await _unityOfWork.Doctor.GetAsync(x=>x.Id == id, x => x.Department, x => x.Profession);
             if (doctor is not null)
             {
                 DoctorUpdateDto doctorUpdate = new DoctorUpdateDto()
@@ -104,7 +181,7 @@ namespace Business.Concrete
 
         public async Task<IResult> HardDelete(int id)
         {
-            Doctor doctor  = await _unityOfWork.Doctor.GetAsync(x => x.Id == id && x.IsDeleted);
+            Doctor doctor  = await _unityOfWork.Doctor.GetAsync(x => x.Id == id && x.IsDeleted, x => x.Department, x => x.Profession);
 
             if (doctor != null)
             {
@@ -119,7 +196,7 @@ namespace Business.Concrete
 
         public async Task<IDataResult<DoctorGetDto>> Update(DoctorUpdateDto doctorUpdate)
         {
-            Doctor doctor  = await _unityOfWork.Doctor.GetAsync(x => x.Id == doctorUpdate.DoctorGet.Id);
+            Doctor doctor  = await _unityOfWork.Doctor.GetAsync(x => x.Id == doctorUpdate.DoctorGet.Id, x => x.Department, x => x.Profession);
             if (doctorUpdate is not null)
             {
                 doctor = _mapper.Map<Doctor>(doctorUpdate.DoctorPost);

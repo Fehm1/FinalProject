@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
 
 namespace Entities.DTOs.DepartmentDTOs
 {
@@ -11,6 +12,10 @@ namespace Entities.DTOs.DepartmentDTOs
         [Required]
         [StringLength(1000)]
         public string Description { get; set; }
+
+        public IFormFile? PosterFormFile { get; set; }
+
+        public IFormFile? DetailFormFile { get; set; }
 
         [Required]
         [Range(0, int.MaxValue)]

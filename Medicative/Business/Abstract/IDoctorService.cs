@@ -7,7 +7,8 @@ namespace Business.Abstract
     {
         Task<IDataResult<DoctorGetDto>> GetAsync(int id);
         Task<IDataResult<DoctorListDto>> GetAllAsync();
-        Task<IDataResult<DoctorListDto>> GetAllByNonDeleteAsync(int id);
+        Task<IDataResult<DoctorListDto>> GetAllByNonDeleteAsync();
+        Task<IDataResult<DoctorListDto>> GetAllByDeletedAsync();
         Task<IDataResult<DoctorUpdateDto>> GetUpdateDto(int id);
         Task<IDataResult<DoctorGetDto>> AddAsync(DoctorPostDto doctorPost);
         Task<IDataResult<DoctorGetDto>> Update(DoctorUpdateDto doctorUpdate);

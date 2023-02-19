@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Core.Utilities.Complex_types;
 using Entities.DTOs.ProfessionDTOs;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,7 +17,24 @@ namespace MedicativeMVC.Areas.Manage.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await _professionService.GetAllAsync());
+            var result = await _professionService.GetAllByNonDeleteAsync();
+            if (result.ResultStatus == ResultStatus.Success)
+            {
+                return View(result.Data);
+            }
+
+            return View();
+        }
+
+        public async Task<IActionResult> DeletedTable()
+        {
+            var result = await _professionService.GetAllByDeletedAsync();
+            if (result.ResultStatus == ResultStatus.Success)
+            {
+                return View(result.Data);
+            }
+
+            return View();
         }
 
         public IActionResult Create()
@@ -28,54 +46,84 @@ namespace MedicativeMVC.Areas.Manage.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ProfessionPostDto professionPost)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return View(professionPost);
+                var result = await _professionService.AddAsync(professionPost);
+                if (result.ResultStatus == ResultStatus.Success)
+                {
+                    return RedirectToAction("index");
+                }
             }
-            await _professionService.AddAsync(professionPost);
-            return RedirectToAction("Index");
+            
+            return View(professionPost);
         }
 
         public async Task<IActionResult> Update(int id)
         {
-            return View(await _professionService.GetUpdateDto(id));
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(ProfessionUpdateDto  professionUpdate)
-        {
-            if (!ModelState.IsValid)
+            var result = await _professionService.GetUpdateDto(id);
+            if (result.ResultStatus == ResultStatus.Success)
             {
-                return View(professionUpdate);
+                return View(result.Data);
             }
-            await _professionService.Update(professionUpdate);
-            return RedirectToAction("Index");
+            return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Update(ProfessionUpdateDto professionUpdate)
+        {
+            var professionGetDto = await _professionService.GetAsync(professionUpdate.ProfessionGet.Id);
+            professionUpdate.ProfessionGet = professionGetDto.Data;
+            if (ModelState.IsValid)
+            {
+                var result = await _professionService.Update(professionUpdate);
+                if (result.ResultStatus == ResultStatus.Success)
+                {
+                    return RedirectToAction("index");
+                }
+            }
+
+            return View(professionUpdate);
+        }
+
+
         public async Task<IActionResult> Delete(int id)
         {
-            await _professionService.Delete(id);
-
-            return RedirectToAction("index");
+            var result = await _professionService.Delete(id);
+            if (result.ResultStatus == ResultStatus.Success)
+            {
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> HardDelete(int id)
         {
-            await _professionService.HardDelete(id);
-
-            return RedirectToAction("Index");
+            var result = await _professionService.HardDelete(id);
+            if (result.ResultStatus == ResultStatus.Success)
+            {
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Restore(int id)
         {
-            return RedirectToAction("Index");
+            var result = await _professionService.Restore(id);
+            if (result.ResultStatus == ResultStatus.Success)
+            {
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
         }
     }
 }
