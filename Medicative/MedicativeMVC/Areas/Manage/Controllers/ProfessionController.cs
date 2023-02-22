@@ -74,7 +74,7 @@ namespace MedicativeMVC.Areas.Manage.Controllers
         {
             var professionGetDto = await _professionService.GetAsync(professionUpdate.ProfessionGet.Id);
             professionUpdate.ProfessionGet = professionGetDto.Data;
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 var result = await _professionService.Update(professionUpdate);
                 if (result.ResultStatus == ResultStatus.Success)
@@ -82,7 +82,7 @@ namespace MedicativeMVC.Areas.Manage.Controllers
                     return RedirectToAction("index");
                 }
             }
-
+                
             return View(professionUpdate);
         }
 

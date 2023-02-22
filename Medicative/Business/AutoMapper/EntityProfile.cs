@@ -10,7 +10,6 @@ using Entities.DTOs.MedicineDTOs;
 using Entities.DTOs.ProfessionDTOs;
 using Entities.DTOs.ServiceDTOs;
 using Entities.DTOs.SizeDTOs;
-using Entities.DTOs.SkillDTOs;
 using Entities.DTOs.SliderDTOs;
 using Entities.DTOs.SpecializationDTOs;
 using Entities.DTOs.TrainingDTOs;
@@ -50,9 +49,6 @@ namespace Business.AutoMapper
 
             CreateMap<Size, SizeGetDto>();
             CreateMap<SizePostDto, Size>();
-
-            CreateMap<Skill, SkillGetDto>();
-            CreateMap<SkillPostDto, Skill>();
 
             CreateMap<Slider, SliderGetDto>();
             CreateMap<SliderPostDto, Slider>();

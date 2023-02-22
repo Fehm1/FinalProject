@@ -25,7 +25,6 @@ namespace Entities.DTOs.DoctorDTOs
         public Profession? Profession { get; set; }
         public Department? Department { get; set; }
         public List<Specialization>? Specializations { get; set; }
-        public List<Skill>? Skills { get; set; }
         public List<Education>? Educations { get; set; }
         public List<Training>? Training { get; set; }
         public List<Certification>? Certifications { get; set; }

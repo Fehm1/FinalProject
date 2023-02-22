@@ -17,7 +17,6 @@ namespace DataAccessLayer.Concrete
         private readonly IMedicineSizeRepository _efMedicineSizeRepository;
         private readonly IProfessionRepository _efProfessionRepository;
         private readonly IServiceRepository _efServiceRepository;
-        private readonly ISkillRepository _efSkillRepository;
         private readonly ISliderRepository _efSliderRepository;
         private readonly ISpecializationRepository _efSpecializationRepository;
         private readonly ITrainingRepository _eftrainingRepository;
@@ -45,8 +44,6 @@ namespace DataAccessLayer.Concrete
         public IProfessionRepository Profession => _efProfessionRepository ?? new EFProfessionRepository(_context);
 
         public IServiceRepository Service => _efServiceRepository ?? new EFServiceRepository(_context);
-
-        public ISkillRepository Skill => _efSkillRepository ?? new EFSkillRepository(_context);
 
         public ISliderRepository Slider => _efSliderRepository ?? new EFSliderRepository(_context);
 

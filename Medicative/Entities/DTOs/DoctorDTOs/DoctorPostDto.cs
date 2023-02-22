@@ -1,11 +1,11 @@
 ﻿using Entities.Concrete;
 using Entities.DTOs.CertificationDTOs;
 using Entities.DTOs.EducationDTOs;
-using Entities.DTOs.SkillDTOs;
 using Entities.DTOs.SpecializationDTOs;
 using Entities.DTOs.TrainingDTOs;
 using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.DTOs.DoctorDTOs
 {
@@ -53,8 +53,6 @@ namespace Entities.DTOs.DoctorDTOs
 
         public List<CertificationPostDto>? CertificationPosts { get; set; }
 
-        public List<SkillPostDto>? SkillPosts { get; set; }
-        
         public List<SpecializationPostDto>? SpecializationPosts { get; set; }
 
         public List<TrainingPostDto>? TrainingPosts { get; set; }

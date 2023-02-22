@@ -1,12 +1,16 @@
 ﻿@using Entities.Concrete
+@using Newtonsoft.Json
 @model Entities.DTOs.DoctorDTOs.DoctorPostDto
+@{
+    int n = 1;
+}
 
 <div>
     <div>
         <h1>Create:</h1>
     </div>
     <div>
-        <form asp-action="create" method="post">
+        <form asp-action="create" method="post" enctype="multipart/form-data">
             <div>
 
                 @*<input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
@@ -99,23 +103,61 @@
                     </div>
                 </div>
 
-                @* <h4>Doctor:</h4>
+                <h4>About:</h4>
 
-                <div class="mb-3 col-md-4">
-                <label asp-for="Icon" class="form-label">Icon</label>
-                <input asp-for="Icon" class="form-control" placeholder="Icon">
-                <span asp-validation-for="Icon" style="color: red"></span>
+                <div class="row">
+                    <div class="mb-3 col-md-3">
+
+                        <div id="div">
+                            <label name="CertificationPosts[0].Text" type="text" class="form-label">Certification</label>
+                            <input name="CertificationPosts[0].Text" type="text" id="input" class="form-control" placeholder="Certification">
+                            <span asp-validation-for="CertificationPosts" style="color: red"></span>
+                        </div>
+                        <a class="btn btn-primary" id="plusBtn">+</a>
+
+                    </div>
+
+                    <div class="mb-3 col-md-3">
+                        <label asp-for="TrainingPosts" class="form-label">Training</label>
+                        <input asp-for="TrainingPosts" class="form-control" placeholder="Training">
+                        <span asp-validation-for="TrainingPosts" style="color: red"></span>
+                    </div>
+
+                    <div class="mb-3 col-md-3">
+                        <label asp-for="SpecializationPosts" class="form-label">Specialization</label>
+                        <input asp-for="SpecializationPosts" class="form-control" placeholder="Specialization">
+                        <span asp-validation-for="SpecializationPosts" style="color: red"></span>
+                    </div>
+
+                    <div class="mb-3 col-md-3">
+                        <label asp-for="EducationPosts" class="form-label">Education</label>
+                        <input asp-for="EducationPosts" class="form-control" placeholder="Education">
+                        <span asp-validation-for="EducationPosts" style="color: red"></span>
+                    </div>
                 </div>
 
-                <div class="mb-3 col-md-4">
-                <label asp-for="Name" class="form-label">Name</label>
-                <input asp-for="Name" class="form-control" placeholder="Name">
-                <span asp-validation-for="Name" style="color: red"></span>
-                </div>*@
-
             </div>
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary" id="submit">Create</button>
             <a asp-controller="Profession" asp-action="index" class="btn btn-outline-danger">Cancel</a>
         </form>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        let plusBtn = document.getElementById('plusBtn');
+        let div = document.getElementById('div');
+        
+        let count = 0;
+
+        plusBtn.addEventListener("click", function (e) {
+            console.log('Test');
+            e.preventDefault();
+            count++
+            input.innerHTML = ;
+            div.append(@Html.Raw("<input name=\"CertificationPosts[${count}].Text\" type=\"text\" class=\"form-control\" placeholder=\"Certification\">"));
+                
+        })
+
+    </script>
+}

@@ -143,11 +143,14 @@ namespace Business.Concrete
             Profession profession = await _unityOfWork.Profession.GetAsync(x => x.Id == professionUpdate.ProfessionGet.Id);
             if (professionUpdate is not null)
             {
+                profession.Icon = professionUpdate.ProfessionPost.Icon;
+                profession.Name = professionUpdate.ProfessionPost.Name;
                 profession.ModifiedTime = DateTime.Now;
-                profession = _mapper.Map<Profession>(professionUpdate.ProfessionPost);
-                professionUpdate.ProfessionGet = _mapper.Map<ProfessionGetDto>(profession);
 
+                _unityOfWork.Profession.Update(profession);
                 await _unityOfWork.SaveAsync();
+
+                professionUpdate.ProfessionGet = _mapper.Map<ProfessionGetDto>(profession);
                 return new DataResult<ProfessionGetDto>(ResultStatus.Success, professionUpdate.ProfessionGet);
             }
             return new DataResult<ProfessionGetDto>(ResultStatus.Error, null, "There id no profession with this id");

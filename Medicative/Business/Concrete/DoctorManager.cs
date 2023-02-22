@@ -64,15 +64,6 @@ namespace Business.Concrete
                     }
                 }
 
-                if (doctorPost.SkillPosts != null)
-                {
-                    foreach (var item in doctorPost.SkillPosts)
-                    {
-                        Skill skill = _mapper.Map<Skill>(item);
-                        doctor.Skills.Add(skill);
-                    }
-                }
-
                 if (doctorPost.EducationPosts != null)
                 {
                     foreach (var item in doctorPost.EducationPosts)

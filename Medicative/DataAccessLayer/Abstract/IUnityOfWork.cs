@@ -12,7 +12,6 @@
         IMedicineSizeRepository MedicineSize { get; }
         IProfessionRepository Profession { get; }
         IServiceRepository Service { get; }
-        ISkillRepository Skill { get; }
         ISliderRepository Slider { get; }
         ISpecializationRepository Specialization{ get; }
         ITrainingRepository Training { get; }

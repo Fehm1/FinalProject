@@ -17,7 +17,6 @@ namespace DataAccessLayer.Concrete.EntityFramework.Context
         public DbSet<Education> Educations { get; set; }
         public DbSet<Profession> Professions { get; set; }
         public DbSet<Service> Services { get; set; }
-        public DbSet<Skill> Skills { get; set; }
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<Specialization> Specializations { get; set; }
         public DbSet<Training> Trainings { get; set; }

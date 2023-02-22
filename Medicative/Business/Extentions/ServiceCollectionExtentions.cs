@@ -31,7 +31,6 @@ namespace Business.Extentions
             serviceCollection.AddScoped<IProfessionService,  ProfessionManager>();
             serviceCollection.AddScoped<IServiceService,  ServiceManager>();
             serviceCollection.AddScoped<ISizeService,  SizeManager>();
-            serviceCollection.AddScoped<ISkillService,  SkillManager>();
             serviceCollection.AddScoped<ISliderService,  SliderManager>();
             serviceCollection.AddScoped<ISpecializationService,  SpecializationManager>();
             serviceCollection.AddScoped<ITrainingService,  TrainingManager>();
