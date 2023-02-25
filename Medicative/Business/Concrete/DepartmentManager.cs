@@ -114,6 +114,7 @@ namespace Business.Concrete
                 department.Description = departmentUpdate.DepartmentPost.Description;
                 department.InvestigationFee = departmentUpdate.DepartmentPost.InvestigationFee;
                 department.TreatmentFee = departmentUpdate.DepartmentPost.TreatmentFee;
+                department.RedirectUrl = departmentUpdate.DepartmentPost.RedirectUrl;
                 department.ModifiedTime = DateTime.Now;
 
                 departmentUpdate.DepartmentGet = _mapper.Map<DepartmentGetDto>(department);

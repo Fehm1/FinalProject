@@ -13,6 +13,8 @@ namespace Entities.DTOs.DepartmentDTOs
         [StringLength(1000)]
         public string Description { get; set; }
 
+        public string RedirectUrl { get; set; }
+
         public IFormFile? PosterFormFile { get; set; }
 
         public IFormFile? DetailFormFile { get; set; }

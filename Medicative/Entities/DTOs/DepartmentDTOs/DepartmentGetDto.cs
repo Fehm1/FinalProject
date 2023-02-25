@@ -9,6 +9,7 @@ namespace Entities.DTOs.DepartmentDTOs
         public string Description { get; set; }
         public string PosterImage { get; set; }
         public string DetailImage { get; set; }
+        public string RedirectUrl { get; set; }
         public int InvestigationFee { get; set; }
         public int TreatmentFee { get; set; }
 

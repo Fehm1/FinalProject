@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Concrete;
+using Business.Services.Abstract;
+using Business.Services.Concrete;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.Concrete.EntityFramework.Context;
@@ -32,6 +34,8 @@ namespace Business.Extentions
             serviceCollection.AddScoped<ISpecializationService,  SpecializationManager>();
             serviceCollection.AddScoped<ITrainingService,  TrainingManager>();
             serviceCollection.AddScoped<ISettingService,  SettingManager>();
+
+            serviceCollection.AddScoped<LayoutService>();
 
 
             return serviceCollection;

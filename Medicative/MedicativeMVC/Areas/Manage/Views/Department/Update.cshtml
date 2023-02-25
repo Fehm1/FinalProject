@@ -48,6 +48,12 @@
                         <input asp-for="DepartmentPost.InvestigationFee" value="@Model.DepartmentGet.InvestigationFee" class="form-control" placeholder="Investigation Fee">
                         <span asp-validation-for="DepartmentPost.InvestigationFee" style="color: red"></span>
                     </div>
+
+                    <div class="mb-3">
+                        <label asp-for="DepartmentPost.RedirectUrl" class="form-label">Redirect Url</label>
+                        <input asp-for="DepartmentPost.RedirectUrl" value="@Model.DepartmentGet.RedirectUrl" class="form-control" placeholder="Redirect Url">
+                        <span asp-validation-for="DepartmentPost.RedirectUrl" style="color: red"></span>
+                    </div>
                 </div>
             </div>
 

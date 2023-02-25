@@ -31,7 +31,7 @@
                             <tr>
                                 <th scope="row">@(count)</th>
                                 <td>@setting.Key</td>
-                                @if (setting.Key == "Header Logo" || setting.Key == "Footer Logo")
+                                @if (setting.Key.Contains("Logo") || setting.Key.Contains("Flicker"))
                                 {
                                     <td style="width: 150px">
                                         <img style="max-width: 100%" src="~/uploads/settings/@setting.Value">
