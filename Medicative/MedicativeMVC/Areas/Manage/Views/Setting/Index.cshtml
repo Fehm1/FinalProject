@@ -1,0 +1,67 @@
+﻿@using Entities.DTOs.SettingDTOs
+@model Entities.DTOs.SettingDTOs.SettingListDto
+@{
+    int count = 0;
+}
+
+<div>
+    <div class="row align-items-center">
+        <div class="col-10" style="justify-content: start">
+            <h1>Setting:</h1>
+        </div>
+    </div>
+    <div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table" id="settingTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Name</th>
+                            <th>Value</th>
+                            <th>Created time</th>
+                            <th>Updated time</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (SettingGetDto setting in Model.SettingList)
+                        {
+                            count++;
+                            <tr>
+                                <th scope="row">@(count)</th>
+                                <td>@setting.Key</td>
+                                @if (setting.Key == "Header Logo" || setting.Key == "Footer Logo")
+                                {
+                                    <td style="width: 150px">
+                                        <img style="max-width: 100%" src="~/uploads/settings/@setting.Value">
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        @setting.Value
+                                    </td>
+                                }
+                                <td>@setting.CreatedTime.ToShortDateString()</td>
+                                <td>@setting.ModifiedTime.ToShortDateString()</td>
+                                <td style="text-align:center">
+                                    <a class="btn btn-warning" asp-area="Manage" asp-controller="setting" asp-action="update" asp-route-id="@setting.Id"><i class="bi bi-pen-fill"></i></a>
+                                </td>
+                            </tr>
+                        }
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#settingTable').DataTable();
+        });
+    </script>
+}

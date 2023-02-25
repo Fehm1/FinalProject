@@ -26,14 +26,12 @@ namespace Business.Extentions
             serviceCollection.AddScoped<IDepartmentService,  DepartmentManager>();
             serviceCollection.AddScoped<IDoctorService,  DoctorManager>();
             serviceCollection.AddScoped<IEducationService,  EducationManager>();
-            serviceCollection.AddScoped<IMedicineCategoryService,  MedicineCategoryManager>();
-            serviceCollection.AddScoped<IMedicineService,  MedicineManager>();
             serviceCollection.AddScoped<IProfessionService,  ProfessionManager>();
             serviceCollection.AddScoped<IServiceService,  ServiceManager>();
-            serviceCollection.AddScoped<ISizeService,  SizeManager>();
             serviceCollection.AddScoped<ISliderService,  SliderManager>();
             serviceCollection.AddScoped<ISpecializationService,  SpecializationManager>();
             serviceCollection.AddScoped<ITrainingService,  TrainingManager>();
+            serviceCollection.AddScoped<ISettingService,  SettingManager>();
 
 
             return serviceCollection;

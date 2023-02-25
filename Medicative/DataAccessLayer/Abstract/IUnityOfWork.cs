@@ -7,14 +7,12 @@
         IDepartmentRepository Department { get; }
         IDoctorRepository Doctor { get; }
         IEducationRepostory Education { get; }
-        IMedicineRepository Medicine { get; }
-        IMedicineCategoryRepository MedicineCategory { get; }
-        IMedicineSizeRepository MedicineSize { get; }
         IProfessionRepository Profession { get; }
         IServiceRepository Service { get; }
         ISliderRepository Slider { get; }
         ISpecializationRepository Specialization{ get; }
         ITrainingRepository Training { get; }
+        ISettingRepostory Setting { get; }
 
         Task<int> SaveAsync();
 

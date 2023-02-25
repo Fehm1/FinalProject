@@ -1,0 +1,55 @@
+﻿@model Entities.DTOs.SliderDTOs.SliderUpdateDto
+
+<div>
+    <div>
+        <h1>Update:</h1>
+    </div>
+    <div>
+        <form asp-action="Update" method="post" enctype="multipart/form-data">
+            <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+
+            <div asp-validation-summary="All" class="text-danger" aria-hidden="true" id="validation-summary" style="display: none"></div>
+
+            <input type="hidden" asp-for="@Model.SliderGet.Id" />
+            <div class="row align-items-center">
+
+                <div class="mb-3 col-md-4 align-items-center">
+                    <label asp-for="SliderPost.FormFile" class="form-label">Slider image: </label>
+                    <img style="width: 250px" src="~/uploads/sliders/@Model.SliderGet.ImageUrl" />
+                    <input asp-for="SliderPost.FormFile" />
+                    <span asp-validation-for="SliderPost.FormFile" style="color: red"></span>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label asp-for="SliderPost.TitleGreen" class="form-label">Green Title</label>
+                        <input asp-for="SliderPost.TitleGreen" value="@Model.SliderGet.TitleGreen" class="form-control" placeholder="Green Title">
+                        <span asp-validation-for="SliderPost.TitleGreen" style="color: red"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="SliderPost.TitleWhite" class="form-label">White Title</label>
+                        <input asp-for="SliderPost.TitleWhite" value="@Model.SliderGet.TitleWhite" class="form-control" placeholder="White Title">
+                        <span asp-validation-for="SliderPost.TitleWhite" style="color: red"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="SliderPost.Description" class="form-label">Description</label>
+                        <input asp-for="SliderPost.Description" value="@Model.SliderGet.Description" class="form-control" placeholder="Description">
+                        <span asp-validation-for="SliderPost.Description" style="color: red"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="SliderPost.RedirectURL" class="form-label">Redirect URL</label>
+                        <input asp-for="SliderPost.RedirectURL" value="@Model.SliderGet.RedirectURL" class="form-control" placeholder="Redirect URL">
+                        <span asp-validation-for="SliderPost.RedirectURL" style="color: red"></span>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-warning">Update</button>
+            <a asp-controller="slider" asp-action="index" class="btn btn-outline-danger">Cancel</a>
+        </form>
+    </div>
+</div>
+

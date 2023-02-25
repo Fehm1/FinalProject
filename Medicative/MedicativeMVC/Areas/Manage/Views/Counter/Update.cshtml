@@ -1,0 +1,42 @@
+﻿@model Entities.DTOs.CounterDTOs.CounterUpdateDto
+
+<div>
+    <div>
+        <h1>Update:</h1>
+    </div>
+    <div>
+        <form asp-action="update" method="post">
+            <div class="row">
+
+                <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+
+                <div asp-validation-summary="All" class="text-danger" aria-hidden="true" id="validation-summary" style="display: none"></div>
+
+                <input type="hidden" asp-for="CounterGet.Id" />
+
+                <div class="mb-3 col-md-4">
+                    <label asp-for="CounterPost.Icon" class="form-label">Icon</label>
+                    <input asp-for="CounterPost.Icon" value="@Model.CounterGet.Icon" class="form-control" placeholder="Icon">
+                    <span asp-validation-for="CounterPost.Icon" style="color: red"></span>
+                </div>
+
+                <div class="mb-3 col-md-4">
+                    <label asp-for="CounterPost.Name" class="form-label">Name</label>
+                    <input asp-for="CounterPost.Name" value="@Model.CounterGet.Name" class="form-control" placeholder="Name">
+                    <span asp-validation-for="CounterPost.Name" style="color: red"></span>
+                </div>
+
+                <div class="mb-3 col-md-4">
+                    <label asp-for="CounterPost.Count" class="form-label">Count</label>
+                    <input asp-for="CounterPost.Count" value="@Model.CounterGet.Count" class="form-control" placeholder="Count">
+                    <span asp-validation-for="CounterPost.Count" style="color: red"></span>
+                </div>
+
+
+
+            </div>
+            <button type="submit" class="btn btn-warning">Update</button>
+            <a asp-controller="Counter" asp-action="index" class="btn btn-outline-danger">Cancel</a>
+        </form>
+    </div>
+</div>

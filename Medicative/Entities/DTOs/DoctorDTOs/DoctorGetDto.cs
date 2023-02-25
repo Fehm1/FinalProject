@@ -1,4 +1,5 @@
 ﻿using Entities.Concrete;
+using Entities.DTOs.CertificationDTOs;
 
 namespace Entities.DTOs.DoctorDTOs
 {
@@ -27,6 +28,6 @@ namespace Entities.DTOs.DoctorDTOs
         public List<Specialization>? Specializations { get; set; }
         public List<Education>? Educations { get; set; }
         public List<Training>? Training { get; set; }
-        public List<Certification>? Certifications { get; set; }
+        public List<CertificationGetDto>? Certifications { get; set; }
     }
 }

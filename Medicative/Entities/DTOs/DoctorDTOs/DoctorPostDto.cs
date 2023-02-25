@@ -52,11 +52,15 @@ namespace Entities.DTOs.DoctorDTOs
         public string LinekedInURL { get; set; }
 
         public List<CertificationPostDto>? CertificationPosts { get; set; }
+        public List<int>? CertificationPostsId { get; set; }
 
         public List<SpecializationPostDto>? SpecializationPosts { get; set; }
+        public List<int>? SpecializationPostsId { get; set; }
 
         public List<TrainingPostDto>? TrainingPosts { get; set; }
+        public List<int>? TrainingPostsId { get; set; }
 
         public List<EducationPostDto>? EducationPosts { get; set; }
+        public List<int>? EducationPostsId { get; set; }
     }
 }

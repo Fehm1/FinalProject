@@ -121,6 +121,7 @@ namespace Business.Concrete
                 certification = _mapper.Map<Certification>(certificationUpdate.CertificationPost);
                 certificationUpdate.CertificationGet = _mapper.Map<CertificationGetDto>(certification);
 
+                _unityOfWork.Certification.Update(certification);
                 await _unityOfWork.SaveAsync();
                 return new DataResult<CertificationGetDto>(ResultStatus.Success, certificationUpdate.CertificationGet);
             }

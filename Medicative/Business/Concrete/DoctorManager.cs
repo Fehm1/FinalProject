@@ -38,12 +38,16 @@ namespace Business.Concrete
                         return new DataResult<DoctorGetDto>(ResultStatus.Error, null, "These fields are required!!!");
                     }
 
-                    if (doctorPost.formFile.IsValidImageLength())
+                    if (!doctorPost.formFile.IsValidImageLength())
                     {
                         return new DataResult<DoctorGetDto>(ResultStatus.Error, null, "These fields are required!!!");
                     }
 
                     doctor.ImageURL = doctorPost.formFile.SaveImage(_env.WebRootPath, "uploads/doctors");
+                }
+                else
+                {
+                    return new DataResult<DoctorGetDto>(ResultStatus.Error, null, "Image required!");
                 }
 
                 if (doctorPost.SpecializationPosts != null)
@@ -51,6 +55,7 @@ namespace Business.Concrete
                     foreach (var item in doctorPost.SpecializationPosts)
                     {
                         Specialization specialization = _mapper.Map<Specialization>(item);
+                        specialization.Doctor = doctor;
                         doctor.Specializations.Add(specialization);
                     }
                 }
@@ -60,6 +65,7 @@ namespace Business.Concrete
                     foreach (var item in doctorPost.CertificationPosts)
                     {
                         Certification certification = _mapper.Map<Certification>(item);
+                        certification.Doctor = doctor;
                         doctor.Certifications.Add(certification);
                     }
                 }
@@ -69,6 +75,7 @@ namespace Business.Concrete
                     foreach (var item in doctorPost.EducationPosts)
                     {
                         Education education = _mapper.Map<Education>(item);
+                        education.Doctor = doctor;
                         doctor.Educations.Add(education);
                     }
                 }
@@ -78,6 +85,7 @@ namespace Business.Concrete
                     foreach (var item in doctorPost.TrainingPosts)
                     {
                         Training training = _mapper.Map<Training>(item);
+                        training.Doctor = doctor;
                         doctor.Training.Add(training);
                     }
                 }
@@ -158,7 +166,8 @@ namespace Business.Concrete
 
         public async Task<IDataResult<DoctorUpdateDto>> GetUpdateDto(int id)
         {
-            Doctor doctor  = await _unityOfWork.Doctor.GetAsync(x=>x.Id == id, x => x.Department, x => x.Profession);
+            Doctor doctor  = await _unityOfWork.Doctor.GetAsync(x=>x.Id == id, x => x.Department, x => x.Profession,
+                x => x.Certifications, x => x.Training, x => x.Specializations, x => x.Educations);
             if (doctor is not null)
             {
                 DoctorUpdateDto doctorUpdate = new DoctorUpdateDto()
@@ -187,12 +196,86 @@ namespace Business.Concrete
 
         public async Task<IDataResult<DoctorGetDto>> Update(DoctorUpdateDto doctorUpdate)
         {
-            Doctor doctor  = await _unityOfWork.Doctor.GetAsync(x => x.Id == doctorUpdate.DoctorGet.Id, x => x.Department, x => x.Profession);
+            Doctor doctor  = await _unityOfWork.Doctor.GetAsync(x => x.Id == doctorUpdate.DoctorGet.Id, x => x.Department, x => x.Profession,
+                x => x.Specializations, x => x.Training, x => x.Certifications, x => x.Educations);
+
             if (doctorUpdate is not null)
             {
-                doctor = _mapper.Map<Doctor>(doctorUpdate.DoctorPost);
+                if (doctorUpdate.DoctorPost.formFile != null)
+                {
+                    if (!doctorUpdate.DoctorPost.formFile.IsImageContent())
+                    {
+                        return new DataResult<DoctorGetDto>(ResultStatus.Error, null, "These fields are required!!!");
+                    }
+
+                    if (!doctorUpdate.DoctorPost.formFile.IsValidImageLength())
+                    {
+                        return new DataResult<DoctorGetDto>(ResultStatus.Error, null, "These fields are required!!!");
+                    }
+
+                    string image = doctorUpdate.DoctorPost.formFile.SaveImage(_env.WebRootPath, "uploads/doctors");
+                    doctor.ImageURL.DeleteImage(_env.WebRootPath, "uploads/doctors");
+
+                    doctor.ImageURL = image;
+                }
+
+                if (doctorUpdate.DoctorPost.TrainingPosts != null)
+                {
+                    doctorUpdate.DoctorPost.TrainingPosts.RemoveAll(x => x.DoctorId == doctor.Id);
+                    foreach (var item in doctorUpdate.DoctorPost.TrainingPosts)
+                    {
+                        Training training = _mapper.Map<Training>(item);
+                        training.DoctorId = doctor.Id;
+                        doctor.Training.Add(training);
+                    }
+                }
+
+                if (doctorUpdate.DoctorPost.CertificationPosts != null)
+                {
+                    doctorUpdate.DoctorPost.CertificationPosts.RemoveAll(x => x.DoctorId == doctor.Id);
+                    foreach (var item in doctorUpdate.DoctorPost.CertificationPosts)
+                    {
+                        Certification certification = _mapper.Map<Certification>(item);
+                        certification.DoctorId = doctor.Id;
+                        doctor.Certifications.Add(certification);
+                    }
+                }
+
+                if (doctorUpdate.DoctorPost.SpecializationPosts != null)
+                {
+                    doctorUpdate.DoctorPost.SpecializationPosts.RemoveAll(x => x.DoctorId == doctor.Id);
+                    foreach (var item in doctorUpdate.DoctorPost.SpecializationPosts)
+                    {
+                        Specialization specialization = _mapper.Map<Specialization>(item);
+                        specialization.DoctorId = doctor.Id;
+                        doctor.Specializations.Add(specialization);
+                    }
+                }
+
+                if (doctorUpdate.DoctorPost.EducationPosts != null)
+                {
+                    doctorUpdate.DoctorPost.EducationPosts.RemoveAll(x => x.DoctorId == doctor.Id);
+                    foreach (var item in doctorUpdate.DoctorPost.EducationPosts)
+                    {
+                        Education education = _mapper.Map<Education>(item);
+                        education.DoctorId = doctor.Id;
+                        doctor.Educations.Add(education);
+                    }
+                }
+
+                doctor.FullName = doctorUpdate.DoctorPost.FullName;
+                doctor.InstagramURL = doctorUpdate.DoctorPost.InstagramURL;
+                doctor.FacebookURL = doctorUpdate.DoctorPost.FacebookURL;
+                doctor.TwitterURL = doctorUpdate.DoctorPost.TwitterURL;
+                doctor.LinekedInURL = doctorUpdate.DoctorPost.LinekedInURL;
+                doctor.ProfessionId = doctorUpdate.DoctorPost.ProfessionId;
+                doctor.DepartmentId = doctorUpdate.DoctorPost.DepartmentId;
+                doctor.Email = doctorUpdate.DoctorPost.Email;
+                doctor.Phone = doctorUpdate.DoctorPost.Phone;
+
                 doctorUpdate.DoctorGet = _mapper.Map<DoctorGetDto>(doctor);
 
+                _unityOfWork.Doctor.Update(doctor);
                 await _unityOfWork.SaveAsync();
                 return new DataResult<DoctorGetDto >(ResultStatus.Success, doctorUpdate.DoctorGet);
             }

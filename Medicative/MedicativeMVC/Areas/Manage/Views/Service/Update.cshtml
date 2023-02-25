@@ -1,0 +1,45 @@
+﻿@model Entities.DTOs.ServiceDTOs.ServiceUpdateDto
+
+<div>
+    <div>
+        <h1>Update:</h1>
+    </div>
+    <div>
+        <form asp-action="update" method="post">
+            <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+
+            <div asp-validation-summary="All" class="text-danger" aria-hidden="true" id="validation-summary" style="display: none"></div>
+
+            <input type="hidden" asp-for="ServiceGet.Id" />
+
+            <div class="align-content-center">
+                <div class="mb-3 col-md-6">
+                    <label asp-for="ServicePost.Icon" class="form-label">Icon</label>
+                    <input asp-for="ServicePost.Icon" value="@Model.ServiceGet.Icon" class="form-control" placeholder="Icon">
+                    <span asp-validation-for="ServicePost.Icon" style="color: red"></span>
+                </div>
+
+                <div class="mb-3 col-md-6">
+                    <label asp-for="ServicePost.Title" class="form-label">Title</label>
+                    <input asp-for="ServicePost.Title" value="@Model.ServiceGet.Title" class="form-control" placeholder="Title">
+                    <span asp-validation-for="ServicePost.Title" style="color: red"></span>
+                </div>
+
+                <div class="mb-3 col-md-6">
+                    <label asp-for="ServicePost.Description" class="form-label">Description</label>
+                    <input asp-for="ServicePost.Description" value="@Model.ServiceGet.Description" class="form-control" placeholder="Description">
+                    <span asp-validation-for="ServicePost.Description" style="color: red"></span>
+                </div>
+
+                <div class="mb-3 col-md-6">
+                    <label asp-for="ServicePost.RedirectURL" class="form-label">Redirect URL</label>
+                    <input asp-for="ServicePost.RedirectURL" value="@Model.ServiceGet.RedirectURL" class="form-control" placeholder="Redirect URL">
+                    <span asp-validation-for="ServicePost.RedirectURL" style="color: red"></span>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-warning">Update</button>
+            <a asp-controller="service" asp-action="index" class="btn btn-outline-danger">Cancel</a>
+        </form>
+    </div>
+</div>

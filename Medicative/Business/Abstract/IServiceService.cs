@@ -7,11 +7,13 @@ namespace Business.Abstract
     {
         Task<IDataResult<ServiceGetDto>> GetAsync(int id);
         Task<IDataResult<ServiceListDto>> GetAllAsync();
-        Task<IDataResult<ServiceListDto>> GetAllByNonDeleteAsync(int id);
+        Task<IDataResult<ServiceListDto>> GetAllByNonDeleteAsync();
+        Task<IDataResult<ServiceListDto>> GetAllDeletedAsync();
         Task<IDataResult<ServiceUpdateDto>> GetUpdateDto(int id);
-        Task<IDataResult<ServiceGetDto>> AddAsync(ServiceUpdateDto serviceUpdate);
+        Task<IDataResult<ServiceGetDto>> AddAsync(ServicePostDto servicePost);
         Task<IDataResult<ServiceGetDto>> Update(ServiceUpdateDto serviceUpdate);
         Task<IResult> Delete(int id);
+        Task<IResult> Restore(int id);
         Task<IResult> HardDelete(int id);
     }
 }

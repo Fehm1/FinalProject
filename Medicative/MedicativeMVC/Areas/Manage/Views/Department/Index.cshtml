@@ -1,0 +1,58 @@
+﻿@using Entities.DTOs.DepartmentDTOs
+@model Entities.DTOs.DepartmentDTOs.DepartmentListDto
+@{
+    int count = 0;
+}
+
+<div>
+    <div class="row align-items-center">
+        <div class="col-10" style="justify-content: start">
+            <h1>Departments:</h1>
+        </div>
+    </div>
+    <div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table" id="departmentTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Created time</th>
+                            <th>Updated time</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (DepartmentGetDto department in Model.DepartmentList)
+                        {
+                            count++;
+                            <tr>
+                                <th scope="row">@(count)</th>
+                                <td style="width: 150px">
+                                    <img style="max-width: 100%" src="~/uploads/departments/@department.PosterImage">
+                                </td>
+                                <td>@department.Title</td>
+                                <td>@department.CreatedTime.ToShortDateString()</td>
+                                <td>@department.ModifiedTime.ToShortDateString()</td>
+                                <td style="text-align:center">
+                                    <a class="btn btn-warning" asp-area="Manage" asp-controller="department" asp-action="update" asp-route-id="@department.Id"><i class="bi bi-pen-fill"></i></a>
+                                </td>
+                            </tr>
+                        }
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#departmentTable').DataTable();
+        });
+    </script>
+}

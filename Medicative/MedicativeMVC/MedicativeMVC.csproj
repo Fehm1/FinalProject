@@ -22,6 +22,9 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\uploads\doctors\" />
+    <Folder Include="wwwroot\uploads\departments\" />
+    <Folder Include="wwwroot\uploads\settings\" />
+    <Folder Include="wwwroot\uploads\sliders\" />
   </ItemGroup>
 
 </Project>

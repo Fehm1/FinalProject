@@ -1,0 +1,63 @@
+﻿@using Entities.DTOs.SliderDTOs
+@model Entities.DTOs.SliderDTOs.SliderListDto
+@{
+    int count = 0;
+}
+
+<div>
+    <div class="row align-items-center">
+        <div class="col-10" style="justify-content: start">
+            <h1>Slider:</h1>
+        </div>
+        <div class="col-2" style="justify-content: end">
+            <a class="btn btn-primary" asp-controller="Slider" asp-action="create">Add <i class="bi bi-plus-circle"></i></a>
+            <a class="btn btn-outline-danger" asp-controller="Slider" asp-action="deletedTable">Deleted <i class="bi bi-trash-fill"></i></a>
+        </div>
+    </div>
+    <div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table" id="sliderTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Created time</th>
+                            <th>Updated time</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (SliderGetDto slider in Model.SliderList)
+                        {
+                            count++;
+                            <tr>
+                                <th scope="row">@(count)</th>
+                                <td style="width: 150px">
+                                    <img style="max-width: 100%" src="~/uploads/sliders/@slider.ImageUrl">
+                                </td>
+                                <td>@(slider.TitleGreen + " " + slider.TitleWhite)</td>
+                                <td>@slider.CreatedTime.ToShortDateString()</td>
+                                <td>@slider.ModifiedTime.ToShortDateString()</td>
+                                <td style="text-align:center">
+                                    <a class="btn btn-warning" asp-area="Manage" asp-controller="Slider" asp-action="update" asp-route-id="@slider.Id"><i class="bi bi-pen-fill"></i></a>
+                                    <a class="btn btn-danger deleteButton" asp-area="Manage" asp-controller="Slider" asp-action="Delete" asp-route-id="@slider.Id"><i class="bi bi-trash-fill"></i></a>
+                                </td>
+                            </tr>
+                        }
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#sliderTable').DataTable();
+        });
+    </script>
+}

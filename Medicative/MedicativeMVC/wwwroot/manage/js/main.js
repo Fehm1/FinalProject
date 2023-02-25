@@ -50,3 +50,25 @@ restoreButton.forEach(btn => btn.addEventListener("click", function (e) {
         }
     })
 }));
+
+let plusbtn1 = document.querySelectorAll('#plusBtn1')
+let div1 = document.getElementById('div1');
+let count1 = 1;
+let id = 1;
+
+plusbtn1.forEach(btn => btn.addEventListener("click", function (e) {
+    console.log("ok");
+    div1.innerHTML +=
+        `< input id="${id + 1}" type = "text" class="form-control" placeholder = "Certification"/>`;
+    id += 1;
+    count1++;
+}));
+    
+//function get() {
+//    let element = document.getElementById(`${id}`);
+//    let length = element.value.length;
+//    alert(length);
+//    if (length > 0) {
+//        addForm();
+//    }
+//}

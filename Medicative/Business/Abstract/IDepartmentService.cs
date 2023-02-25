@@ -7,9 +7,8 @@ namespace Business.Abstract
     {
         Task<IDataResult<DepartmentGetDto>> GetAsync(int id);
         Task<IDataResult<DepartmentListDto>> GetAllAsync();
-        Task<IDataResult<DepartmentListDto>> GetAllByNonDeleteAsync(int id);
+        Task<IDataResult<DepartmentListDto>> GetAllByNonDeleteAsync();
         Task<IDataResult<DepartmentUpdateDto>> GetUpdateDto(int id);
         Task<IDataResult<DepartmentGetDto>> Update(DepartmentUpdateDto departmentUpdate);
-        Task<IResult> Delete(int id);
     }
 }

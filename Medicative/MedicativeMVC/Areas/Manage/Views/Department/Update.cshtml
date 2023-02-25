@@ -1,0 +1,66 @@
+﻿@model Entities.DTOs.DepartmentDTOs.DepartmentUpdateDto
+
+<div>
+    <div>
+        <h1>Update:</h1>
+    </div>
+    <div>
+        <form asp-action="update" method="post" enctype="multipart/form-data">
+            <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+
+            <div asp-validation-summary="All" class="text-danger" aria-hidden="true" id="validation-summary" style="display: none"></div>
+
+            <input type="hidden" asp-for="DepartmentGet.Id" />
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label asp-for="DepartmentPost.PosterFormFile" class="form-label">Poster image</label>
+                        <img style="width: 250px" src="~/uploads/departments/@Model.DepartmentGet.PosterImage" />
+                        <input asp-for="DepartmentPost.PosterFormFile">
+                        <span asp-validation-for="DepartmentPost.PosterFormFile" style="color: red"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="DepartmentPost.DetailFormFile" class="form-label">Detail image</label>
+                        <img style="width: 250px" src="~/uploads/departments/@Model.DepartmentGet.DetailImage" />
+                        <input asp-for="DepartmentPost.DetailFormFile">
+                        <span asp-validation-for="DepartmentPost.DetailFormFile" style="color: red"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label asp-for="DepartmentPost.Title" class="form-label">Title</label>
+                        <input asp-for="DepartmentPost.Title" value="@Model.DepartmentGet.Title" class="form-control" placeholder="Title">
+                        <span asp-validation-for="DepartmentPost.Title" style="color: red"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="DepartmentPost.TreatmentFee" class="form-label">Treatment Fee</label>
+                        <input asp-for="DepartmentPost.TreatmentFee" value="@Model.DepartmentGet.TreatmentFee" class="form-control" placeholder="Treatment Fee">
+                        <span asp-validation-for="DepartmentPost.TreatmentFee" style="color: red"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="DepartmentPost.InvestigationFee" class="form-label">Investigation Fee</label>
+                        <input asp-for="DepartmentPost.InvestigationFee" value="@Model.DepartmentGet.InvestigationFee" class="form-control" placeholder="Investigation Fee">
+                        <span asp-validation-for="DepartmentPost.InvestigationFee" style="color: red"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="mb-3">
+                    <label asp-for="DepartmentPost.Description" class="form-label">Description</label>
+                    <input asp-for="DepartmentPost.Description" value="@Model.DepartmentGet.Description" class="form-control" rows="5" placeholder="Description"></input>
+                </div>
+            </div>
+
+
+            <button type="submit" class="btn btn-warning">Update</button>
+            <a asp-controller="department" asp-action="index" class="btn btn-outline-danger">Cancel</a>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+﻿@model Entities.DTOs.SettingDTOs.SettingUpdateDto
+
+<div>
+    <div>
+        <h1>@Model.SettingGet.Key:</h1>
+    </div>
+    <div>
+        <form asp-action="update" method="post" enctype="multipart/form-data">
+            <div class="row">
+
+                <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+
+                <div asp-validation-summary="All" class="text-danger" aria-hidden="true" id="validation-summary" style="display: none"></div>
+
+                <input type="hidden" asp-for="SettingGet.Id" />
+                <input type="hidden" asp-for="SettingGet.Key" />
+
+                @if (Model.SettingGet.Key == "Header Logo" || Model.SettingGet.Key == "Footer Logo")
+                {
+                    <div class="mb-3 col-md-4">
+                        <br>
+                        <img style="width: 250px" src="~/uploads/settings/@Model.SettingGet.Value" />
+                        <br>
+                        <input asp-for="SettingPost.FormFile" value="@Model.SettingGet.Value">
+                        <span asp-validation-for="SettingPost.FormFile" style="color: red"></span>
+                    </div>
+                }
+                else
+                {
+                    <div class="mb-3 col-md-4">
+                        <input asp-for="SettingPost.Value" value="@Model.SettingGet.Value" class="form-control" placeholder="@Model.SettingGet.Key">
+                        <span asp-validation-for="SettingPost.Value" style="color: red"></span>
+                    </div>
+                }
+
+            </div>
+            <button type="submit" class="btn btn-warning">Update</button>
+            <a asp-controller="setting" asp-action="index" class="btn btn-outline-danger">Cancel</a>
+        </form>
+    </div>
+</div>

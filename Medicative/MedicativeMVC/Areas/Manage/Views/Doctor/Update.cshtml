@@ -1,0 +1,242 @@
+﻿@using Entities.Concrete
+@using Newtonsoft.Json
+@model Entities.DTOs.DoctorDTOs.DoctorUpdateDto
+@{
+    int n = 1;
+}
+
+<div>
+    <div>
+        <h1>Update:</h1>
+    </div>
+    <div>
+        <form asp-action="update" method="post" enctype="multipart/form-data">
+            <div>
+
+                @*<input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+
+                <div asp-validation-summary="All" class="text-danger" aria-hidden="true" id="validation-summary" style="display: none"></div>*@
+
+                <input type="hidden" asp-for="DoctorGet.Id" />
+
+                <div class="col-md-12 mt-3">
+                    <h4>Doctor:</h4>
+                </div>
+
+                <div class="row ml-1 align-items-center">
+                    <div class="mb-3 col-md-4 align-items-center">
+                        <img style="width: 350px" src="~/uploads/doctors/@Model.DoctorGet.ImageURL">
+                        <br />
+                        <label asp-for="DoctorPost.formFile" class="form-label">Doctor image: </label>
+                        <input asp-for="DoctorPost.formFile" />
+                        <span asp-validation-for="DoctorPost.formFile" style="color: red"></span>
+                    </div>
+
+                    <div class="mb-3 col-md-4">
+                        <div>
+                            <label asp-for="DoctorPost.FullName" class="form-label">FullName</label>
+                            <input asp-for="DoctorPost.FullName" value="@Model.DoctorGet.FullName" class="form-control" placeholder="FullName">
+                            <span asp-validation-for="DoctorPost.FullName" style="color: red"></span>
+                        </div>
+
+                        <div>
+                            <label asp-for="DoctorPost.Email" class="form-label">Email</label>
+                            <input asp-for="DoctorPost.Email" value="@Model.DoctorGet.Email" class="form-control" placeholder="Email">
+                            <span asp-validation-for="DoctorPost.Email" style="color: red"></span>
+                        </div>
+
+                        <div>
+                            <label asp-for="DoctorPost.Phone" class="form-label">Phone</label>
+                            <input asp-for="DoctorPost.Phone" value="@Model.DoctorGet.Phone" class="form-control" placeholder="Phone">
+                            <span asp-validation-for="DoctorPost.Phone" style="color: red"></span>
+                        </div>
+
+                        <div class="mt-3">
+                            <label asp-for="DoctorPost.DepartmentId" class="form-label">Department: </label>
+                            <select asp-for="DoctorPost.DepartmentId" value="@Model.DoctorGet.Department.Id" class="form-select">
+                                <option selected>Choose one</option>
+
+                                @foreach (Department department in ViewBag.Departments)
+                                {
+                                    if (department.Id == Model.DoctorGet.DepartmentId)
+                                    {
+                                        <option value="@department.Id" selected="selected">@department.Title</option>
+                                    }
+                                    else{
+                                        <option value="@department.Id">@department.Title</option>
+                                    }
+                                }
+
+                            </select>
+                            <span asp-validation-for="DoctorPost.DepartmentId" style="color: red"></span>
+                        </div>
+
+                        <div class="mt-3">
+                            <label asp-for="DoctorPost.ProfessionId" class="form-label">Profession: </label>
+                            <select asp-for="DoctorPost.ProfessionId" value="@Model.DoctorGet.ProfessionId" class="form-select">
+                                <option selected>Choose one</option>
+
+                                @foreach (Profession profession in ViewBag.Professions)
+                                {
+                                    if (profession.Id == Model.DoctorGet.ProfessionId)
+                                    {
+                                        <option value="@profession.Id" selected="selected">@profession.Name</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@profession.Id">@profession.Name</option>
+                                    }
+                                }
+
+                            </select>
+                            <span asp-validation-for="DoctorPost.ProfessionId" style="color: red"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 col-md-4">
+                        <div>
+                            <label asp-for="DoctorPost.FacebookURL" class="form-label">Facebook</label>
+                            <input asp-for="DoctorPost.FacebookURL" value="@Model.DoctorGet.FacebookURL" class="form-control" placeholder="Facebook">
+                            <span asp-validation-for="DoctorPost.FacebookURL" style="color: red"></span>
+                        </div>
+
+                        <div>
+                            <label asp-for="DoctorPost.InstagramURL" class="form-label">Instagram</label>
+                            <input asp-for="DoctorPost.InstagramURL" value="@Model.DoctorGet.InstagramURL" class="form-control" placeholder="Instagram">
+                            <span asp-validation-for="DoctorPost.InstagramURL" style="color: red"></span>
+                        </div>
+
+                        <div>
+                            <label asp-for="DoctorPost.TwitterURL" class="form-label">Twitter</label>
+                            <input asp-for="DoctorPost.TwitterURL" value="@Model.DoctorGet.TwitterURL" class="form-control" placeholder="Twitter">
+                            <span asp-validation-for="DoctorPost.TwitterURL" style="color: red"></span>
+                        </div>
+
+                        <div>
+                            <label asp-for="DoctorPost.LinekedInURL" class="form-label">LinekedIn</label>
+                            <input asp-for="DoctorPost.LinekedInURL" value="@Model.DoctorGet.LinekedInURL" class="form-control" placeholder="LinekedIn">
+                            <span asp-validation-for="DoctorPost.LinekedInURL" style="color: red"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>About:</h4>
+
+                <div class="row">
+                    <div class="mb-3 col-md-3">
+
+                        <label class="form-label">Certification</label>
+                        @for (int i = 0; i < Model.DoctorGet.Certifications.Count(); i++)
+                        {
+                            <div class="row mb-2">
+
+                                <div class="col-md-10">
+                                    <input name="DoctorPost.CertificationPosts" value="@Model.DoctorGet.Certifications[i].Text" type="text" id="input" class="form-control" placeholder="Certification">
+                                    <input name="DoctorPost.CertificationPostsId" value="@Model.DoctorGet.Specializations[i].Id">
+                                    <span asp-validation-for="DoctorPost.CertificationPosts[i].Text" style="color: red"></span>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <a class="btn btn-danger deleteBtn">-</a>
+                                </div>
+
+                            </div>
+                        }
+
+                        <div style="justify-content: center">
+                            <a class="btn btn-primary" id="plusBtn">+</a>
+                        </div>
+
+                    </div>
+
+                    <div class="mb-3 col-md-3">
+
+                        <label class="form-label">Training</label>
+                        @for (int i = 0; i < Model.DoctorGet.Training.Count(); i++)
+                        {
+                            <div class="row mb-2">
+
+                                <div class="col-md-10" id="div">
+                                    <input name="DoctorPost.TrainingPosts[@(Model.DoctorGet.Training.Count() + 1)].Text" value="@Model.DoctorGet.Training[i].Text" type="text" id="input" class="form-control" placeholder="Training">
+                                    <input name="DoctorPost.TrainingPostsId" value="@Model.DoctorGet.Specializations[i].Id">
+                                    <span asp-validation-for="DoctorPost.TrainingPosts[i].Text" style="color: red"></span>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <a class="btn btn-danger deleteBtn">-</a>
+                                </div>
+
+                            </div>
+                        }
+
+                        <div>
+                            <a class="btn btn-primary" id="plusBtn">+</a>
+                        </div>
+
+                    </div>
+
+                    <div class="mb-3 col-md-3">
+
+                        <label class="form-label">Specialization</label>
+                        @for (int i = 0; i < Model.DoctorGet.Specializations.Count(); i++)
+                        {
+                            <div class="row mb-2">
+                                <div class="col-md-10" id="div">
+                                    <input name="DoctorPost.SpecializationPosts[@(Model.DoctorGet.Specializations.Count() + 1)].Text" value="@Model.DoctorGet.Specializations[i].Text" type="text" id="input" class="form-control" placeholder="Specialization">
+                                    <input name="DoctorPost.SpecialozationPostsId" value="@Model.DoctorGet.Specializations[i].Id">
+                                    <span asp-validation-for="DoctorPost.SpecializationPosts[i].Text" style="color: red"></span>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <a class="btn btn-danger deleteBtn">-</a>
+                                </div>
+                            </div>
+                        }
+
+                        <div>
+                            <a class="btn btn-primary" id="plusBtn">+</a>
+                        </div>
+
+                    </div>
+
+                    <div class="mb-3 col-md-3">
+
+                        <label class="form-label">Education</label>
+                        @for (int i = 0; i < Model.DoctorGet.Educations.Count(); i++)
+                        {
+                            <div class="row mb-2">
+                                <div class="col-md-10" id="div">
+                                    <input name="DoctorPost.EducationPosts[@(Model.DoctorGet.Educations.Count() + 1)].Text" value="@Model.DoctorGet.Specializations[i].Text" type="text" id="input" class="form-control" placeholder="Education">
+                                    <input name="DoctorPost.EducationPostsId" value="@Model.DoctorGet.Specializations[i].Id">
+                                    <span asp-validation-for="DoctorPost.EducationPosts[i].Text" style="color: red"></span>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <a class="btn btn-danger deleteBtn">-</a>
+                                </div>
+                            </div>
+                        }
+
+                        <div>
+                            <a class="btn btn-primary" id="plusBtn">+</a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <button type="submit" class="btn btn-warning" id="submit">Update</button>
+            <a asp-controller="doctor" asp-action="index" class="btn btn-outline-danger">Cancel</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        let deleteBtn = document.querySelectorAll('.deleteBtn');
+
+        deleteBtn.forEach(btn => btn.addEventListener("click", function () {
+            btn.parentElement.parentElement.remove();
+        }));
+    </script>
+}

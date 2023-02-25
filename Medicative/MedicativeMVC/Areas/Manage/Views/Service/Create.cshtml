@@ -1,0 +1,43 @@
+﻿@model Entities.DTOs.ServiceDTOs.ServicePostDto
+
+<div>
+    <div>
+        <h1>Create:</h1>
+    </div>
+    <div>
+        <form asp-action="create" method="post">
+            <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+
+            <div asp-validation-summary="All" class="text-danger" aria-hidden="true" id="validation-summary" style="display: none"></div>
+
+            <div class="align-content-center">
+                <div class="mb-3 col-md-6">
+                    <label asp-for="Icon" class="form-label">Icon</label>
+                    <input asp-for="Icon" class="form-control" placeholder="Icon">
+                    <span asp-validation-for="Icon" style="color: red"></span>
+                </div>
+
+                <div class="mb-3 col-md-6">
+                    <label asp-for="Title" class="form-label">Title</label>
+                    <input asp-for="Title" class="form-control" placeholder="Title">
+                    <span asp-validation-for="Title" style="color: red"></span>
+                </div>
+
+                <div class="mb-3 col-md-6">
+                    <label asp-for="Description" class="form-label">Description</label>
+                    <input asp-for="Description" class="form-control" placeholder="Description">
+                    <span asp-validation-for="Description" style="color: red"></span>
+                </div>
+
+                <div class="mb-3 col-md-6">
+                    <label asp-for="RedirectURL" class="form-label">Redirect URL</label>
+                    <input asp-for="RedirectURL" class="form-control" placeholder="Redirect URL">
+                    <span asp-validation-for="RedirectURL" style="color: red"></span>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Create</button>
+            <a asp-controller="service" asp-action="index" class="btn btn-outline-danger">Cancel</a>
+        </form>
+    </div>
+</div>

@@ -130,7 +130,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 878, DateTimeKind.Local).AddTicks(3272));
+                        .HasDefaultValue(new DateTime(2023, 2, 25, 15, 39, 0, 333, DateTimeKind.Local).AddTicks(5343));
 
                     b.Property<int>("DoctorId")
                         .HasColumnType("int");
@@ -148,7 +148,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("ModifiedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 878, DateTimeKind.Local).AddTicks(3450));
+                        .HasDefaultValue(new DateTime(2023, 2, 25, 15, 39, 0, 333, DateTimeKind.Local).AddTicks(5549));
 
                     b.Property<string>("Text")
                         .IsRequired()
@@ -177,7 +177,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 878, DateTimeKind.Local).AddTicks(4452));
+                        .HasDefaultValue(new DateTime(2023, 2, 25, 15, 39, 0, 333, DateTimeKind.Local).AddTicks(6554));
 
                     b.Property<string>("Icon")
                         .IsRequired()
@@ -197,7 +197,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("ModifiedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 878, DateTimeKind.Local).AddTicks(4580));
+                        .HasDefaultValue(new DateTime(2023, 2, 25, 15, 39, 0, 333, DateTimeKind.Local).AddTicks(6699));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -220,7 +220,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 878, DateTimeKind.Local).AddTicks(5517));
+                        .HasDefaultValue(new DateTime(2023, 2, 25, 15, 39, 0, 333, DateTimeKind.Local).AddTicks(7774));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -248,7 +248,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("ModifiedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 878, DateTimeKind.Local).AddTicks(5640));
+                        .HasDefaultValue(new DateTime(2023, 2, 25, 15, 39, 0, 333, DateTimeKind.Local).AddTicks(7915));
 
                     b.Property<string>("PosterImage")
                         .IsRequired()
@@ -280,7 +280,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 878, DateTimeKind.Local).AddTicks(8323));
+                        .HasDefaultValue(new DateTime(2023, 2, 25, 15, 39, 0, 334, DateTimeKind.Local).AddTicks(819));
 
                     b.Property<int>("DepartmentId")
                         .HasColumnType("int");
@@ -328,7 +328,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("ModifiedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 878, DateTimeKind.Local).AddTicks(8490));
+                        .HasDefaultValue(new DateTime(2023, 2, 25, 15, 39, 0, 334, DateTimeKind.Local).AddTicks(1049));
 
                     b.Property<string>("Phone")
                         .IsRequired()
@@ -363,7 +363,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 879, DateTimeKind.Local).AddTicks(4));
+                        .HasDefaultValue(new DateTime(2023, 2, 25, 15, 39, 0, 334, DateTimeKind.Local).AddTicks(2689));
 
                     b.Property<int>("DoctorId")
                         .HasColumnType("int");
@@ -381,7 +381,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("ModifiedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 879, DateTimeKind.Local).AddTicks(165));
+                        .HasDefaultValue(new DateTime(2023, 2, 25, 15, 39, 0, 334, DateTimeKind.Local).AddTicks(2875));
 
                     b.Property<string>("Text")
                         .IsRequired()
@@ -395,110 +395,6 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("Educations", (string)null);
                 });
 
-            modelBuilder.Entity("Entities.Concrete.Medicine", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<bool>("BestProduct")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
-
-                    b.Property<bool>("BestSeller")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedTime")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 879, DateTimeKind.Local).AddTicks(4117));
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(750)
-                        .HasColumnType("NVarChar(750)");
-
-                    b.Property<string>("ImageURL")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("NVarChar(100)");
-
-                    b.Property<bool>("IsActive")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
-
-                    b.Property<bool>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
-
-                    b.Property<DateTime>("ModifiedTime")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 879, DateTimeKind.Local).AddTicks(4232));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("NVarChar(200)");
-
-                    b.Property<double>("Price")
-                        .HasColumnType("Float");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.ToTable("Medicines", (string)null);
-                });
-
-            modelBuilder.Entity("Entities.Concrete.MedicineCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Category")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("NVarChar(200)");
-
-                    b.Property<DateTime>("CreatedTime")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 879, DateTimeKind.Local).AddTicks(1005));
-
-                    b.Property<bool>("IsActive")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
-
-                    b.Property<bool>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
-
-                    b.Property<DateTime>("ModifiedTime")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 879, DateTimeKind.Local).AddTicks(1138));
-
-                    b.HasKey("Id");
-
-                    b.ToTable("MedicineCategories", (string)null);
-                });
-
             modelBuilder.Entity("Entities.Concrete.Profession", b =>
                 {
                     b.Property<int>("Id")
@@ -510,7 +406,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 879, DateTimeKind.Local).AddTicks(5102));
+                        .HasDefaultValue(new DateTime(2023, 2, 25, 15, 39, 0, 334, DateTimeKind.Local).AddTicks(3806));
 
                     b.Property<string>("Icon")
                         .IsRequired()
@@ -530,7 +426,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("ModifiedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 879, DateTimeKind.Local).AddTicks(5225));
+                        .HasDefaultValue(new DateTime(2023, 2, 25, 15, 39, 0, 334, DateTimeKind.Local).AddTicks(3982));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -553,7 +449,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 879, DateTimeKind.Local).AddTicks(6119));
+                        .HasDefaultValue(new DateTime(2023, 2, 25, 15, 39, 0, 334, DateTimeKind.Local).AddTicks(4891));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -578,7 +474,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("ModifiedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 879, DateTimeKind.Local).AddTicks(6278));
+                        .HasDefaultValue(new DateTime(2023, 2, 25, 15, 39, 0, 334, DateTimeKind.Local).AddTicks(5065));
 
                     b.Property<string>("RedirectURL")
                         .IsRequired()
@@ -595,7 +491,7 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("Services", (string)null);
                 });
 
-            modelBuilder.Entity("Entities.Concrete.Size", b =>
+            modelBuilder.Entity("Entities.Concrete.Setting", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -606,7 +502,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 879, DateTimeKind.Local).AddTicks(6962));
+                        .HasDefaultValue(new DateTime(2023, 2, 25, 15, 39, 0, 334, DateTimeKind.Local).AddTicks(5892));
 
                     b.Property<bool>("IsActive")
                         .ValueGeneratedOnAdd()
@@ -618,66 +514,24 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
 
-                    b.Property<DateTime>("ModifiedTime")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 879, DateTimeKind.Local).AddTicks(7110));
-
-                    b.Property<string>("Text")
+                    b.Property<string>("Key")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("NVarChar(100)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Size", (string)null);
-                });
-
-            modelBuilder.Entity("Entities.Concrete.Skill", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<DateTime>("CreatedTime")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 879, DateTimeKind.Local).AddTicks(8583));
-
-                    b.Property<int>("DoctorId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsActive")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
-
-                    b.Property<bool>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
+                        .HasMaxLength(200)
+                        .HasColumnType("NVarChar(200)");
 
                     b.Property<DateTime>("ModifiedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 879, DateTimeKind.Local).AddTicks(8743));
+                        .HasDefaultValue(new DateTime(2023, 2, 25, 15, 39, 0, 334, DateTimeKind.Local).AddTicks(6084));
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Value")
                         .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("NVarChar(150)");
-
-                    b.Property<int>("Percent")
-                        .HasMaxLength(150)
-                        .HasColumnType("Int");
+                        .HasMaxLength(500)
+                        .HasColumnType("NVarChar(500)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DoctorId");
-
-                    b.ToTable("Skills", (string)null);
+                    b.ToTable("Settings");
                 });
 
             modelBuilder.Entity("Entities.Concrete.Slider", b =>
@@ -691,7 +545,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 879, DateTimeKind.Local).AddTicks(9788));
+                        .HasDefaultValue(new DateTime(2023, 2, 25, 15, 39, 0, 334, DateTimeKind.Local).AddTicks(7041));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -716,7 +570,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("ModifiedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 879, DateTimeKind.Local).AddTicks(9912));
+                        .HasDefaultValue(new DateTime(2023, 2, 25, 15, 39, 0, 334, DateTimeKind.Local).AddTicks(7184));
 
                     b.Property<string>("RedirectURL")
                         .IsRequired()
@@ -749,7 +603,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 880, DateTimeKind.Local).AddTicks(1279));
+                        .HasDefaultValue(new DateTime(2023, 2, 25, 15, 39, 0, 334, DateTimeKind.Local).AddTicks(8730));
 
                     b.Property<int>("DoctorId")
                         .HasColumnType("int");
@@ -767,7 +621,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("ModifiedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 880, DateTimeKind.Local).AddTicks(1468));
+                        .HasDefaultValue(new DateTime(2023, 2, 25, 15, 39, 0, 334, DateTimeKind.Local).AddTicks(8977));
 
                     b.Property<string>("Text")
                         .IsRequired()
@@ -792,7 +646,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 880, DateTimeKind.Local).AddTicks(2866));
+                        .HasDefaultValue(new DateTime(2023, 2, 25, 15, 39, 0, 335, DateTimeKind.Local).AddTicks(566));
 
                     b.Property<int>("DoctorId")
                         .HasColumnType("int");
@@ -810,7 +664,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("ModifiedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 19, 0, 57, 33, 880, DateTimeKind.Local).AddTicks(3024));
+                        .HasDefaultValue(new DateTime(2023, 2, 25, 15, 39, 0, 335, DateTimeKind.Local).AddTicks(741));
 
                     b.Property<string>("Text")
                         .IsRequired()
@@ -822,21 +676,6 @@ namespace DataAccessLayer.Migrations
                     b.HasIndex("DoctorId");
 
                     b.ToTable("Trainings", (string)null);
-                });
-
-            modelBuilder.Entity("MedicineSize", b =>
-                {
-                    b.Property<int>("MedicinesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SizeId")
-                        .HasColumnType("int");
-
-                    b.HasKey("MedicinesId", "SizeId");
-
-                    b.HasIndex("SizeId");
-
-                    b.ToTable("MedicineSize");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -1013,28 +852,6 @@ namespace DataAccessLayer.Migrations
                     b.Navigation("Doctor");
                 });
 
-            modelBuilder.Entity("Entities.Concrete.Medicine", b =>
-                {
-                    b.HasOne("Entities.Concrete.MedicineCategory", "MedicineCategory")
-                        .WithMany("Medicines")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("MedicineCategory");
-                });
-
-            modelBuilder.Entity("Entities.Concrete.Skill", b =>
-                {
-                    b.HasOne("Entities.Concrete.Doctor", "Doctor")
-                        .WithMany("Skills")
-                        .HasForeignKey("DoctorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Doctor");
-                });
-
             modelBuilder.Entity("Entities.Concrete.Specialization", b =>
                 {
                     b.HasOne("Entities.Concrete.Doctor", "Doctor")
@@ -1055,21 +872,6 @@ namespace DataAccessLayer.Migrations
                         .IsRequired();
 
                     b.Navigation("Doctor");
-                });
-
-            modelBuilder.Entity("MedicineSize", b =>
-                {
-                    b.HasOne("Entities.Concrete.Medicine", null)
-                        .WithMany()
-                        .HasForeignKey("MedicinesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Entities.Concrete.Size", null)
-                        .WithMany()
-                        .HasForeignKey("SizeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -1134,16 +936,9 @@ namespace DataAccessLayer.Migrations
 
                     b.Navigation("Educations");
 
-                    b.Navigation("Skills");
-
                     b.Navigation("Specializations");
 
                     b.Navigation("Training");
-                });
-
-            modelBuilder.Entity("Entities.Concrete.MedicineCategory", b =>
-                {
-                    b.Navigation("Medicines");
                 });
 
             modelBuilder.Entity("Entities.Concrete.Profession", b =>

@@ -3,9 +3,11 @@ using Business.Abstract;
 using Core.Utilities.Abstract;
 using Core.Utilities.Complex_types;
 using Core.Utilities.Concrete;
+using Core.Utilities.Extensions.FileManagerExtentions;
 using DataAccessLayer.Abstract;
 using Entities.Concrete;
 using Entities.DTOs.DepartmentDTOs;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Business.Concrete
 {
@@ -13,30 +15,16 @@ namespace Business.Concrete
     {
         private readonly IUnityOfWork _unityOfWork;
         private readonly IMapper _mapper;
+        private readonly IWebHostEnvironment _env;
 
-        public DepartmentManager(IUnityOfWork unityOfWork, IMapper mapper)
+        public DepartmentManager(IUnityOfWork unityOfWork, IMapper mapper, IWebHostEnvironment env)
         {
             _unityOfWork = unityOfWork;
             _mapper = mapper;
+            _env = env;
         }
 
         
-        public async Task<IResult> Delete(int id)
-        {
-            Department department = await _unityOfWork.Department.GetAsync(x => x.Id == id);
-
-            if (department != null)
-            {
-                department.IsDeleted = true;
-                _unityOfWork.Department.Update(department);
-                await _unityOfWork.SaveAsync();
-
-                return new Result(ResultStatus.Success);
-            }
-
-            return new Result(ResultStatus.Error, "There is no department in this id!");
-        }
-
         public async Task<IDataResult<DepartmentListDto>> GetAllAsync()
         {
             List<Department> departments = await _unityOfWork.Department.GetAllAsync();
@@ -46,7 +34,7 @@ namespace Business.Concrete
             return new DataResult<DepartmentListDto>(ResultStatus.Success, new DepartmentListDto { DepartmentList = departmentGetList });
         }
 
-        public async Task<IDataResult<DepartmentListDto>> GetAllByNonDeleteAsync(int id)
+        public async Task<IDataResult<DepartmentListDto>> GetAllByNonDeleteAsync()
         {
             List<Department> departments = await _unityOfWork.Department.GetAllAsync(x => x.IsDeleted == false);
 
@@ -88,9 +76,49 @@ namespace Business.Concrete
             Department department = await _unityOfWork.Department.GetAsync(x => x.Id == departmentUpdate.DepartmentGet.Id);
             if (departmentUpdate is not null)
             {
-                department = _mapper.Map<Department>(departmentUpdate.DepartmentPost);
+                if (departmentUpdate.DepartmentPost.PosterFormFile != null)
+                {
+                    if (!departmentUpdate.DepartmentPost.PosterFormFile.IsImageContent())
+                    {
+                        return new DataResult<DepartmentGetDto>(ResultStatus.Error, null, "Image context incorrect!");
+                    }
+
+                    if (!departmentUpdate.DepartmentPost.PosterFormFile.IsValidImageLength())
+                    {
+                        return new DataResult<DepartmentGetDto>(ResultStatus.Error, null, "Image length must be less than 2MB!");
+                    }
+
+                    string image = departmentUpdate.DepartmentPost.PosterFormFile.SaveImage(_env.WebRootPath, "uploads/departments");
+                    department.PosterImage.DeleteImage(_env.WebRootPath, "uploads/departments");
+                    department.PosterImage = image;
+                }
+
+                if (departmentUpdate.DepartmentPost.DetailFormFile != null)
+                {
+                    if (!departmentUpdate.DepartmentPost.DetailFormFile.IsImageContent())
+                    {
+                        return new DataResult<DepartmentGetDto>(ResultStatus.Error, null, "Image context incorrect!");
+                    }
+
+                    if (!departmentUpdate.DepartmentPost.DetailFormFile.IsValidImageLength())
+                    {
+                        return new DataResult<DepartmentGetDto>(ResultStatus.Error, null, "Image length must be less than 2MB!");
+                    }
+
+                    string image = departmentUpdate.DepartmentPost.DetailFormFile.SaveImage(_env.WebRootPath, "uploads/departments");
+                    department.DetailImage.DeleteImage(_env.WebRootPath, "uploads/departments");
+                    department.DetailImage = image;
+                }
+
+                department.Title = departmentUpdate.DepartmentPost.Title;
+                department.Description = departmentUpdate.DepartmentPost.Description;
+                department.InvestigationFee = departmentUpdate.DepartmentPost.InvestigationFee;
+                department.TreatmentFee = departmentUpdate.DepartmentPost.TreatmentFee;
+                department.ModifiedTime = DateTime.Now;
+
                 departmentUpdate.DepartmentGet = _mapper.Map<DepartmentGetDto>(department);
 
+                _unityOfWork.Department.Update(department);
                 await _unityOfWork.SaveAsync();
                 return new DataResult<DepartmentGetDto>(ResultStatus.Success, departmentUpdate.DepartmentGet);
             }

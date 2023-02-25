@@ -63,7 +63,16 @@ namespace Business.Concrete
             return new DataResult<CounterListDto>(ResultStatus.Success, new CounterListDto { Counters = counterGets });
         }
 
-        public async Task<IDataResult<CounterListDto>> GetAllByNonDeleteAsync(int id)
+        public async Task<IDataResult<CounterListDto>> GetAllByDeletedAsync()
+        {
+            List<Counter> counters = await _unityOfWork.Counter.GetAllAsync(x => x.IsDeleted == true);
+
+            List<CounterGetDto> counterGets = _mapper.Map<List<CounterGetDto>>(counters);
+
+            return new DataResult<CounterListDto>(ResultStatus.Success, new CounterListDto { Counters = counterGets });
+        }
+
+        public async Task<IDataResult<CounterListDto>> GetAllByNonDeleteAsync()
         {
             List<Counter> counters = await _unityOfWork.Counter.GetAllAsync(x => x.IsDeleted == false);
 
@@ -115,14 +124,34 @@ namespace Business.Concrete
             return new Result(ResultStatus.Error, "There is no counter in this id!");
         }
 
+        public async Task<IResult> Restore(int id)
+        {
+            Counter counter = await _unityOfWork.Counter.GetAsync(x => x.Id == id);
+
+            if (counter != null)
+            {
+                counter.IsDeleted = false;
+                _unityOfWork.Counter.Update(counter);
+                await _unityOfWork.SaveAsync();
+
+                return new Result(ResultStatus.Success);
+            }
+
+            return new Result(ResultStatus.Error, "There is no counter in this id!");
+        }
+
         public async Task<IDataResult<CounterGetDto>> Update(CounterUpdateDto counterUpdate)
         {
             Counter counter = await _unityOfWork.Counter.GetAsync(x => x.Id == counterUpdate.CounterGet.Id);
             if (counter is not null)
             {
-                counter = _mapper.Map<Counter>(counterUpdate.CounterPost);
+                counter.Icon = counterUpdate.CounterPost.Icon;
+                counter.Name = counterUpdate.CounterPost.Name;
+                counter.Count = counterUpdate.CounterPost.Count;
+                counter.ModifiedTime = DateTime.Now;
                 counterUpdate.CounterGet = _mapper.Map<CounterGetDto>(counter);
 
+                _unityOfWork.Counter.Update(counter);
                 await _unityOfWork.SaveAsync();
                 return new DataResult<CounterGetDto>(ResultStatus.Success, counterUpdate.CounterGet);
             }

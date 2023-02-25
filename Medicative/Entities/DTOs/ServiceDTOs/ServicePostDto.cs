@@ -18,7 +18,6 @@ namespace Entities.DTOs.ServiceDTOs
 
         [Required]
         [StringLength(150)]
-        [DataType(DataType.Url)]
         public string RedirectURL { get; set; }
     }
 }

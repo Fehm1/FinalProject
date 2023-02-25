@@ -2,6 +2,7 @@
 using Core.Utilities.Complex_types;
 using DataAccessLayer.Abstract;
 using Entities.DTOs.DoctorDTOs;
+using Entities.DTOs.ProfessionDTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MedicativeMVC.Areas.Manage.Controllers
@@ -64,6 +65,38 @@ namespace MedicativeMVC.Areas.Manage.Controllers
             }
 
             return View(doctorPost);
+        }
+
+        public async Task<IActionResult> Update(int id)
+        {
+            ViewBag.Departments = await _unityOfWork.Department.GetAllAsync(x => x.IsDeleted == false);
+            ViewBag.Professions = await _unityOfWork.Profession.GetAllAsync(x => x.IsDeleted == false);
+
+            var result = await _doctorService.GetUpdateDto(id);
+            if (result.ResultStatus == ResultStatus.Success)
+            {
+                return View(result.Data);
+            }
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Update(DoctorUpdateDto doctorUpdate)
+        {
+            ViewBag.Departments = await _unityOfWork.Department.GetAllAsync(x => x.IsDeleted == false);
+            ViewBag.Professions = await _unityOfWork.Profession.GetAllAsync(x => x.IsDeleted == false);
+
+            if (!ModelState.IsValid)
+            {
+                var result = await _doctorService.Update(doctorUpdate);
+                if (result.ResultStatus == ResultStatus.Success)
+                {
+                    return RedirectToAction("index");
+                }
+            }
+
+            return View(doctorUpdate);
         }
     }
 }

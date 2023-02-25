@@ -18,9 +18,9 @@ namespace Entities.Concrete
 
         public Profession Profession { get; set; }
         public Department Department { get; set; }
-        public List<Specialization> Specializations { get; set; }
-        public List<Education> Educations { get; set; }
-        public List<Training> Training { get; set; }
-        public List<Certification> Certifications { get; set; }
+        public List<Specialization> Specializations { get; set; } = new List<Specialization>();
+        public List<Education> Educations { get; set; } = new List<Education>();
+        public List<Training> Training { get; set; } = new List<Training>(); 
+        public List<Certification> Certifications { get; set; } = new List<Certification>();
     }
 }

@@ -1,0 +1,61 @@
+﻿@using Entities.DTOs.ServiceDTOs
+@model Entities.DTOs.ServiceDTOs.ServiceListDto
+@{
+    int count = 0;
+}
+
+<div>
+    <div class="row align-items-center">
+        <div class="col-10" style="justify-content: start">
+            <h1>Service:</h1>
+        </div>
+        <div class="col-2" style="justify-content: end">
+            <a class="btn btn-primary" asp-controller="service" asp-action="create">Add <i class="bi bi-plus-circle"></i></a>
+            <a class="btn btn-outline-danger" asp-controller="service" asp-action="deletedTable">Deleted <i class="bi bi-trash-fill"></i></a>
+        </div>
+    </div>
+    <div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table" id="serviceTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Icon</th>
+                            <th>Title</th>
+                            <th>Created time</th>
+                            <th>Updated time</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (ServiceGetDto service in Model.ServiceList)
+                        {
+                            count++;
+                            <tr>
+                                <th scope="row">@(count)</th>
+                                <td>@Html.Raw(service.Icon)</td>
+                                <td>@service.Title</td>
+                                <td>@service.CreatedTime.ToShortDateString()</td>
+                                <td>@service.ModifiedTime.ToShortDateString()</td>
+                                <td style="text-align:center">
+                                    <a class="btn btn-warning" asp-area="Manage" asp-controller="service" asp-action="update" asp-route-id="@service.Id"><i class="bi bi-pen-fill"></i></a>
+                                    <a class="btn btn-danger deleteButton" asp-area="Manage" asp-controller="service" asp-action="Delete" asp-route-id="@service.Id"><i class="bi bi-trash-fill"></i></a>
+                                </td>
+                            </tr>
+                        }
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#serviceTable').DataTable();
+        });
+    </script>
+}

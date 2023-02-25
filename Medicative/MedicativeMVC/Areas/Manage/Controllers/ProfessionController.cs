@@ -65,15 +65,13 @@ namespace MedicativeMVC.Areas.Manage.Controllers
             {
                 return View(result.Data);
             }
-            return View();
+            return NotFound();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(ProfessionUpdateDto professionUpdate)
         {
-            var professionGetDto = await _professionService.GetAsync(professionUpdate.ProfessionGet.Id);
-            professionUpdate.ProfessionGet = professionGetDto.Data;
             if (!ModelState.IsValid)
             {
                 var result = await _professionService.Update(professionUpdate);

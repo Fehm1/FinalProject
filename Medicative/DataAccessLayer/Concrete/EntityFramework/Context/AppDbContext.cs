@@ -20,9 +20,7 @@ namespace DataAccessLayer.Concrete.EntityFramework.Context
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<Specialization> Specializations { get; set; }
         public DbSet<Training> Trainings { get; set; }
-        public DbSet<Medicine> Medicines { get; set; }
-        public DbSet<MedicineCategory> MedicineCategories { get; set; }
-        public DbSet<Size> Sizes { get; set; }
+        public DbSet<Setting> Settings { get; set; }
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{

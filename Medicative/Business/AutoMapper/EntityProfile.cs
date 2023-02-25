@@ -5,11 +5,9 @@ using Entities.DTOs.CounterDTOs;
 using Entities.DTOs.DepartmentDTOs;
 using Entities.DTOs.DoctorDTOs;
 using Entities.DTOs.EducationDTOs;
-using Entities.DTOs.MedicineCategoryDTOs;
-using Entities.DTOs.MedicineDTOs;
 using Entities.DTOs.ProfessionDTOs;
 using Entities.DTOs.ServiceDTOs;
-using Entities.DTOs.SizeDTOs;
+using Entities.DTOs.SettingDTOs;
 using Entities.DTOs.SliderDTOs;
 using Entities.DTOs.SpecializationDTOs;
 using Entities.DTOs.TrainingDTOs;
@@ -35,20 +33,11 @@ namespace Business.AutoMapper
             CreateMap<Education, EducationGetDto>();
             CreateMap<EducationPostDto, Education>();
 
-            CreateMap<MedicineCategory, MedicineCategoryGetDto>();
-            CreateMap<MedicineCategoryPostDto, MedicineCategory>();
-
-            CreateMap<Medicine, MedicineGetDto>();
-            CreateMap<MedicinePostDto, Medicine>();
-
             CreateMap<Profession, ProfessionGetDto>();
             CreateMap<ProfessionPostDto, Profession>();
 
             CreateMap<Service, ServiceGetDto>();
             CreateMap<ServicePostDto, Service>();
-
-            CreateMap<Size, SizeGetDto>();
-            CreateMap<SizePostDto, Size>();
 
             CreateMap<Slider, SliderGetDto>();
             CreateMap<SliderPostDto, Slider>();
@@ -58,6 +47,9 @@ namespace Business.AutoMapper
 
             CreateMap<Training, TrainingGetDto>();
             CreateMap<TrainingPostDto, Training>();
+
+            CreateMap<Setting, SettingGetDto>();
+            CreateMap<SettingPostDto, Setting>();
         }
     }
 }
