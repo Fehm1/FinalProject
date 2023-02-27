@@ -37,6 +37,7 @@
                                 <td>@department.CreatedTime.ToShortDateString()</td>
                                 <td>@department.ModifiedTime.ToShortDateString()</td>
                                 <td style="text-align:center">
+                                    <a class="btn btn-primary" asp-area="Manage" asp-controller="department" asp-action="Detail" asp-route-id="@department.Id"><i class="bi bi-info-circle-fill"></i></a>
                                     <a class="btn btn-warning" asp-area="Manage" asp-controller="department" asp-action="update" asp-route-id="@department.Id"><i class="bi bi-pen-fill"></i></a>
                                 </td>
                             </tr>

@@ -1,0 +1,22 @@
+﻿@model List<Service>
+
+<div class="section-content">
+    <div class="row">
+        <div class="about-feature">
+
+            @foreach (Service service in Model)
+            {
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                    <div class="appointment-item style-gray animated fadeInLeftShort slow delay-250">
+                        @Html.Raw(service.Icon)
+                        <h5><a href="@service.RedirectURL">@service.Title</a></h5>
+                        <div class="line-border-center bg-gray"></div>
+                        <p>@service.Description</p>
+                        <br>
+                        <a href="@service.RedirectURL" class="btn btn-theme btn-sm">Book Now</a>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>

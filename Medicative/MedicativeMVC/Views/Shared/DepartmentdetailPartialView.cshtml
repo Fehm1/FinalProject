@@ -1,0 +1,52 @@
+﻿@model List<Setting>
+
+<div class="col-md-4">
+    <div class="depertment-col">
+        <div class="depertment-list">
+            <a asp-controller="department" asp-action="Cardilogists"><i b-9h7ph8a8rf="" class="bi bi-caret-right-fill"></i> Cardilogists Depertment</a>
+            <a asp-controller="department" asp-action="Orthopaedics"><i b-9h7ph8a8rf="" class="bi bi-caret-right-fill"></i> Orthopaedics Depertment</a>
+            <a asp-controller="department" asp-action="Gastronelogy"><i b-9h7ph8a8rf="" class="bi bi-caret-right-fill"></i> Gastroenterology Depertment</a>
+            <a asp-controller="department" asp-action="Neuroscien"><i b-9h7ph8a8rf="" class="bi bi-caret-right-fill"></i> Neurosciences Depertment</a>
+            <a asp-controller="department" asp-action="Spine"><i b-9h7ph8a8rf="" class="bi bi-caret-right-fill"></i> Spine Depertment</a>
+            <a asp-controller="department" asp-action="Cancer"><i b-9h7ph8a8rf="" class="bi bi-caret-right-fill"></i> Cancer Depertment</a>
+        </div>
+    </div>
+    <div class="bg-f8 padding-20 margin-top-50">
+        <div class="footer-item footer-widget-one margin-bottom-10">
+            <div class="footer-title">
+                <h4>Opening Hour</h4>
+                <div class="border-style-2"></div>
+            </div>
+            <ul class="footer-list border-deshed">
+                <li class="clearfix">
+                    <span> Monday : </span>
+                    <div class="value pull-right"> @Model.FirstOrDefault(x => x.Key == "Monday-Friday").Value </div>
+                </li>
+                <li class="clearfix">
+                    <span> Tuesday : </span>
+                    <div class="value pull-right"> @Model.FirstOrDefault(x => x.Key == "Monday-Friday").Value </div>
+                </li>
+                <li class="clearfix">
+                    <span> Wednesday : </span>
+                    <div class="value pull-right"> @Model.FirstOrDefault(x => x.Key == "Monday-Friday").Value </div>
+                </li>
+                <li class="clearfix">
+                    <span> Thursday : </span>
+                    <div class="value pull-right"> @Model.FirstOrDefault(x => x.Key == "Monday-Friday").Value </div>
+                </li>
+                <li class="clearfix">
+                    <span> Friday : </span>
+                    <div class="value pull-right"> @Model.FirstOrDefault(x => x.Key == "Monday-Friday").Value </div>
+                </li>
+                <li class="clearfix">
+                    <span>  Saturday : </span>
+                    <div class="value pull-right">  @Model.FirstOrDefault(x => x.Key == "Saturday").Value </div>
+                </li>
+                <li class="clearfix">
+                    <span> Sunday : </span>
+                    <div class="value pull-right"> @Model.FirstOrDefault(x => x.Key == "Sunday").Value </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

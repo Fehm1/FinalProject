@@ -1,9 +1,6 @@
 ﻿@using Entities.Concrete
 @using Newtonsoft.Json
 @model Entities.DTOs.DoctorDTOs.DoctorUpdateDto
-@{
-    int n = 1;
-}
 
 <div>
     <div>
@@ -125,104 +122,128 @@
                 <div class="row">
                     <div class="mb-3 col-md-3">
 
-                        <label class="form-label">Certification</label>
-                        @for (int i = 0; i < Model.DoctorGet.Certifications.Count(); i++)
-                        {
-                            <div class="row mb-2">
+                        <div class="mb-1">
+                            <label class="form-label">Certification</label>
+                            <input name="DoctorPost.CertificationPosts[0].Text" value="@Model.DoctorGet.Certifications[0].Text" type="text" required="required" class="form-control" placeholder="Certification">
+                            <span asp-validation-for="DoctorPost.CertificationPosts" style="color: red"></span>
+                        </div>
 
-                                <div class="col-md-10">
-                                    <input name="DoctorPost.CertificationPosts" value="@Model.DoctorGet.Certifications[i].Text" type="text" id="input" class="form-control" placeholder="Certification">
-                                    <input name="DoctorPost.CertificationPostsId" value="@Model.DoctorGet.Specializations[i].Id">
-                                    <span asp-validation-for="DoctorPost.CertificationPosts[i].Text" style="color: red"></span>
-                                </div>
+                        <div class="mb-1">
+                            <input name="DoctorPost.CertificationPosts[1].Text" value="@Model.DoctorGet.Certifications[1].Text" type="text" required="required" class="form-control" placeholder="Certification">
+                            <span asp-validation-for="DoctorPost.CertificationPosts" style="color: red"></span>
+                        </div>
 
-                                <div class="col-md-2">
-                                    <a class="btn btn-danger deleteBtn">-</a>
-                                </div>
+                        <div class="mb-1">
+                            <input name="DoctorPost.CertificationPosts[2].Text" value="@Model.DoctorGet.Certifications[2].Text" type="text" required="required" class="form-control" placeholder="Certification">
+                            <span asp-validation-for="DoctorPost.CertificationPosts" style="color: red"></span>
+                        </div>
 
-                            </div>
-                        }
+                        <div class="mb-1">
+                            <input name="DoctorPost.CertificationPosts[3].Text" value="@Model.DoctorGet.Certifications[3].Text" type="text" required="required" class="form-control" placeholder="Certification">
+                            <span asp-validation-for="DoctorPost.CertificationPosts" style="color: red"></span>
+                        </div>
 
-                        <div style="justify-content: center">
-                            <a class="btn btn-primary" id="plusBtn">+</a>
+                        <div class="mb-1">
+                            <input name="DoctorPost.CertificationPosts[4].Text" value="@Model.DoctorGet.Certifications[4].Text" type="text" required="required" class="form-control" placeholder="Certification">
+                            <span asp-validation-for="DoctorPost.CertificationPosts" style="color: red"></span>
                         </div>
 
                     </div>
 
                     <div class="mb-3 col-md-3">
 
-                        <label class="form-label">Training</label>
-                        @for (int i = 0; i < Model.DoctorGet.Training.Count(); i++)
-                        {
-                            <div class="row mb-2">
+                        <div class="mb-1">
+                            <label class="form-label">Training</label>
+                            <input name="DoctorPost.TrainingPosts[0].Text" value="@Model.DoctorGet.Training[0].Text" type="text" required="required" class="form-control" placeholder="Training">
+                            <span asp-validation-for="DoctorPost.TrainingPosts" style="color: red"></span>
+                        </div>
 
-                                <div class="col-md-10" id="div">
-                                    <input name="DoctorPost.TrainingPosts[@(Model.DoctorGet.Training.Count() + 1)].Text" value="@Model.DoctorGet.Training[i].Text" type="text" id="input" class="form-control" placeholder="Training">
-                                    <input name="DoctorPost.TrainingPostsId" value="@Model.DoctorGet.Specializations[i].Id">
-                                    <span asp-validation-for="DoctorPost.TrainingPosts[i].Text" style="color: red"></span>
-                                </div>
+                        <div class="mb-1">
+                            <input name="DoctorPost.TrainingPosts[1].Text" value="@Model.DoctorGet.Training[1].Text" type="text" required="required" class="form-control" placeholder="Training">
+                            <span asp-validation-for="DoctorPost.TrainingPosts" style="color: red"></span>
+                        </div>
 
-                                <div class="col-md-2">
-                                    <a class="btn btn-danger deleteBtn">-</a>
-                                </div>
+                        <div class="mb-1">
+                            <input name="DoctorPost.TrainingPosts[2].Text" value="@Model.DoctorGet.Training[2].Text" type="text" required="required" class="form-control" placeholder="Training">
+                            <span asp-validation-for="DoctorPost.TrainingPosts" style="color: red"></span>
+                        </div>
 
-                            </div>
-                        }
+                        <div class="mb-1">
+                            <input name="DoctorPost.TrainingPosts[3].Text" value="@Model.DoctorGet.Training[3].Text" type="text" required="required" class="form-control" placeholder="Training">
+                            <span asp-validation-for="DoctorPost.TrainingPosts" style="color: red"></span>
+                        </div>
 
-                        <div>
-                            <a class="btn btn-primary" id="plusBtn">+</a>
+                        <div class="mb-1">
+                            <input name="DoctorPost.TrainingPosts[4].Text" value="@Model.DoctorGet.Training[4].Text" type="text" required="required" class="form-control" placeholder="Training">
+                            <span asp-validation-for="DoctorPost.TrainingPosts" style="color: red"></span>
                         </div>
 
                     </div>
 
                     <div class="mb-3 col-md-3">
 
-                        <label class="form-label">Specialization</label>
-                        @for (int i = 0; i < Model.DoctorGet.Specializations.Count(); i++)
-                        {
-                            <div class="row mb-2">
-                                <div class="col-md-10" id="div">
-                                    <input name="DoctorPost.SpecializationPosts[@(Model.DoctorGet.Specializations.Count() + 1)].Text" value="@Model.DoctorGet.Specializations[i].Text" type="text" id="input" class="form-control" placeholder="Specialization">
-                                    <input name="DoctorPost.SpecialozationPostsId" value="@Model.DoctorGet.Specializations[i].Id">
-                                    <span asp-validation-for="DoctorPost.SpecializationPosts[i].Text" style="color: red"></span>
-                                </div>
-
-                                <div class="col-md-2">
-                                    <a class="btn btn-danger deleteBtn">-</a>
-                                </div>
-                            </div>
-                        }
-
-                        <div>
-                            <a class="btn btn-primary" id="plusBtn">+</a>
+                        <div class="mb-1">
+                            <label class="form-label">Specialization</label>
+                            <input name="DoctorPost.SpecializationPosts[0].Text" value="@Model.DoctorGet.Specializations[0].Text" type="text" required="required" class="form-control" placeholder="Specialization">
+                            <span asp-validation-for="DoctorPost.SpecializationPosts" style="color: red"></span>
                         </div>
+
+                        <div class="mb-1">
+                            <input name="DoctorPost.SpecializationPosts[1].Text" value="@Model.DoctorGet.Specializations[1].Text" type="text" required="required" class="form-control" placeholder="Specialization">
+                            <span asp-validation-for="DoctorPost.SpecializationPosts" style="color: red"></span>
+                        </div>
+
+                        <div class="mb-1">
+                            <input name="DoctorPost.SpecializationPosts[2].Text" value="@Model.DoctorGet.Specializations[2].Text" type="text" required="required" class="form-control" placeholder="Specialization">
+                            <span asp-validation-for="DoctorPost.SpecializationPosts" style="color: red"></span>
+                        </div>
+
+                        <div class="mb-1">
+                            <input name="DoctorPost.SpecializationPosts[3].Text" value="@Model.DoctorGet.Specializations[3].Text" type="text" required="required" class="form-control" placeholder="Specialization">
+                            <span asp-validation-for="DoctorPost.SpecializationPosts" style="color: red"></span>
+                        </div>
+
+                        <div class="mb-1">
+                            <input name="DoctorPost.SpecializationPosts[4].Text" value="@Model.DoctorGet.Specializations[4].Text" type="text" required="required" class="form-control" placeholder="Specialization">
+                            <span asp-validation-for="DoctorPost.SpecializationPosts" style="color: red"></span>
+                        </div>
+
 
                     </div>
 
                     <div class="mb-3 col-md-3">
 
-                        <label class="form-label">Education</label>
-                        @for (int i = 0; i < Model.DoctorGet.Educations.Count(); i++)
-                        {
-                            <div class="row mb-2">
-                                <div class="col-md-10" id="div">
-                                    <input name="DoctorPost.EducationPosts[@(Model.DoctorGet.Educations.Count() + 1)].Text" value="@Model.DoctorGet.Specializations[i].Text" type="text" id="input" class="form-control" placeholder="Education">
-                                    <input name="DoctorPost.EducationPostsId" value="@Model.DoctorGet.Specializations[i].Id">
-                                    <span asp-validation-for="DoctorPost.EducationPosts[i].Text" style="color: red"></span>
-                                </div>
-
-                                <div class="col-md-2">
-                                    <a class="btn btn-danger deleteBtn">-</a>
-                                </div>
-                            </div>
-                        }
-
-                        <div>
-                            <a class="btn btn-primary" id="plusBtn">+</a>
+                        <div class="mb-1">
+                            <label class="form-label">Education</label>
+                            <input name="DoctorPost.EducationPosts[0].Text" value="@Model.DoctorGet.Educations[0].Text" type="text" required="required" class="form-control" placeholder="Education">
+                            <span asp-validation-for="DoctorPost.EducationPosts" style="color: red"></span>
                         </div>
+
+                        <div class="mb-1">
+                            <input name="DoctorPost.EducationPosts[1].Text" value="@Model.DoctorGet.Educations[1].Text" type="text" required="required" class="form-control" placeholder="Education">
+                            <span asp-validation-for="DoctorPost.EducationPosts" style="color: red"></span>
+                        </div>
+
+                        <div class="mb-1">
+                            <input name="DoctorPost.EducationPosts[2].Text" value="@Model.DoctorGet.Educations[2].Text" type="text" required="required" class="form-control" placeholder="Education">
+                            <span asp-validation-for="DoctorPost.EducationPosts" style="color: red"></span>
+                        </div>
+
+                        <div class="mb-1">
+                            <input name="DoctorPost.EducationPosts[3].Text" value="@Model.DoctorGet.Educations[3].Text" type="text" required="required" class="form-control" placeholder="Education">
+                            <span asp-validation-for="DoctorPost.EducationPosts" style="color: red"></span>
+                        </div>
+
+                        <div class="mb-1">
+                            <input name="DoctorPost.EducationPosts[4].Text" value="@Model.DoctorGet.Educations[4].Text" type="text" required="required" class="form-control" placeholder="Education">
+                            <span asp-validation-for="DoctorPost.EducationPosts" style="color: red"></span>
+                        </div>
+
 
                     </div>
                 </div>
+
+                <p style="color: red"><strong>Note: </strong>Put a "-" where you want to leave blank!</p>
 
             </div>
             <button type="submit" class="btn btn-warning" id="submit">Update</button>
@@ -230,13 +251,3 @@
         </form>
     </div>
 </div>
-
-@section Scripts {
-    <script>
-        let deleteBtn = document.querySelectorAll('.deleteBtn');
-
-        deleteBtn.forEach(btn => btn.addEventListener("click", function () {
-            btn.parentElement.parentElement.remove();
-        }));
-    </script>
-}

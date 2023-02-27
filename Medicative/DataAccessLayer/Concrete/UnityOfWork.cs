@@ -17,6 +17,7 @@ namespace DataAccessLayer.Concrete
         private readonly ISliderRepository _efSliderRepository;
         private readonly ISpecializationRepository _efSpecializationRepository;
         private readonly ITrainingRepository _eftrainingRepository;
+        private readonly IContactRepository _efContactRepository;
         private readonly ISettingRepostory _efsettingRepository;
 
         public UnityOfWork(AppDbContext context)
@@ -43,7 +44,10 @@ namespace DataAccessLayer.Concrete
 
         public ITrainingRepository Training => _eftrainingRepository ?? new EFTrainingRepository(_context);
 
+        public IContactRepository Contact => _efContactRepository ?? new EFContactRepository(_context);
+
         public ISettingRepostory Setting => _efsettingRepository ?? new EFSettingRepository(_context);
+
 
         public async Task<int> SaveAsync()
         {

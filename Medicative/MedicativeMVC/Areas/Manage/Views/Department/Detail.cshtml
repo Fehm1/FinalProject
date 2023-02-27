@@ -1,0 +1,58 @@
+﻿@model Entities.DTOs.DepartmentDTOs.DepartmentGetDto
+
+<div>
+    <div>
+        <h1>Detail:</h1>
+    </div>
+    <div>
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <h5>Poster image</h5>
+                    <br />
+                    <img style="width: 250px" src="~/uploads/departments/@Model.PosterImage" />
+                </div>
+                <br />
+                <div class="mb-3">
+                    <h5>Detail image</h5>
+                    <br />
+                    <img style="width: 250px" src="~/uploads/departments/@Model.DetailImage" />
+                </div>
+                <br />
+            </div>
+
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <h5>Title</h5>
+                    <p>@Model.Title</p>
+                </div>
+                <br />
+                <div class="mb-3">
+                    <h5>Treatment Fee</h5>
+                    <p>@Model.TreatmentFee</p>
+                </div>
+                <br />
+                <div class="mb-3">
+                    <h5>Investigation Fee</h5>
+                    <p>@Model.InvestigationFee</p>
+                </div>
+                <br />
+                <div class="mb-3">
+                    <h5>Redirect Url</h5>
+                    <p><a href="@Model.RedirectUrl">@Model.RedirectUrl</a></p>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div>
+            <div class="mb-3">
+                <h5>Description</h5>
+                <p>@Model.Description</p>
+            </div>
+        </div>
+
+        <a asp-controller="department" asp-action="index" class="btn btn-outline-danger">Cancel</a>
+    </div>
+</div>

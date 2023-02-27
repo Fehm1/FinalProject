@@ -141,7 +141,7 @@ namespace Business.Concrete
 
         public async Task<IDataResult<DoctorListDto>> GetAllByNonDeleteAsync()
         {
-            List<Doctor> doctors = await _unityOfWork.Doctor.GetAllAsync(x=>!x.IsDeleted, x => x.Department, x => x.Profession);
+            List<Doctor> doctors = await _unityOfWork.Doctor.GetAllAsync(x => !x.IsDeleted, x => x.Department, x => x.Profession);
             DoctorListDto doctorListDto = new DoctorListDto()
             {
                 DoctorList = _mapper.Map<List<DoctorGetDto>>(doctors)
@@ -150,29 +150,30 @@ namespace Business.Concrete
             return new DataResult<DoctorListDto>(ResultStatus.Success, doctorListDto);
         }
 
-        public async  Task<IDataResult<DoctorGetDto>> GetAsync(int id)
+        public async Task<IDataResult<DoctorGetDto>> GetAsync(int id)
         {
-            Doctor doctor  = await _unityOfWork.Doctor.GetAsync(x=>x.Id == id, x => x.Department, x => x.Profession);
+            Doctor doctor = await _unityOfWork.Doctor.GetAsync(x => x.Id == id, x => x.Department, x => x.Profession,
+                x => x.Certifications, x => x.Educations, x => x.Specializations, x => x.Training);
 
             if (doctor != null)
             {
-                DoctorGetDto doctorGet = _mapper.Map<DoctorGetDto >(doctor);
+                DoctorGetDto doctorGet = _mapper.Map<DoctorGetDto>(doctor);
 
-                return new DataResult<DoctorGetDto >(ResultStatus.Success, doctorGet);
+                return new DataResult<DoctorGetDto>(ResultStatus.Success, doctorGet);
             }
 
-            return new DataResult<DoctorGetDto >(ResultStatus.Error, null, "There is no doctor in this id!");
+            return new DataResult<DoctorGetDto>(ResultStatus.Error, null, "There is no doctor in this id!");
         }
 
         public async Task<IDataResult<DoctorUpdateDto>> GetUpdateDto(int id)
         {
-            Doctor doctor  = await _unityOfWork.Doctor.GetAsync(x=>x.Id == id, x => x.Department, x => x.Profession,
+            Doctor doctor = await _unityOfWork.Doctor.GetAsync(x => x.Id == id, x => x.Department, x => x.Profession,
                 x => x.Certifications, x => x.Training, x => x.Specializations, x => x.Educations);
             if (doctor is not null)
             {
                 DoctorUpdateDto doctorUpdate = new DoctorUpdateDto()
                 {
-                    DoctorGet = _mapper.Map<DoctorGetDto >(doctor)
+                    DoctorGet = _mapper.Map<DoctorGetDto>(doctor)
                 };
                 return new DataResult<DoctorUpdateDto>(ResultStatus.Success, doctorUpdate);
             }
@@ -181,7 +182,7 @@ namespace Business.Concrete
 
         public async Task<IResult> HardDelete(int id)
         {
-            Doctor doctor  = await _unityOfWork.Doctor.GetAsync(x => x.Id == id && x.IsDeleted, x => x.Department, x => x.Profession);
+            Doctor doctor = await _unityOfWork.Doctor.GetAsync(x => x.Id == id && x.IsDeleted, x => x.Department, x => x.Profession);
 
             if (doctor != null)
             {
@@ -194,9 +195,25 @@ namespace Business.Concrete
             return new Result(ResultStatus.Error, "There is no doctor in this id!");
         }
 
+        public async Task<IResult> Restore(int id)
+        {
+            Doctor doctor = await _unityOfWork.Doctor.GetAsync(x => x.Id == id);
+
+            if (doctor != null)
+            {
+                doctor.IsDeleted = false;
+                _unityOfWork.Doctor.Update(doctor);
+                await _unityOfWork.SaveAsync();
+
+                return new Result(ResultStatus.Success);
+            }
+
+            return new Result(ResultStatus.Error, "There is no department in this id!");
+        }
+
         public async Task<IDataResult<DoctorGetDto>> Update(DoctorUpdateDto doctorUpdate)
         {
-            Doctor doctor  = await _unityOfWork.Doctor.GetAsync(x => x.Id == doctorUpdate.DoctorGet.Id, x => x.Department, x => x.Profession,
+            Doctor doctor = await _unityOfWork.Doctor.GetAsync(x => x.Id == doctorUpdate.DoctorGet.Id, x => x.Department, x => x.Profession,
                 x => x.Specializations, x => x.Training, x => x.Certifications, x => x.Educations);
 
             if (doctorUpdate is not null)
@@ -221,7 +238,7 @@ namespace Business.Concrete
 
                 if (doctorUpdate.DoctorPost.TrainingPosts != null)
                 {
-                    doctorUpdate.DoctorPost.TrainingPosts.RemoveAll(x => x.DoctorId == doctor.Id);
+                    doctor.Training.RemoveAll(x => x.DoctorId == doctor.Id);
                     foreach (var item in doctorUpdate.DoctorPost.TrainingPosts)
                     {
                         Training training = _mapper.Map<Training>(item);
@@ -232,7 +249,7 @@ namespace Business.Concrete
 
                 if (doctorUpdate.DoctorPost.CertificationPosts != null)
                 {
-                    doctorUpdate.DoctorPost.CertificationPosts.RemoveAll(x => x.DoctorId == doctor.Id);
+                    doctor.Certifications.RemoveAll(x => x.DoctorId == doctor.Id);
                     foreach (var item in doctorUpdate.DoctorPost.CertificationPosts)
                     {
                         Certification certification = _mapper.Map<Certification>(item);
@@ -243,7 +260,7 @@ namespace Business.Concrete
 
                 if (doctorUpdate.DoctorPost.SpecializationPosts != null)
                 {
-                    doctorUpdate.DoctorPost.SpecializationPosts.RemoveAll(x => x.DoctorId == doctor.Id);
+                    doctor.Specializations.RemoveAll(x => x.DoctorId == doctor.Id);
                     foreach (var item in doctorUpdate.DoctorPost.SpecializationPosts)
                     {
                         Specialization specialization = _mapper.Map<Specialization>(item);
@@ -254,7 +271,7 @@ namespace Business.Concrete
 
                 if (doctorUpdate.DoctorPost.EducationPosts != null)
                 {
-                    doctorUpdate.DoctorPost.EducationPosts.RemoveAll(x => x.DoctorId == doctor.Id);
+                    doctor.Educations.RemoveAll(x => x.DoctorId == doctor.Id);
                     foreach (var item in doctorUpdate.DoctorPost.EducationPosts)
                     {
                         Education education = _mapper.Map<Education>(item);
@@ -277,11 +294,11 @@ namespace Business.Concrete
 
                 _unityOfWork.Doctor.Update(doctor);
                 await _unityOfWork.SaveAsync();
-                return new DataResult<DoctorGetDto >(ResultStatus.Success, doctorUpdate.DoctorGet);
+                return new DataResult<DoctorGetDto>(ResultStatus.Success, doctorUpdate.DoctorGet);
             }
-            return new DataResult<DoctorGetDto >(ResultStatus.Error, null, "There id no doctor in this id");
+            return new DataResult<DoctorGetDto>(ResultStatus.Error, null, "There id no doctor in this id");
         }
 
-       
+
     }
 }

@@ -40,6 +40,20 @@ namespace MedicativeMVC.Areas.Manage.Controllers
             return View();
         }
 
+        public async Task<IActionResult> Detail(int id)
+        {
+            ViewBag.Departments = await _unityOfWork.Department.GetAllAsync(x => x.IsDeleted == false);
+            ViewBag.Professions = await _unityOfWork.Profession.GetAllAsync(x => x.IsDeleted == false);
+
+            var result = await _doctorService.GetAsync(id);
+            if (result.ResultStatus == ResultStatus.Success)
+            {
+                return View(result.Data);
+            }
+
+            return NotFound();
+        }
+
         public async Task<IActionResult> Create()
         {
             ViewBag.Departments = await _unityOfWork.Department.GetAllAsync(x => x.IsDeleted == false);
@@ -97,6 +111,45 @@ namespace MedicativeMVC.Areas.Manage.Controllers
             }
 
             return View(doctorUpdate);
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            var result = await _doctorService.Delete(id);
+            if (result.ResultStatus == ResultStatus.Success)
+            {
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        public async Task<IActionResult> HardDelete(int id)
+        {
+            var result = await _doctorService.HardDelete(id);
+            if (result.ResultStatus == ResultStatus.Success)
+            {
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        public async Task<IActionResult> Restore(int id)
+        {
+            var result = await _doctorService.Restore(id);
+            if (result.ResultStatus == ResultStatus.Success)
+            {
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
         }
     }
 }

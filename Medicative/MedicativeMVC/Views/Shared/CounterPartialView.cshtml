@@ -1,0 +1,24 @@
+﻿@model List<Counter>
+
+<!-- Counter start -->
+<section class="funfact-field over-layer-default" style="background-image: url('img/bg/6.jpg')">
+    <div class="container-fluid">
+        <div class="row">
+
+            @foreach (Counter counter in Model)
+            {
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="counter-col text-center">
+                        @Html.Raw(counter.Icon)
+                        <div class="count">
+                            <div class="start-count">@counter.Count</div>
+                            <h4>@counter.Name</h4>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+<!-- Counter end -->

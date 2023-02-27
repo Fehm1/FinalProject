@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.Concrete.EntityFramework.Context;
+using Entities.DTOs.ContactDTOs;
 using MedicativeMVC.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -29,8 +30,10 @@ namespace MedicativeMVC.Controllers
             return View(homeViewModel);
         }
 
-        public IActionResult Contact()
+        public async Task<IActionResult> Contact()
         {
+            ViewBag.Settings = await _context.Settings.ToListAsync();
+
             return View();
         }
 

@@ -1,37 +1,88 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DataAccessLayer.Concrete.EntityFramework.Context;
+using MedicativeMVC.ViewModels;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace MedicativeMVC.Controllers
 {
     public class DepartmentController : Controller
     {
-        public IActionResult Cardilogists()
+        private readonly AppDbContext _context;
+
+        public DepartmentController(AppDbContext context)
         {
-            return View();
+            _context = context;
+        }
+        public async Task<IActionResult> Cardilogists()
+        {
+            DepartmentViewModel departmentViewModel = new DepartmentViewModel()
+            {
+                Departments = await _context.Departments.Where(x => x.IsDeleted == false).ToListAsync(),
+                Doctors = await _context.Doctors.Include(x => x.Profession).Where(x => x.IsDeleted == false).ToListAsync(),
+                Counters = await _context.Counters.Where(x => x.IsDeleted == false).ToListAsync(),
+                Settings = await _context.Settings.ToListAsync()
+            };
+            return View(departmentViewModel);
         }
 
-        public IActionResult Orthopaedics()
+        public async Task<IActionResult> Orthopaedics()
         {
-            return View();
+            DepartmentViewModel departmentViewModel = new DepartmentViewModel()
+            {
+                Departments = await _context.Departments.Where(x => x.IsDeleted == false).ToListAsync(),
+                Doctors = await _context.Doctors.Include(x => x.Profession).Where(x => x.IsDeleted == false).ToListAsync(),
+                Counters = await _context.Counters.Where(x => x.IsDeleted == false).ToListAsync(),
+                Settings = await _context.Settings.ToListAsync()
+            };
+            return View(departmentViewModel);
         }
 
-        public IActionResult Gastronelogy()
+        public async Task<IActionResult> Gastronelogy()
         {
-            return View();
+            DepartmentViewModel departmentViewModel = new DepartmentViewModel()
+            {
+                Departments = await _context.Departments.Where(x => x.IsDeleted == false).ToListAsync(),
+                Doctors = await _context.Doctors.Include(x => x.Profession).Where(x => x.IsDeleted == false).ToListAsync(),
+                Counters = await _context.Counters.Where(x => x.IsDeleted == false).ToListAsync(),
+                Settings = await _context.Settings.ToListAsync()
+            };
+            return View(departmentViewModel);
         }
 
-        public IActionResult Neuroscien()
+        public async Task<IActionResult> Neuroscien()
         {
-            return View();
+            DepartmentViewModel departmentViewModel = new DepartmentViewModel()
+            {
+                Departments = await _context.Departments.Where(x => x.IsDeleted == false).ToListAsync(),
+                Doctors = await _context.Doctors.Include(x => x.Profession).Where(x => x.IsDeleted == false).ToListAsync(),
+                Counters = await _context.Counters.Where(x => x.IsDeleted == false).ToListAsync(),
+                Settings = await _context.Settings.ToListAsync()
+            };
+            return View(departmentViewModel);
         }
 
-        public IActionResult Spine()
+        public async Task<IActionResult> Spine()
         {
-            return View();
+            DepartmentViewModel departmentViewModel = new DepartmentViewModel()
+            {
+                Departments = await _context.Departments.Where(x => x.IsDeleted == false).ToListAsync(),
+                Doctors = await _context.Doctors.Include(x => x.Profession).Where(x => x.IsDeleted == false).ToListAsync(),
+                Counters = await _context.Counters.Where(x => x.IsDeleted == false).ToListAsync(),
+                Settings = await _context.Settings.ToListAsync()
+            };
+            return View(departmentViewModel);
         }
 
-        public IActionResult Cancer()
+        public async Task<IActionResult> Cancer()
         {
-            return View();
+            DepartmentViewModel departmentViewModel = new DepartmentViewModel()
+            {
+                Departments = await _context.Departments.Where(x => x.IsDeleted == false).ToListAsync(),
+                Doctors = await _context.Doctors.Include(x => x.Profession).Where(x => x.IsDeleted == false).ToListAsync(),
+                Counters = await _context.Counters.Where(x => x.IsDeleted == false).ToListAsync(),
+                Settings = await _context.Settings.ToListAsync()
+            };
+            return View(departmentViewModel);
         }
     }
 }

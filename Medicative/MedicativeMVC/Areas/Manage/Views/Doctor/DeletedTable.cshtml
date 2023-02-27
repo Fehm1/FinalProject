@@ -1,0 +1,64 @@
+﻿@model Entities.DTOs.DoctorDTOs.DoctorListDto
+@{
+    int count = 0;
+}
+
+<div>
+    <div class="row align-items-center">
+        <div class="col-10" style="justify-content: start">
+            <h1>Doctors:</h1>
+        </div>
+        <div class="col-2" style="justify-content: end">
+            <a class="btn btn-outline-danger" asp-controller="doctor" asp-action="index">Go Back</a>
+        </div>
+    </div>
+    <div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table" id="doctorTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Image</th>
+                            <th>Full Name</th>
+                            <th>Profession</th>
+                            <th>Created time</th>
+                            <th>Updated time</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var doctor in Model.DoctorList)
+                        {
+                            count++;
+                            <tr>
+                                <th scope="row">@(count)</th>
+                                <td style="width: 150px">
+                                    <img style="max-width: 100%" src="~/uploads/doctors/@doctor.ImageURL">
+                                </td>
+                                <td>@doctor.FullName</td>
+                                <td>@doctor.Profession.Name</td>
+                                <td>@doctor.CreatedTime.ToShortDateString()</td>
+                                <td>@doctor.ModifiedTime.ToShortDateString()</td>
+                                <td style="text-align:center">
+                                    <a class="btn btn-primary" asp-area="Manage" asp-controller="doctor" asp-action="Detail" asp-route-id="@doctor.Id"><i class="bi bi-info-circle-fill"></i></a>
+                                    <a class="btn btn-warning" asp-area="Manage" asp-controller="doctor" asp-action="restore" asp-route-id="@doctor.Id"><i class="bi bi-arrow-clockwise"></i></a>
+                                    <a class="btn btn-danger deleteButton" asp-area="Manage" asp-controller="doctor" asp-action="hardDelete" asp-route-id="@doctor.Id"><i class="bi bi-trash-fill"></i></a>
+                                </td>
+                            </tr>
+                        }
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#doctorTable').DataTable();
+        });
+    </script>
+}

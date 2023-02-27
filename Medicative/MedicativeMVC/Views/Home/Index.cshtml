@@ -62,77 +62,20 @@
                     <div class="text-center">
                         <h2>Welcome To <span class="color-defult">@Model.Settings.FirstOrDefault(x => x.Key == "Welcome Title").Value</span></h2>
                         <div class="line-border-center bg-defult"></div>
-                        <p></p>
+                        <p>@Model.Settings.FirstOrDefault(x => x.Key == "Welcome Description").Value</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="section-content">
-            <div class="row">
-                <div class="about-feature">
+        
+        @await Html.PartialAsync("ServicePartialView", Model.Services)
 
-                    @foreach (Service service in Model.Services)
-                    {
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-                            <div class="appointment-item style-gray animated fadeInLeftShort slow delay-250">
-                                @Html.Raw(service.Icon)
-                                <h5><a href="@service.RedirectURL">@service.Title</a></h5>
-                                <div class="line-border-center bg-gray"></div>
-                                <p>@service.Description</p>
-                                <br>
-                                <a href="@service.RedirectURL" class="btn btn-theme btn-sm">Book Now</a>
-                            </div>
-                        </div>
-                    }
-
-                </div>
-            </div>
         </div>
     </div>
 </section>
 <!-- welcome end -->
 <!-- divider start -->
-<section class="service-area over-layer-default" style="background-image:url(img/bg/5.jpg);">
-    <div class="container padding-bottom-none padding-top-40">
-        <div class="section-content">
-            <div class="row">
-                <div class="col-sm-12 col-md-4">
-                    <div class="service-item style-1 text-white border-right">
-                        <div class="service-icon">
-                            <i class="fa-sharp fa-solid fa-phone"></i>
-                        </div>
-                        <div class="content">
-                            <h5><a asp-controller="home" asp-action="contact">Give us a Call</a></h5>
-                            <p>@Model.Settings.FirstOrDefault(x => x.Key == "Phone").Value</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4">
-                    <div class="service-item style-1 text-white border-right">
-                        <div class="">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div class="content">
-                            <h5><a asp-controller="home" asp-action="contact">Send us a Message</a></h5>
-                            <p>@Model.Settings.FirstOrDefault(x => x.Key == "Email").Value</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4">
-                    <div class="service-item style-1 text-white">
-                        <div class="">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                        <div class="content">
-                            <h5><a asp-controller="home" asp-action="contact">Visit our Location</a></h5>
-                            <p>@Model.Settings.FirstOrDefault(x => x.Key == "Address").Value </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+@await Html.PartialAsync("DividerPartialView", Model.Settings)
 <!-- divider end -->
 <!-- departments start -->
 <section id="department" class="service-area bg-f8 animatedParent animateOnce">
@@ -148,29 +91,7 @@
         </div>
 
 
-        <div class="section-content">
-            <div class="row clearfix">
-
-
-                <div class="gallery col-3 gutter">
-                    
-                    @foreach (Department department in Model.Departments)
-                    {
-                        <div class="gallery-item">
-                            <div class="thumb">
-                                <img src="~/uploads/departments/@department.PosterImage" alt="">
-                                <div class="gallery-hover">
-                                    <div class="gallery-info">
-                                        <h4><a href="@department.RedirectUrl">@department.Title</a></h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    }
-
-                </div>
-            </div>
-        </div>
+        @await Html.PartialAsync("DepartmentPartialView", Model.Departments)
 
 
     </div>
@@ -221,9 +142,6 @@
                                 <div class="team-content">
                                     <h4><a asp-controller="doctor" asp-action="detail" asp-route-id="@doctor.Id">Dr. @doctor.FullName</a></h4>
                                     <h6>@doctor.Profession.Name</h6>
-                                    <div class="team-content-icon">
-                                        @Html.Raw(doctor.Profession.Icon)
-                                    </div>
                                 </div>
                                 <div class="timetable">
                                     <div class="item">
@@ -250,28 +168,11 @@
     </div>
 </section>
 <!-- Team end -->
-<!-- Counter start -->
-<section class="funfact-field over-layer-default" style="background-image: url('img/bg/6.jpg')">
-    <div class="container-fluid">
-        <div class="row">
-            
-            @foreach (Counter counter in Model.Counters)
-            {
-                <div class="col-md-3 col-sm-6 col-xs-6">
-                    <div class="counter-col text-center">
-                        @Html.Raw(counter.Icon)
-                        <div class="count">
-                            <div class="start-count">@counter.Count</div>
-                            <h4>@counter.Name</h4>
-                        </div>
-                    </div>
-                </div>
-            }
 
-        </div>
-    </div>
-</section>
+<!-- Counter start -->
+@await Html.PartialAsync("CounterPartialView", Model.Counters)
 <!-- Counter end -->
+
 @*<!-- blog start -->
     <section class="blog-area bg-f8">
         <div class="container">

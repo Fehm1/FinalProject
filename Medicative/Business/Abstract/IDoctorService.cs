@@ -13,6 +13,7 @@ namespace Business.Abstract
         Task<IDataResult<DoctorGetDto>> AddAsync(DoctorPostDto doctorPost);
         Task<IDataResult<DoctorGetDto>> Update(DoctorUpdateDto doctorUpdate);
         Task<IResult> Delete(int id);
+        Task<IResult> Restore(int id);
         Task<IResult> HardDelete(int id);
     }
 }

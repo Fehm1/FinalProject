@@ -1,0 +1,25 @@
+﻿@model List<Department>
+
+<div class="section-content">
+    <div class="row clearfix">
+
+
+        <div class="gallery col-3 gutter">
+
+            @foreach (Department department in Model)
+            {
+                <div class="gallery-item">
+                    <div class="thumb">
+                        <img src="~/uploads/departments/@department.PosterImage" alt="">
+                        <div class="gallery-hover">
+                            <div class="gallery-info">
+                                <h4><a href="@department.RedirectUrl">@department.Title</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

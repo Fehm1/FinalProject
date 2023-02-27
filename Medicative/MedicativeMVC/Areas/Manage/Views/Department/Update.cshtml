@@ -60,7 +60,7 @@
             <div>
                 <div class="mb-3">
                     <label asp-for="DepartmentPost.Description" class="form-label">Description</label>
-                    <input asp-for="DepartmentPost.Description" value="@Model.DepartmentGet.Description" class="form-control" rows="5" placeholder="Description"></input>
+                    <textarea name="DepartmentPost.Description" class="form-control" rows="5" placeholder="Description">@Model.DepartmentGet.Description</textarea>
                 </div>
             </div>
 

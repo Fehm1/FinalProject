@@ -12,6 +12,7 @@
         ISliderRepository Slider { get; }
         ISpecializationRepository Specialization{ get; }
         ITrainingRepository Training { get; }
+        IContactRepository Contact { get; }
         ISettingRepostory Setting { get; }
 
         Task<int> SaveAsync();

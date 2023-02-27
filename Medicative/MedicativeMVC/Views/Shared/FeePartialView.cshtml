@@ -1,0 +1,32 @@
+﻿@model List<Department>
+
+<div class="row margin-top-20 margin-left-10">
+    <div class="col-md-6">
+        <div class="cardilogists-list">
+            <h4>Treatments Fee</h4>
+            <div class="border-style-2"></div>
+            <ul>
+                <li><i b-9h7ph8a8rf="" class="bi bi-caret-right-fill"></i> Cardilogists test – $@Model.FirstOrDefault(x => x.Id == 1).TreatmentFee</li>
+                <li><i b-9h7ph8a8rf="" class="bi bi-caret-right-fill"></i> Orthopaedics test – $@Model.FirstOrDefault(x => x.Id == 3).TreatmentFee</li>
+                <li><i b-9h7ph8a8rf="" class="bi bi-caret-right-fill"></i> Neurosciences test – $@Model.FirstOrDefault(x => x.Id == 5).TreatmentFee</li>
+                <li><i b-9h7ph8a8rf="" class="bi bi-caret-right-fill"></i> Cancer blood – $@Model.FirstOrDefault(x => x.Id == 7).TreatmentFee</li>
+                <li><i b-9h7ph8a8rf="" class="bi bi-caret-right-fill"></i> Gastroenterology test – $@Model.FirstOrDefault(x => x.Id == 4).TreatmentFee</li>
+                <li><i b-9h7ph8a8rf="" class="bi bi-caret-right-fill"></i> Spine ( Back Bron ) test – $@Model.FirstOrDefault(x => x.Id == 6).TreatmentFee</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="cardilogists-list">
+            <h4>Investigations Fee</h4>
+            <div class="border-style-2"></div>
+            <ul>
+                <li><i b-9h7ph8a8rf="" class="bi bi-caret-right-fill"></i> Cardilogists test – $@Model.FirstOrDefault(x => x.Id == 1).InvestigationFee</li>
+                <li><i b-9h7ph8a8rf="" class="bi bi-caret-right-fill"></i> Orthopaedics test – $@Model.FirstOrDefault(x => x.Id == 3).InvestigationFee</li>
+                <li><i b-9h7ph8a8rf="" class="bi bi-caret-right-fill"></i> Neurosciences test – $@Model.FirstOrDefault(x => x.Id == 5).InvestigationFee</li>
+                <li><i b-9h7ph8a8rf="" class="bi bi-caret-right-fill"></i> Cancer blood – $@Model.FirstOrDefault(x => x.Id == 7).InvestigationFee</li>
+                <li><i b-9h7ph8a8rf="" class="bi bi-caret-right-fill"></i> Gastroenterology test – $@Model.FirstOrDefault(x => x.Id == 4).InvestigationFee</li>
+                <li><i b-9h7ph8a8rf="" class="bi bi-caret-right-fill"></i> Spine ( Back Bron ) test – $@Model.FirstOrDefault(x => x.Id == 6).InvestigationFee</li>
+            </ul>
+        </div>
+    </div>
+</div>

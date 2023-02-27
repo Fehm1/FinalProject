@@ -1,0 +1,37 @@
+﻿@model Entities.DTOs.ContactDTOs.ContactGetDto
+
+<div>
+    <div>
+        <h1>Detail:</h1>
+    </div>
+    <div>
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <h5>Fullname</h5>
+                    <p>@Model.FullName</p>
+                </div>
+                <br />
+                <div class="mb-3">
+                    <h5>Email</h5>
+                    <p><a href="mailto:@Model.Email">@Model.Email</a></p>
+                </div>
+                <br />
+                <div class="mb-3">
+                    <h5>Subject</h5>
+                    <p>@Model.Subject</p>
+                </div>
+                <br />
+                <div class="mb-3">
+                    <h5>Message</h5>
+                    <p>@Model.Message</p>
+                </div>
+            </div>
+        </div>
+        <a class="btn btn-info" href="mailto:@Model.Email"><i class="bi bi-send-fill"></i> Send email</a>
+        <a asp-controller="message" asp-action="index" class="btn btn-success"><i class="bi bi-check-all"></i> Read</a>
+        <a asp-controller="message" asp-action="index" class="btn btn-outline-danger">Cancel</a>
+    </div>
+</div>

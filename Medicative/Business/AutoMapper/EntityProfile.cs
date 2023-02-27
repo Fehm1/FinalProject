@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Entities.Concrete;
 using Entities.DTOs.CertificationDTOs;
+using Entities.DTOs.ContactDTOs;
 using Entities.DTOs.CounterDTOs;
 using Entities.DTOs.DepartmentDTOs;
 using Entities.DTOs.DoctorDTOs;
@@ -47,6 +48,9 @@ namespace Business.AutoMapper
 
             CreateMap<Training, TrainingGetDto>();
             CreateMap<TrainingPostDto, Training>();
+
+            CreateMap<Contact, ContactGetDto>();
+            CreateMap<ContactPostDto, Contact>();
 
             CreateMap<Setting, SettingGetDto>();
             CreateMap<SettingPostDto, Setting>();
