@@ -2,11 +2,14 @@
 using Core.Utilities.Complex_types;
 using Entities.DTOs.CounterDTOs;
 using Entities.DTOs.SettingDTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace MedicativeMVC.Areas.Manage.Controllers
 {
     [Area("Manage")]
+    [Authorize(Roles = "Admin")]
     public class SettingController : Controller
     {
         private readonly ISettingService _settingService;

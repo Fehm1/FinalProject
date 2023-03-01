@@ -1,0 +1,81 @@
+﻿@using Entities.Concrete
+@using Newtonsoft.Json
+@model Entities.DTOs.ProductDTOs.ProductGetDto
+@{
+    int n = 1;
+}
+
+<div>
+    <div>
+        <h1>Detail:</h1>
+    </div>
+    <div>
+        <form asp-action="create" method="post" enctype="multipart/form-data">
+            <div>
+
+                @*<input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+
+                <div asp-validation-summary="All" class="text-danger" aria-hidden="true" id="validation-summary" style="display: none"></div>*@
+
+                <div class="col-md-12 mt-3">
+                    <h4>Doctor:</h4>
+                </div>
+
+                <div class="row ml-1 align-items-center">
+                    <div class="mb-3 col-md-6 align-items-center">
+                        <h5>Product image: </h5>
+                        <br />
+                        <img style="width: 350px" src="~/uploads/products/@Model.ImageUrl">
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                        <div>
+                            <h5>Name</h5>
+                            <p>@Model.Name</p>
+                        </div>
+
+                        <div>
+                            <h5>Count</h5>
+                            <p>@Model.Count</p>
+                        </div>
+
+                        <div>
+                            <h5>Price</h5>
+                            <p>@Model.Price</p>
+                        </div>
+
+                        <div>
+                            <h5>Discount Percent</h5>
+                            <p>@Model.DiscountPercent</p>
+                        </div>
+
+                        <div class="mt-3">
+                            <h5>Category</h5>
+                            <p>@Model.Category.Name</p>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12">
+                        <h5>Description</h5>
+                        <p>@Model.Description</p>
+                    </div>
+
+                    <div class="row m-1">
+                        @if (Model.IsPopular == true)
+                        {
+                            <p class="text-danger">This product is popular!</p>
+                        }
+                        @if (Model.TopSeller)
+                        {
+                            <p class="text-danger">This product is topseller!</p>
+                        }
+                    </div>
+
+                </div>
+
+            </div>
+            <a asp-controller="product" asp-action="index" class="btn btn-outline-danger">Cancel</a>
+        </form>
+    </div>
+</div>

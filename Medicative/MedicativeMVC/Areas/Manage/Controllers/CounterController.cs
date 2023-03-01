@@ -3,11 +3,14 @@ using Core.Utilities.Complex_types;
 using DataAccessLayer.Abstract;
 using Entities.DTOs.CounterDTOs;
 using Entities.DTOs.ProfessionDTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace MedicativeMVC.Areas.Manage.Controllers
 {
     [Area("Manage")]
+    [Authorize(Roles = "Admin")]
     public class CounterController : Controller
     {
         private readonly ICounterService _counterService;

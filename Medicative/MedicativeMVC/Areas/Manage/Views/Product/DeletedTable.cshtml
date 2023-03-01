@@ -1,0 +1,65 @@
+﻿@using Entities.DTOs.ProductDTOs
+@model Entities.DTOs.ProductDTOs.ProductListDto
+@{
+    int count = 0;
+}
+
+<div>
+    <div class="row align-items-center">
+        <div class="col-10" style="justify-content: start">
+            <h1>Product:</h1>
+        </div>
+        <div class="col-2" style="justify-content: end">
+            <a class="btn btn-outline-danger" asp-controller="Product" asp-action="index">Go Back</a>
+        </div>
+    </div>
+    <div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table" id="productTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Count</th>
+                            <th>Created time</th>
+                            <th>Updated time</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (ProductGetDto product in Model.ProductList)
+                        {
+                            count++;
+                            <tr>
+                                <th scope="row">@(count)</th>
+                                <td style="width: 150px">
+                                    <img style="max-width: 100%" src="~/uploads/products/@product.ImageUrl">
+                                </td>
+                                <td>@product.Name</td>
+                                <td>@product.Count</td>
+                                <td>@product.CreatedTime.ToShortDateString()</td>
+                                <td>@product.ModifiedTime.ToShortDateString()</td>
+                                <td style="text-align:center">
+                                    <a class="btn btn-warning" asp-area="Manage" asp-controller="product" asp-action="restore" asp-route-id="@product.Id"><i class="bi bi-arrow-clockwise"></i></a>
+                                    <a class="btn btn-primary" asp-area="Manage" asp-controller="product" asp-action="Detail" asp-route-id="@product.Id"><i class="bi bi-info-circle-fill"></i></a>
+                                    <a class="btn btn-danger deleteButton" asp-area="Manage" asp-controller="product" asp-action="hardDelete" asp-route-id="@product.Id"><i class="bi bi-trash-fill"></i></a>
+                                </td>
+                            </tr>
+                        }
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#productTable').DataTable();
+        });
+    </script>
+}

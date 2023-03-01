@@ -1,11 +1,14 @@
 ﻿using Business.Abstract;
 using Core.Utilities.Complex_types;
 using Entities.DTOs.SliderDTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace MedicativeMVC.Areas.Manage.Controllers
 {
     [Area("Manage")]
+    [Authorize(Roles = "Admin")]
     public class SliderController : Controller
     {
         private readonly ISliderService _sliderService;

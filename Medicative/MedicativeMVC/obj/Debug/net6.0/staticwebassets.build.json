@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8ZYp78HUGjKkHZd5yrVGvml0bdt75uihW+Nt96IZgyM=",
+  "Hash": "zUL6/yBc2mdXZPGPrN7etdAdCgv5wf3mkGX88uCj3+I=",
   "Source": "MedicativeMVC",
   "BasePath": "_content/MedicativeMVC",
   "Mode": "Default",
@@ -2225,6 +2225,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\js\\jquery.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\Fehmin\\OneDrive\\İş masası\\Final Project\\Medicative\\MedicativeMVC\\wwwroot\\assets\\js\\main.js",
+      "SourceId": "MedicativeMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Fehmin\\OneDrive\\İş masası\\Final Project\\Medicative\\MedicativeMVC\\wwwroot\\",
+      "BasePath": "_content/MedicativeMVC",
+      "RelativePath": "assets/js/main.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\main.js"
     },
     {
       "Identity": "C:\\Users\\Fehmin\\OneDrive\\İş masası\\Final Project\\Medicative\\MedicativeMVC\\wwwroot\\assets\\js\\map.js",
@@ -34306,6 +34323,40 @@
       "OriginalItemSpec": "wwwroot\\uploads\\doctors\\f28cf0ed-41aa-4fd8-85d2-45e6a2aa90861.png"
     },
     {
+      "Identity": "C:\\Users\\Fehmin\\OneDrive\\İş masası\\Final Project\\Medicative\\MedicativeMVC\\wwwroot\\uploads\\products\\1492b2a8-796d-4d17-96f2-6fa67f5be331s5.jpg",
+      "SourceId": "MedicativeMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Fehmin\\OneDrive\\İş masası\\Final Project\\Medicative\\MedicativeMVC\\wwwroot\\",
+      "BasePath": "_content/MedicativeMVC",
+      "RelativePath": "uploads/products/1492b2a8-796d-4d17-96f2-6fa67f5be331s5.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\products\\1492b2a8-796d-4d17-96f2-6fa67f5be331s5.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Fehmin\\OneDrive\\İş masası\\Final Project\\Medicative\\MedicativeMVC\\wwwroot\\uploads\\products\\e53a4bda-1eb7-4fbb-ab5d-f57061a29343b1.jpg",
+      "SourceId": "MedicativeMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Fehmin\\OneDrive\\İş masası\\Final Project\\Medicative\\MedicativeMVC\\wwwroot\\",
+      "BasePath": "_content/MedicativeMVC",
+      "RelativePath": "uploads/products/e53a4bda-1eb7-4fbb-ab5d-f57061a29343b1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\products\\e53a4bda-1eb7-4fbb-ab5d-f57061a29343b1.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Fehmin\\OneDrive\\İş masası\\Final Project\\Medicative\\MedicativeMVC\\wwwroot\\uploads\\settings\\05c99259-5c0d-443a-aeb7-0d584b1426ac1.jpg",
       "SourceId": "MedicativeMVC",
       "SourceType": "Discovered",
@@ -34474,6 +34525,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\settings\\8.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Fehmin\\OneDrive\\İş masası\\Final Project\\Medicative\\MedicativeMVC\\wwwroot\\uploads\\settings\\829cd7b5-1752-4eae-9c2f-8bd6b2210b72bg1.jpg",
+      "SourceId": "MedicativeMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Fehmin\\OneDrive\\İş masası\\Final Project\\Medicative\\MedicativeMVC\\wwwroot\\",
+      "BasePath": "_content/MedicativeMVC",
+      "RelativePath": "uploads/settings/829cd7b5-1752-4eae-9c2f-8bd6b2210b72bg1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\settings\\829cd7b5-1752-4eae-9c2f-8bd6b2210b72bg1.jpg"
     },
     {
       "Identity": "C:\\Users\\Fehmin\\OneDrive\\İş masası\\Final Project\\Medicative\\MedicativeMVC\\wwwroot\\uploads\\settings\\9.jpg",

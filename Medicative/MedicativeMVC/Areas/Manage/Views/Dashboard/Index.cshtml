@@ -1,1 +1,58 @@
-﻿<h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+﻿@using MedicativeMVC.Areas.Manage.ViewModels
+@model DashboardViewModel
+
+<h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+
+<div class="row py-3">
+
+    <div class="col-md-2 mr-5">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Doctors</h5>
+                <h1>@Model.Doctors</h1>
+                <a asp-controller="doctor" asp-action="index" class="btn btn-info">Go Doctors</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2 mr-5">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Departments</h5>
+                <h1>@Model.Departments</h1>
+                <a asp-controller="department" asp-action="index" class="btn btn-warning">Go Departments</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2 mr-5">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Products</h5>
+                <h1>@Model.Products</h1>
+                <a asp-controller="product" asp-action="index" class="btn btn-danger">Go Products</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2 mr-5">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Orders</h5>
+                <h1>@Model.Orders</h1>
+                <a asp-controller="order" asp-action="index" class="btn btn-success">Go Orders</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2 mr-5">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Messages</h5>
+                <h1>@Model.Messages</h1>
+                <a asp-controller="message" asp-action="index" class="btn btn-primary">Go Messages</a>
+            </div>
+        </div>
+    </div>
+
+</divc>

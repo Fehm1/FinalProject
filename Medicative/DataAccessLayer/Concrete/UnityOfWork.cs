@@ -18,6 +18,10 @@ namespace DataAccessLayer.Concrete
         private readonly ISpecializationRepository _efSpecializationRepository;
         private readonly ITrainingRepository _eftrainingRepository;
         private readonly IContactRepository _efContactRepository;
+        private readonly ICategoryRepository _efcategoryRepository;
+        private readonly IProductRepository _efproductRepository;
+        private readonly IOrderItemRepository _eforderItemRepository;
+        private readonly IOrderRepository _eforderRepository;
         private readonly ISettingRepostory _efsettingRepository;
 
         public UnityOfWork(AppDbContext context)
@@ -45,6 +49,14 @@ namespace DataAccessLayer.Concrete
         public ITrainingRepository Training => _eftrainingRepository ?? new EFTrainingRepository(_context);
 
         public IContactRepository Contact => _efContactRepository ?? new EFContactRepository(_context);
+
+        public ICategoryRepository Category => _efcategoryRepository ?? new EFCategoryRepository(_context);
+
+        public IProductRepository Product => _efproductRepository ?? new EFProductRepository(_context);
+
+        public IOrderRepository Order => _eforderRepository ?? new EFOrderRepository(_context);
+
+        public IOrderItemRepository OrderItem => _eforderItemRepository ?? new EFOrderItemRepository(_context);
 
         public ISettingRepostory Setting => _efsettingRepository ?? new EFSettingRepository(_context);
 

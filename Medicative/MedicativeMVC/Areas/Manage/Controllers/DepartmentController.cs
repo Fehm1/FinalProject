@@ -1,11 +1,14 @@
 ﻿using Business.Abstract;
 using Core.Utilities.Complex_types;
 using Entities.DTOs.DepartmentDTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace MedicativeMVC.Areas.Manage.Controllers
 {
     [Area("Manage")]
+    [Authorize(Roles = "Admin")]
     public class DepartmentController : Controller
     {
         private readonly IDepartmentService _departmentService;

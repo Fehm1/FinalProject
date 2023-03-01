@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using Entities.Concrete;
+using Entities.DTOs.CategoryDTOs;
 using Entities.DTOs.CertificationDTOs;
 using Entities.DTOs.ContactDTOs;
 using Entities.DTOs.CounterDTOs;
 using Entities.DTOs.DepartmentDTOs;
 using Entities.DTOs.DoctorDTOs;
 using Entities.DTOs.EducationDTOs;
+using Entities.DTOs.ProductDTOs;
 using Entities.DTOs.ProfessionDTOs;
 using Entities.DTOs.ServiceDTOs;
 using Entities.DTOs.SettingDTOs;
@@ -51,6 +53,12 @@ namespace Business.AutoMapper
 
             CreateMap<Contact, ContactGetDto>();
             CreateMap<ContactPostDto, Contact>();
+
+            CreateMap<Product, ProductGetDto>();
+            CreateMap<ProductPostDto, Product>();
+
+            CreateMap<Category, CategoryGetDto>();
+            CreateMap<CategoryPostDto, Category>();
 
             CreateMap<Setting, SettingGetDto>();
             CreateMap<SettingPostDto, Setting>();

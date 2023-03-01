@@ -24,6 +24,32 @@ deleteButton.forEach(btn => btn.addEventListener("click", function (e) {
     })
 }));
 
+let rejectButton = document.querySelectorAll(".rejectButton");
+
+rejectButton.forEach(btn => btn.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    let url = btn.getAttribute("href")
+
+    Swal.fire({
+        title: 'Are you sure?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, reject it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fetch(url)
+                .then(res => {
+                    if (res.status == 200) {
+                        window.location.reload(true)
+                    }
+                })
+        }
+    })
+}));
+
 let restoreButton = document.querySelectorAll(".restoreButton");
 
 restoreButton.forEach(btn => btn.addEventListener("click", function (e) {
@@ -51,6 +77,7 @@ restoreButton.forEach(btn => btn.addEventListener("click", function (e) {
     })
 }));
 
+
 let statusBtn = document.querySelectorAll(".statusBtn");
 
 statusBtn.forEach(btn => btn.addEventListener("click", function (e) {
@@ -69,7 +96,7 @@ statusBtn.forEach(btn => btn.addEventListener("click", function (e) {
 //    id += 1;
 //    count1++;
 //}));
-    
+
 //function get() {
 //    let element = document.getElementById(`${id}`);
 //    let length = element.value.length;

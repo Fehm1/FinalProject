@@ -1,0 +1,29 @@
+﻿@model Entities.DTOs.CategoryDTOs.CategoryUpdateDto
+
+<div>
+    <div>
+        <h1>Update:</h1>
+    </div>
+    <div>
+        <form asp-action="update" method="post">
+            <div class="row">
+
+                <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+
+                <div asp-validation-summary="All" class="text-danger" aria-hidden="true" id="validation-summary" style="display: none"></div>
+
+                <input type="hidden" asp-for="CategoryGet.Id" />
+
+                <div class="mb-3 col-md-4">
+                    <label asp-for="CategoryPost.Name" class="form-label">Name</label>
+                    <input asp-for="CategoryPost.Name" value="@Model.CategoryGet.Name" class="form-control" placeholder="Name">
+                    <span asp-validation-for="CategoryPost.Name" style="color: red"></span>
+                </div>
+
+
+            </div>
+            <button type="submit" class="btn btn-warning">Update</button>
+            <a asp-controller="category" asp-action="index" class="btn btn-outline-danger">Cancel</a>
+        </form>
+    </div>
+</div>

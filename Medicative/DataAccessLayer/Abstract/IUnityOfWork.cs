@@ -13,6 +13,10 @@
         ISpecializationRepository Specialization{ get; }
         ITrainingRepository Training { get; }
         IContactRepository Contact { get; }
+        IProductRepository Product { get; }
+        ICategoryRepository Category { get; }
+        IOrderRepository Order { get; }
+        IOrderItemRepository OrderItem { get; }
         ISettingRepostory Setting { get; }
 
         Task<int> SaveAsync();

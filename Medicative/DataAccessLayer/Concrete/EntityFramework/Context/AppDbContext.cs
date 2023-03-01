@@ -21,6 +21,11 @@ namespace DataAccessLayer.Concrete.EntityFramework.Context
         public DbSet<Specialization> Specializations { get; set; }
         public DbSet<Training> Trainings { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<BasketItem> BasketItems { get; set; }
         public DbSet<Setting> Settings { get; set; }
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

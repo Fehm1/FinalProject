@@ -3,11 +3,14 @@ using Core.Utilities.Complex_types;
 using DataAccessLayer.Abstract;
 using Entities.DTOs.DoctorDTOs;
 using Entities.DTOs.ProfessionDTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace MedicativeMVC.Areas.Manage.Controllers
 {
     [Area("Manage")]
+    [Authorize(Roles = "Admin")]
     public class DoctorController : Controller
     {
         private readonly IDoctorService _doctorService;

@@ -1,0 +1,51 @@
+﻿@model List<CheckoutViewModel>
+@{
+    double totalPrice = 0;
+    double price = 0;
+    int count = 0;
+    string style = "style=\"overflow: scroll; height: 250px\"";
+}
+
+<li>
+    <div class="dropdown-buttons">
+        <div class="btn-group">
+            <ul class="dropdown-menu dropdown-menu-right cart dropdown-animation" aria-labelledby="header-drop-4">
+                <li>
+                    <table class="table table-hover" style="overflow:scroll; height: 50px">
+                        <thead>
+                            <tr>
+                                <th class="quantity">QTY</th>
+                                <th class="product">Product</th>
+                                <th class="amount">Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                price = item.Product.Price * (1 - (item.Product.DiscountPercent / 100)) * item.Count;
+                                totalPrice += price;
+                                count++;
+
+                                <tr>
+                                    <td class="quantity">@item.Count x</td>
+                                    <td class="product">@item.Product.Name</td>
+                                    <td> <a class="removeFromBasket" asp-controller="shop" asp-action="RemoveBasket" asp-route-productId="@item.Product.Id"><i class="bi bi-trash-fill"></i></a> </td>
+                                    <td class="amount">$@price</td>
+                                </tr>
+                            }
+                            <tr>
+                                <td class="total-quantity" colspan="2"><strong>Total @count Items</strong></td>
+                                <td class="total-amount"><strong>$@totalPrice</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="panel-body text-right">
+                        <a asp-controller="shop" asp-action="Cart" class="menu-shop-btn">View Cart</a>
+                        <a asp-controller="shop" asp-action="Checkout" class="menu-shop-btn">Checkout</a>
+                    </div>
+                </li>
+            </ul>
+            <button type="button" class="btn dropdown-toggle" id="header-drop-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon icon-ShoppingCart"></i><span class="menu-cart">@count</span></button>
+        </div>
+    </div>
+</li>

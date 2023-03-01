@@ -15,7 +15,7 @@
                 <input type="hidden" asp-for="SettingGet.Id" />
                 <input type="hidden" asp-for="SettingGet.Key" />
 
-                @if (Model.SettingGet.Key.Contains("Logo") || Model.SettingGet.Key.Contains("Flicker"))
+                @if (Model.SettingGet.Key.Contains("Logo") || Model.SettingGet.Key.Contains("Flicker") || Model.SettingGet.Key == "Shop image")
                 {
                     <div class="mb-3 col-md-4">
                         <br>

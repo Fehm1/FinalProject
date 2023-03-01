@@ -1,0 +1,26 @@
+﻿@model Entities.DTOs.CategoryDTOs.CategoryPostDto
+
+<div>
+    <div>
+        <h1>Create:</h1>
+    </div>
+    <div>
+        <form asp-action="create" method="post">
+            <div class="row">
+
+                <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+
+                <div asp-validation-summary="All" class="text-danger" aria-hidden="true" id="validation-summary" style="display: none"></div>
+
+                <div class="mb-3 col-md-4">
+                    <label asp-for="Name" class="form-label">Name</label>
+                    <input asp-for="Name" class="form-control" placeholder="Name">
+                    <span asp-validation-for="Name" style="color: red"></span>
+                </div>
+
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+            <a asp-controller="category" asp-action="index" class="btn btn-outline-danger">Cancel</a>
+        </form>
+    </div>
+</div>

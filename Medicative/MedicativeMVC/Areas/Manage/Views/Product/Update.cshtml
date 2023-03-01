@@ -1,0 +1,107 @@
+﻿@using Entities.Concrete
+@using Newtonsoft.Json
+@model Entities.DTOs.ProductDTOs.ProductUpdateDto
+@{
+    int n = 1;
+}
+
+<div>
+    <div>
+        <h1>Create:</h1>
+    </div>
+    <div>
+        <form asp-action="update" method="post" enctype="multipart/form-data">
+            <div>
+
+                @*<input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+
+                <div asp-validation-summary="All" class="text-danger" aria-hidden="true" id="validation-summary" style="display: none"></div>*@
+
+                <input  type="hidden" asp-for="ProductGet.Id"/>
+
+                <div class="row ml-1 align-items-center">
+                    <div class="mb-3 col-md-6 align-items-center">
+                        <label asp-for="ProductPost.FormFile" class="form-label">Product image: </label>
+                        <img style="width: 350px" src="~/uploads/products/@Model.ProductGet.ImageUrl">
+                        <br />
+                        <input asp-for="ProductPost.FormFile" />
+                        <span asp-validation-for="ProductPost.FormFile" style="color: red"></span>
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                        <div>
+                            <label asp-for="ProductPost.Name" class="form-label">Name</label>
+                            <input name="ProductPost.Name" value="@Model.ProductGet.Name" class="form-control" placeholder="Name">
+                            <span asp-validation-for="ProductPost.Name" style="color: red"></span>
+                        </div>
+
+                        <div>
+                            <label asp-for="ProductPost.Count" class="form-label">Count</label>
+                            <input name="ProductPost.Count" value="@Model.ProductGet.Count" class="form-control" placeholder="Count">
+                            <span asp-validation-for="ProductPost.Count" style="color: red"></span>
+                        </div>
+
+                        <div>
+                            <label asp-for="ProductPost.Price" class="form-label">Price</label>
+                            <input name="ProductPost.Price" value="@Model.ProductGet.Price" class="form-control" placeholder="Price">
+                            <span asp-validation-for="ProductPost.Price" style="color: red"></span>
+                        </div>
+
+                        <div>
+                            <label asp-for="ProductPost.DiscountPercent" class="form-label">Discount Percent</label>
+                            <input name="ProductPost.DiscountPercent" value="@Model.ProductGet.DiscountPercent" class="form-control" placeholder="Discount Percent">
+                            <span asp-validation-for="ProductPost.DiscountPercent" style="color: red"></span>
+                        </div>
+
+                        <div class="mt-3">
+                            <label asp-for="ProductPost.CategoryId" class="form-label">Category: </label>
+                            <select asp-for="ProductPost.CategoryId" class="form-select">
+                                <option selected>Choose one</option>
+
+                                @foreach (Category category in ViewBag.Categories)
+                                {
+                                    if (category.Id == Model.ProductGet.CategoryId)
+                                    {
+                                        <option value="@category.Id" selected="selected">@category.Name</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@category.Id">@category.Name</option>
+                                    }
+                                }
+
+                            </select>
+                            <span asp-validation-for="ProductPost.CategoryId" style="color: red"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12">
+                        <label asp-for="ProductPost.Description" class="form-label">Description</label>
+                        <textarea name="ProductPost.Description" rows="4" class="form-control" placeholder="Description">@Model.ProductGet.Description</textarea>
+                        <span asp-validation-for="ProductPost.Description" style="color: red"></span>
+                    </div>
+
+                    <div class="row m-1">
+                        <div class="form-check col-md-6">
+                            <input class="form-check-input" type="checkbox" name="ProductPost.IsPopular" value="@Model.ProductGet.IsPopular" @(Model.ProductGet.IsPopular == true ? "checked" : "")>
+                            <label class="form-check-label" asp-for="ProductPost.IsPopular">
+                                Popular?
+                            </label>
+                        </div>
+                        <div class="form-check col-md-6">
+                            <input class="form-check-input" type="checkbox" name="ProductPost.TopSeller" value="@Model.ProductGet.TopSeller" @(Model.ProductGet.TopSeller == true ? "checked" : "")>
+                            <label class="form-check-label" asp-for="ProductPost.TopSeller">
+                                TopSeller?
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <button type="submit" class="btn btn-warning" id="submit">Update</button>
+            <a asp-controller="product" asp-action="index" class="btn btn-outline-danger">Cancel</a>
+        </form>
+    </div>
+</div>

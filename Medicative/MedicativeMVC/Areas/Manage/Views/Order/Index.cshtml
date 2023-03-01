@@ -1,0 +1,81 @@
+﻿@using Core.Utilities.Complex_types
+@using Entities.Concrete
+@model List<Order>
+@{
+    int count = 0;
+}
+
+<div>
+    <div class="row align-items-center">
+        <div class="col-10" style="justify-content: start">
+            <h1>Orders:</h1>
+        </div>
+    </div>
+    <div>
+        <table class="table" id="orderTable">
+            <thead>
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Fullname</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Total Price</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    count++;
+                    <tr>
+                        <th scope="row">@count</th>
+                        <td>@item.Name @item.Surname</td>
+                        <td>
+                            @if (item.OrderStatus == OrderStatus.Accepted)
+                            {
+                                <span style="padding: 10px" class="badge badge-success">@item.OrderStatus</span>
+                            }
+                            else if (item.OrderStatus == OrderStatus.Rejected)
+                            {
+                                <span style="padding: 10px" class="badge badge-danger">@item.OrderStatus</span>
+                            }
+                            else
+                            {
+                                <span style="padding: 10px" class="badge badge-secondary">@item.OrderStatus</span>
+                            }
+                        </td>
+                        <td>@item.TotalPrice</td>
+                        <td>
+                            <a class="btn btn-primary" asp-controller="order" asp-action="Detail" asp-route-id="@item.Id"><i class="bi bi-info-circle-fill"></i></a>
+
+                            @if (item.OrderStatus == OrderStatus.Pending)
+                            {
+                                <a class="btn btn-success restoreButton" asp-controller="order" asp-action="read" asp-route-id="@item.Id"><i class="bi bi-check-circle-fill"></i></a>
+                            }
+
+                            @if (item.OrderStatus != OrderStatus.Rejected)
+                            {
+                                
+                                <a class="btn btn-danger deleteButton" asp-controller="order" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash-fill"></i></a>
+                            }
+                            else
+                            {
+                                <a class="btn btn-warning restoreButton" asp-controller="order" asp-action="restore" asp-route-id="@item.Id"><i class="bi bi-arrow-clockwise"></i></a>
+                            }
+
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#orderTable').DataTable();
+        });
+    </script>
+}

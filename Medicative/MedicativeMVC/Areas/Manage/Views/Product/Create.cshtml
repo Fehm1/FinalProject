@@ -1,0 +1,100 @@
+﻿@using Entities.Concrete
+@using Newtonsoft.Json
+@model Entities.DTOs.ProductDTOs.ProductPostDto
+@{
+    int n = 1;
+}
+
+<div>
+    <div>
+        <h1>Create:</h1>
+    </div>
+    <div>
+        <form asp-action="create" method="post" enctype="multipart/form-data">
+            <div>
+
+                @*<input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+
+                <div asp-validation-summary="All" class="text-danger" aria-hidden="true" id="validation-summary" style="display: none"></div>*@
+
+                <div class="col-md-12 mt-3">
+                    <h4>Doctor:</h4>
+                </div>
+
+                <div class="row ml-1 align-items-center">
+                    <div class="mb-3 col-md-6 align-items-center">
+                        <label asp-for="FormFile" class="form-label">Product image: </label>
+                        <input asp-for="FormFile" required/>
+                        <span asp-validation-for="FormFile" style="color: red"></span>
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                        <div>
+                            <label asp-for="Name" class="form-label">Name</label>
+                            <input asp-for="Name" class="form-control" placeholder="Name">
+                            <span asp-validation-for="Name" style="color: red"></span>
+                        </div>
+
+                        <div>
+                            <label asp-for="Count" class="form-label">Count</label>
+                            <input asp-for="Count" class="form-control" placeholder="Count">
+                            <span asp-validation-for="Count" style="color: red"></span>
+                        </div>
+
+                        <div>
+                            <label asp-for="Price" class="form-label">Price</label>
+                            <input asp-for="Price" class="form-control" placeholder="Price">
+                            <span asp-validation-for="Price" style="color: red"></span>
+                        </div>
+
+                        <div>
+                            <label asp-for="DiscountPercent" class="form-label">Discount Percent</label>
+                            <input asp-for="DiscountPercent" class="form-control" placeholder="Discount Percent">
+                            <span asp-validation-for="DiscountPercent" style="color: red"></span>
+                        </div>
+
+                        <div class="mt-3">
+                            <label asp-for="CategoryId" class="form-label">Category: </label>
+                            <select asp-for="CategoryId" class="form-select">
+                                <option selected>Choose one</option>
+
+                                @foreach (Category category in ViewBag.Categories)
+                                {
+                                    <option value="@category.Id">@category.Name</option>
+                                }
+
+                            </select>
+                            <span asp-validation-for="CategoryId" style="color: red"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12">
+                        <label asp-for="Description" class="form-label">Description</label>
+                        <textarea asp-for="Description" rows="4" class="form-control" placeholder="Description"></textarea>
+                        <span asp-validation-for="Description" style="color: red"></span>
+                    </div>
+
+                    <div class="row m-1">
+                        <div class="form-check col-md-6">
+                            <input class="form-check-input" type="checkbox" asp-for="IsPopular">
+                            <label class="form-check-label" asp-for="IsPopular">
+                                Popular?
+                            </label>
+                        </div>
+                        <div class="form-check col-md-6">
+                            <input class="form-check-input" type="checkbox" asp-for="TopSeller">
+                            <label class="form-check-label" asp-for="TopSeller">
+                                TopSeller?
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <button type="submit" class="btn btn-primary" id="submit">Create</button>
+            <a asp-controller="product" asp-action="index" class="btn btn-outline-danger">Cancel</a>
+        </form>
+    </div>
+</div>

@@ -38,6 +38,8 @@ namespace Business.Extentions
             serviceCollection.AddScoped<ISpecializationService,  SpecializationManager>();
             serviceCollection.AddScoped<ITrainingService,  TrainingManager>();
             serviceCollection.AddScoped<IContactService,  ContactManager>();
+            serviceCollection.AddScoped<ICategoryService,  CategoryManager>();
+            serviceCollection.AddScoped<IProductService,  ProductManager>();
             serviceCollection.AddScoped<ISettingService,  SettingManager>();
 
             //Adding services

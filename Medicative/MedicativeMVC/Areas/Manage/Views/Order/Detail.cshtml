@@ -1,0 +1,55 @@
+﻿@using Core.Utilities.Complex_types
+@using Entities.Concrete
+@model List<OrderItem>
+@{
+    int count = 0;
+}
+
+<div>
+    <div class="row align-items-center">
+        <div class="col-10" style="justify-content: start">
+            <h1>Orders:</h1>
+        </div>
+        <div class="col-2" style="justify-content: end">
+            <a class="btn btn-danger" asp-controller="order" asp-action="index">Go Back</a>
+        </div>
+    </div>
+    <div>
+        <table class="table" id="orderItemTable">
+            <thead>
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Product name</th>
+                    <th scope="col">Count</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    count++;
+                    <tr>
+                        <th scope="row">@count</th>
+                        <td style="width: 150px">
+                            <img style="max-width: 100%" src="~/uploads/products/@item.Product.ImageUrl">
+                        </td>
+                        <td>@item.ProductName</td>
+                        <td>@item.Count</td>
+                        <td>@(item.Price * item.Count)</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#orderItemTable').DataTable();
+        });
+    </script>
+}

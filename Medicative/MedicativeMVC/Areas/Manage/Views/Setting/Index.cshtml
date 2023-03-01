@@ -31,10 +31,10 @@
                             <tr>
                                 <th scope="row">@(count)</th>
                                 <td>@setting.Key</td>
-                                @if (setting.Key.Contains("Logo") || setting.Key.Contains("Flicker"))
+                                @if (setting.Key.Contains("Logo") || setting.Key.Contains("Flicker") || setting.Key == "Shop image")
                                 {
                                     <td style="width: 150px">
-                                        <img style="max-width: 100%" src="~/uploads/settings/@setting.Value">
+                                        <img style="max-width: 80%" src="~/uploads/settings/@setting.Value">
                                     </td>
                                 }
                                 else

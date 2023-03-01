@@ -1,11 +1,14 @@
 ﻿using Business.Abstract;
 using Core.Utilities.Complex_types;
 using Entities.DTOs.ContactDTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace MedicativeMVC.Areas.Manage.Controllers
 {
     [Area("Manage")]
+    [Authorize(Roles = "Admin")]
     public class MessageController : Controller
     {
         private readonly IContactService _contactService;

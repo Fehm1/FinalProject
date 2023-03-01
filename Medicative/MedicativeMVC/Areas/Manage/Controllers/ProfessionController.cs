@@ -1,11 +1,14 @@
 ﻿using Business.Abstract;
 using Core.Utilities.Complex_types;
 using Entities.DTOs.ProfessionDTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace MedicativeMVC.Areas.Manage.Controllers
 {
     [Area("Manage")]
+    [Authorize(Roles = "Admin")]
     public class ProfessionController : Controller
     {
         private readonly IProfessionService _professionService;
